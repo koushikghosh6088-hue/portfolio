@@ -1911,11 +1911,11 @@ spline-viewer {
   .hero-sub { margin: 0 auto 2.5rem; }
   
 
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-left .section-heading { text-align: center; }
-  .about-left { text-align: center; }
-  .about-features { text-align: left; }
-  .about-badges { max-width: 500px; margin: 1.5rem auto 0; }
+  /* ── Premium About ── */
+  .pg-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .pg-mission { font-size: 2rem; text-align: center; }
+  .pg-left { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .pg-card { margin: 0 !important; flex-direction: column; text-align: center; align-items: center; }
 
   .svc-card { grid-template-columns: 1fr; gap: 2rem; }
   .svc-card.reverse .svc-demo { order: 0; }
