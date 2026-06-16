@@ -400,50 +400,180 @@
   </nav>
 <main>
 <!-- ═══════════════════════════════════════
-       ABOUT SECTION
+       PORTFOLIO
   ════════════════════════════════════════ -->
-  <section id="about" class="about-section premium-glass-layout enhanced-about" aria-label="About Us">
-<div class="about-cyber-lines"></div>
-<div class="about-orb"></div>
+  <section id="portfolio" class="portfolio-section" aria-label="Portfolio">
     <div class="container">
-      <div class="pg-grid">
-        <div class="pg-left" data-gsap="fadeUp">
-          <span class="section-tag">Who We Are</span>
-          <h2 class="pg-mission">
-            Founded by <span class="grad-text">Anirban Roy</span> & <span class="grad-text">Koushik Ghosh</span>
-          </h2>
-          <p class="body-text mt-1">Joint AI Labs is driven by our relentless passion for artificial intelligence. We are the architects of the AI era, building systems that think, learn, and accelerate growth. We don't just write code; we design neural ecosystems and automated workflows that transform ordinary businesses into unstoppable industry leaders.</p>
-          <a href="index.html#contact" class="btn-primary mt-2 magnetic">
-            <span>Consult With Us</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </a>
+      <div class="section-header" data-gsap="fadeUp">
+        <span class="section-tag">Our Work</span>
+        <h2 class="section-heading">Projects We're <span class="grad-text">Proud Of</span></h2>
+        <p class="section-sub">A selection of solutions we've built for clients around the world</p>
+      </div>
+
+      <div class="portfolio-filters" id="portfolio-filters">
+        <button class="pf-btn active" data-filter="all">All</button>
+        <button class="pf-btn" data-filter="web">Web Apps</button>
+        <button class="pf-btn" data-filter="ai">AI Solutions</button>
+        <button class="pf-btn" data-filter="mobile">Mobile</button>
+        <button class="pf-btn" data-filter="biz">Business</button>
+      </div>
+
+      <div class="portfolio-grid" id="portfolio-grid">
+        <div class="portfolio-item" data-category="ai web" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#00d4ff; --bg: linear-gradient(135deg, #0d1f3c, #0a2a4a)">
+            <div class="pi-mockup">
+              <div class="pim-header">🤖 ChatMind AI Platform</div>
+              <div class="pim-content">
+                <div class="pim-line"></div><div class="pim-line short"></div>
+                <div class="pim-chat">
+                  <div class="pim-bubble user-b"></div>
+                  <div class="pim-bubble bot-b"></div>
+                  <div class="pim-bubble user-b short-b"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag ai">AI</span><span class="pi-tag web">Web</span></div>
+            <h3>ChatMind AI Platform</h3>
+            <p>Enterprise AI chatbot platform serving 50,000+ daily conversations with 98% accuracy</p>
+            <div class="pi-meta">
+              <span>React + Python + GPT-4</span>
+              <a href="index.html#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
         </div>
-        <div class="pg-right">
-          <div class="pg-card card-1" data-gsap="fadeLeft">
-            <div class="pg-icon">🌐</div>
-            <div class="pg-content">
-              <strong>Global Footprint</strong>
-              <p>Scaling businesses across the US, Middle East, and Asia.</p>
+
+        <div class="portfolio-item" data-category="biz web" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#00ff88; --bg: linear-gradient(135deg, #0d2b1a, #0a3b22)">
+            <div class="pi-mockup">
+              <div class="pim-header">📊 FinTrack Pro Dashboard</div>
+              <div class="pim-content">
+                <div class="pim-chart-row">
+                  <div class="pim-bar" style="height:45%"></div>
+                  <div class="pim-bar" style="height:70%"></div>
+                  <div class="pim-bar" style="height:55%"></div>
+                  <div class="pim-bar" style="height:90%"></div>
+                  <div class="pim-bar" style="height:75%"></div>
+                </div>
+                <div class="pim-line"></div><div class="pim-line short"></div>
+              </div>
             </div>
           </div>
-          <div class="pg-card card-2" data-gsap="fadeLeft" data-delay="0.1">
-            <div class="pg-icon">⚡</div>
-            <div class="pg-content">
-              <strong>Lightning Fast</strong>
-              <p>Agile deployment of fully functional digital products in weeks, not months.</p>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag biz">Business</span><span class="pi-tag web">Web</span></div>
+            <h3>FinTrack Pro</h3>
+            <p>Complete financial management system for a retail chain managing 200+ stores across India</p>
+            <div class="pi-meta">
+              <span>Next.js + Node + MySQL</span>
+              <a href="index.html#contact" class="pi-link">View Case Study →</a>
             </div>
           </div>
-          <div class="pg-card card-3 glass-highlight" data-gsap="fadeLeft" data-delay="0.2">
-            <div class="pg-icon">🧠</div>
-            <div class="pg-content">
-              <strong>Deep Automation</strong>
-              <p>From complex enterprise ERPs to autonomous customer service agents.</p>
+        </div>
+
+        <div class="portfolio-item" data-category="mobile ai" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#8b5cf6; --bg: linear-gradient(135deg, #1a0d3c, #2a0a4a)">
+            <div class="pi-mockup phone-mockup-mini">
+              <div class="pmm-phone">
+                <div class="pmm-screen">
+                  <div class="pmm-app-bar">EduBot</div>
+                  <div class="pmm-content">
+                    <div class="pmm-line"></div>
+                    <div class="pmm-line short"></div>
+                    <div class="pmm-msg"></div>
+                    <div class="pmm-msg right"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="pg-glow"></div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag mobile">Mobile</span><span class="pi-tag ai">AI</span></div>
+            <h3>EduBot — AI Tutor App</h3>
+            <p>AI-powered learning companion app with 10,000+ students using it daily for personalized education</p>
+            <div class="pi-meta">
+              <span>Flutter + Python + LangChain</span>
+              <a href="index.html#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="ai web" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#ff6b35; --bg: linear-gradient(135deg, #2a1a0d, #3b220a)">
+            <div class="pi-mockup">
+              <div class="pim-header">💬 RealEstate AI Agent</div>
+              <div class="pim-content">
+                <div class="pim-wa-msgs">
+                  <div class="pim-wa-in"></div>
+                  <div class="pim-wa-out"></div>
+                  <div class="pim-wa-in short-m"></div>
+                  <div class="pim-wa-out short-m"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag ai">AI</span><span class="pi-tag web">WhatsApp</span></div>
+            <h3>RealEstate WhatsApp AI</h3>
+            <p>WhatsApp AI agent for a real estate firm that qualifies leads and books property viewings automatically</p>
+            <div class="pi-meta">
+              <span>WhatsApp API + GPT-4</span>
+              <a href="index.html#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="biz mobile" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#00d4ff; --bg: linear-gradient(135deg, #0d1f3c, #112244)">
+            <div class="pi-mockup phone-mockup-mini">
+              <div class="pmm-phone">
+                <div class="pmm-screen">
+                  <div class="pmm-app-bar">MediConnect</div>
+                  <div class="pmm-content">
+                    <div class="pmm-line"></div>
+                    <div class="pmm-card-mini"></div>
+                    <div class="pmm-card-mini"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag mobile">Mobile</span><span class="pi-tag biz">Business</span></div>
+            <h3>MediConnect Portal</h3>
+            <p>Healthcare appointment & records management platform connecting 500+ doctors with patients</p>
+            <div class="pi-meta">
+              <span>React Native + Node.js</span>
+              <a href="index.html#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="web biz" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#00ff88; --bg: linear-gradient(135deg, #0a1a10, #0d2a18)">
+            <div class="pi-mockup">
+              <div class="pim-header">🛍️ ShopSmart E-Commerce</div>
+              <div class="pim-content">
+                <div class="pim-product-grid">
+                  <div class="pim-product"></div>
+                  <div class="pim-product"></div>
+                  <div class="pim-product"></div>
+                  <div class="pim-product"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag web">Web</span><span class="pi-tag ai">AI</span></div>
+            <h3>ShopSmart AI Commerce</h3>
+            <p>AI-powered e-commerce platform with personalized recommendations driving 40% increase in conversions</p>
+            <div class="pi-meta">
+              <span>Next.js + AI + Stripe</span>
+              <a href="index.html#contact" class="pi-link">View Case Study →</a>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </main>
