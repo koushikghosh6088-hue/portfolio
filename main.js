@@ -177,6 +177,38 @@ let lenis;
     opacity: 0, y: 40, stagger: 0.1, duration: 0.75, ease: 'power3.out',
     scrollTrigger: { trigger: '.pricing-grid', start: 'top 88%' }
   });
+
+  // ── GLOBAL ROBOT SCROLL ANIMATIONS ──
+  // The robot starts on the right side in the hero section.
+  // As we scroll to 'About', we move it to the left and fade it slightly.
+  const robotWrap = document.querySelector('.global-robot-wrap');
+  if (robotWrap) {
+    const robotTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: 'body',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1 // Smooth scrubbing
+      }
+    });
+
+    // Move to left for About section
+    robotTl.to(robotWrap, {
+      xPercent: -50, // Move to left
+      scale: 0.9,
+      opacity: 0.3, // Fade so text remains readable
+      ease: 'none'
+    }, 0);
+
+    // Fade it out significantly towards the footer so it doesn't block interactions
+    robotTl.to(robotWrap, {
+      opacity: 0.05,
+      scale: 0.8,
+      yPercent: 20,
+      ease: 'none'
+    }, 0.5);
+  }
+
 })();
 
 

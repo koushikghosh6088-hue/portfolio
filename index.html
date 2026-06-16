@@ -52,6 +52,15 @@
     <div class="data-line dl-5"></div>
   </div>
 
+  <!-- ═══ GLOBAL 3D ROBOT (Fixed Background) ═══ -->
+  <div class="global-robot-wrap" id="global-robot" aria-hidden="true">
+    <div class="spline-loader">
+      <span class="loader-spinner"></span>
+      <span class="loader-text">Initializing 3D Core...</span>
+    </div>
+    <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy"></spline-viewer>
+  </div>
+
   <!-- ═══ CURSOR ═══ -->
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
@@ -102,7 +111,10 @@
        HERO SECTION — Redesigned
   ════════════════════════════════════════ -->
   <section id="home" class="hero" aria-label="Hero">
-    <div class="hero-content" id="hero-content">
+    <div class="hero-content">
+      <!-- Added Lucrative Visuals -->
+      <div class="hero-glow"></div>
+      <div class="hero-particles"></div>
 
       <div class="hero-eyebrow">
         <span class="eyebrow-dot"></span>
@@ -159,15 +171,7 @@
       </div>
     </div>
 
-    <!-- ── 3D Robot Animation (Spline) ── -->
-    <div class="hero-spline-wrap" id="hero-visual">
-      <!-- Loading fallback shown before Spline initializes -->
-      <div class="spline-loader">
-        <span class="loader-spinner"></span>
-        <span class="loader-text">Initializing 3D Core...</span>
-      </div>
-      <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy"></spline-viewer>
-    </div>
+    <!-- Spline viewer moved to global root -->
 
     <a href="#about" class="scroll-indicator" aria-label="Scroll down">
       <span>Scroll</span>
