@@ -170,19 +170,18 @@ let lenis;
     scrollTrigger: { trigger: '.pricing-grid', start: 'top 88%' }
   });
 
-  // ── DYNAMIC ROBOT SCROLL ANIMATIONS ──
-  // Instead of a static sticky background, the robot actively travels 
-  // to different parts of the screen as you scroll to different sections.
+  // ── DYNAMIC ROBOT SCROLL ANIMATIONS (Desktop Only) ──
+  // The robot stays strictly in the newly created 40% empty right-lane,
+  // preventing any overlap with text while smoothly transitioning scales/positions.
   const robotWrap = document.querySelector('.global-robot-wrap');
-  if (robotWrap) {
+  if (robotWrap && window.innerWidth > 900) {
     
-    // 1. Hero -> About: Robot flies to the left
+    // 1. Hero -> About: Robot shifts slightly and scales to fit About lane
     gsap.to(robotWrap, {
-      xPercent: -45,
-      yPercent: 5,
-      scale: 0.85,
-      opacity: 0.7,
-      ease: 'power1.inOut',
+      yPercent: 8,
+      scale: 1.0,
+      opacity: 0.9,
+      ease: 'power2.inOut',
       scrollTrigger: {
         trigger: '#about',
         start: 'top bottom',
@@ -191,13 +190,12 @@ let lenis;
       }
     });
 
-    // 2. About -> Services: Robot flies across to the right
+    // 2. About -> Services: Robot floats up slightly and scales
     gsap.to(robotWrap, {
-      xPercent: 15,
-      yPercent: 0,
-      scale: 1,
-      opacity: 0.85,
-      ease: 'power1.inOut',
+      yPercent: -2,
+      scale: 1.1,
+      opacity: 1,
+      ease: 'power2.inOut',
       scrollTrigger: {
         trigger: '#services',
         start: 'top bottom',
@@ -208,11 +206,10 @@ let lenis;
 
     // 3. Services -> Demos: Robot centers and scales down
     gsap.to(robotWrap, {
-      xPercent: -15,
-      yPercent: 10,
-      scale: 0.75,
-      opacity: 0.4,
-      ease: 'power1.inOut',
+      yPercent: 5,
+      scale: 0.9,
+      opacity: 0.8,
+      ease: 'power2.inOut',
       scrollTrigger: {
         trigger: '#showcase',
         start: 'top bottom',
@@ -223,10 +220,10 @@ let lenis;
 
     // 4. Fade out gently for Portfolio/Contact so it doesn't distract
     gsap.to(robotWrap, {
-      opacity: 0.03,
-      yPercent: 30,
-      scale: 0.6,
-      ease: 'power1.inOut',
+      opacity: 0.05,
+      yPercent: 15,
+      scale: 0.8,
+      ease: 'power2.inOut',
       scrollTrigger: {
         trigger: '#portfolio',
         start: 'top 50%',

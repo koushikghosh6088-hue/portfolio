@@ -577,6 +577,13 @@ spline-viewer {
   display: flex; flex-direction: column; align-items: center; gap: 1rem;
 }
 
+.spline-watermark-hider {
+  position: absolute; bottom: 0; right: 0;
+  width: 160px; height: 50px;
+  background: var(--bg); /* Match the site background perfectly */
+  z-index: 99; pointer-events: none;
+}
+
 .loader-spinner {
   width: 40px; height: 40px; border-radius: 50%;
   border: 3px solid rgba(0,212,255,0.1);
@@ -1896,6 +1903,19 @@ spline-viewer {
 /* ══════════════════════════════
    RESPONSIVE
 ══════════════════════════════ */
+@media (min-width: 901px) {
+  /* Create a dedicated Right-Side Robot Travel Lane */
+  .about-grid, .services-grid, .tab-panel-content, .stats-grid, .pricing-grid, .contact-grid {
+    max-width: 55%; 
+    grid-template-columns: 1fr !important; /* Stack columns so they fit in 55% */
+  }
+  .svc-card { grid-template-columns: 1fr; gap: 2rem; }
+  .svc-card.reverse .svc-demo { order: 0; }
+  .svc-card.reverse .svc-body { order: 1; }
+  .about-grid { gap: 3rem; }
+  .about-right { margin-top: 2rem; }
+}
+
 @media (max-width: 1200px) {
   .about-grid { gap: 4rem; }
   .svc-card { gap: 3rem; }
