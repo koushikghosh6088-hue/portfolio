@@ -2075,6 +2075,8 @@ spline-viewer {
 
 @media (max-width: 900px) {
   .contact-grid-futuristic { grid-template-columns: 1fr; gap: 3rem; }
+  .console-card { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
+  .cc-btn { width: 100%; text-align: center; }
   .ff-row { grid-template-columns: 1fr; gap: 1.5rem; }
   .contact-right-glass { padding: 2rem 1.5rem; }
 }
