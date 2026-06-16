@@ -576,10 +576,7 @@ spline-viewer {
   z-index: 2;
 }
 
-.spline-loader {
-  position: absolute; z-index: 1;
-  display: flex; flex-direction: column; align-items: center; gap: 1rem;
-}
+
 
 .spline-watermark-hider {
   position: absolute; bottom: 15px; right: 15px;
@@ -588,23 +585,6 @@ spline-viewer {
   border-radius: 6px;
   z-index: 9999; pointer-events: none;
 }
-
-.mobile-robot-space { display: none; }
-
-.loader-spinner {
-  width: 40px; height: 40px; border-radius: 50%;
-  border: 3px solid rgba(0,212,255,0.1);
-  border-top-color: var(--cyan);
-  animation: spin 1s linear infinite;
-}
-
-.loader-text {
-  font-family: var(--font-ui); font-size: 0.8rem; letter-spacing: 0.1em;
-  color: var(--cyan); text-transform: uppercase;
-  animation: blink 1.5s infinite;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
 
 /* Scroll indicator */
 .scroll-indicator {
