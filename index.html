@@ -52,15 +52,6 @@
     <div class="data-line dl-5"></div>
   </div>
 
-  <!-- ═══ GLOBAL 3D ROBOT (Fixed Background) ═══ -->
-  <div class="global-robot-wrap" id="global-robot" aria-hidden="true">
-    <div class="spline-loader">
-      <span class="loader-spinner"></span>
-      <span class="loader-text">Initializing 3D Core...</span>
-    </div>
-    <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy"></spline-viewer>
-    <div class="spline-watermark-hider"></div>
-  </div>
 
   <!-- ═══ CURSOR ═══ -->
   <div class="cursor-dot" id="cursor-dot"></div>
@@ -112,6 +103,16 @@
        HERO SECTION — Redesigned
   ════════════════════════════════════════ -->
   <section id="home" class="hero" aria-label="Hero">
+    <!-- ═══ HERO 3D ROBOT (Absolute Background) ═══ -->
+    <div class="global-robot-wrap" id="global-robot" aria-hidden="true">
+      <div class="spline-loader">
+        <span class="loader-spinner"></span>
+        <span class="loader-text">Initializing 3D Core...</span>
+      </div>
+      <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy"></spline-viewer>
+      <div class="spline-watermark-hider"></div>
+    </div>
+    
     <div class="hero-content">
       <!-- Added Lucrative Visuals -->
       <div class="hero-glow"></div>
@@ -256,8 +257,7 @@
           </div>
         </div>
       </div>
-      <!-- Mobile Robot Parking Space -->
-      <div class="mobile-robot-space" id="m-space-about"></div>
+
     </div>
   </section>
 
@@ -560,8 +560,7 @@
         </div>
 
       </div>
-      <!-- Mobile Robot Parking Space -->
-      <div class="mobile-robot-space" id="m-space-services"></div>
+
     </div>
   </section>
 
@@ -747,8 +746,7 @@
           </div>
         </div>
       </div>
-      <!-- Mobile Robot Parking Space -->
-      <div class="mobile-robot-space" id="m-space-showcase"></div>
+
     </div>
   </section>
 

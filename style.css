@@ -554,7 +554,7 @@ body, a, button { cursor: none !important; }
    GLOBAL 3D ROBOT
 ══════════════════════════════ */
 .global-robot-wrap {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100vh;
   z-index: 0; pointer-events: none;
   display: flex; align-items: center; justify-content: center;
   transform: translateX(25%) translateY(0) scale(1.18); /* Shift right for hero */
@@ -582,7 +582,7 @@ spline-viewer {
 }
 
 .spline-watermark-hider {
-  position: fixed; bottom: 15px; right: 15px;
+  position: absolute; bottom: 15px; right: 15px;
   width: 150px; height: 50px;
   background: var(--bg); /* Match the site background perfectly */
   border-radius: 6px;
@@ -1910,25 +1910,6 @@ spline-viewer {
 /* ══════════════════════════════
    RESPONSIVE
 ══════════════════════════════ */
-@media (min-width: 901px) {
-  /* Zig-Zag Layout: Alternate content left and right */
-  .about-grid, .services-grid, .tab-panel-content, .stats-grid, .pricing-grid, .contact-grid {
-    max-width: 45%; 
-    grid-template-columns: 1fr !important; /* Stack columns so they fit in 45% */
-  }
-
-  /* Sections pushed to the RIGHT (Robot flies LEFT) */
-  .about-grid, .tab-panel-content, .contact-grid { margin-left: auto; }
-  
-  /* Sections kept on the LEFT (Robot flies RIGHT) */
-  .services-grid, .stats-grid, .pricing-grid { margin-right: auto; }
-  .svc-card { grid-template-columns: 1fr; gap: 2rem; }
-  .svc-card.reverse .svc-demo { order: 0; }
-  .svc-card.reverse .svc-body { order: 1; }
-  .about-grid { gap: 3rem; }
-  .about-right { margin-top: 2rem; }
-}
-
 @media (max-width: 1200px) {
   .about-grid { gap: 4rem; }
   .svc-card { gap: 3rem; }
@@ -1937,13 +1918,8 @@ spline-viewer {
 }
 
 @media (max-width: 900px) {
-  .mobile-robot-space {
-    display: block;
-    width: 100%;
-    height: 280px; /* Massive empty vertical block for robot to land */
-    margin: 2rem 0;
-  }
-  .hero { padding-top: 6.5rem; text-align: center; overflow-x: hidden; justify-content: flex-end; padding-bottom: 2rem; }
+  .hero { padding-top: 6.5rem; text-align: center; overflow-x: hidden; justify-content: flex-start; min-height: 130vh; }
+  .global-robot-wrap { height: 60vh; top: auto; bottom: 0; transform: translateX(0) scale(1); align-items: flex-end; }
   .hero-content { width: 100%; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 5; }
   .hero-heading { justify-content: center; }
   .hero-services-strip { justify-content: center; }
