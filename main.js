@@ -59,12 +59,12 @@ let lenis;
   const ring = document.getElementById('cursor-ring');
   if (!dot || !ring || window.innerWidth < 768) return;
 
-  // Instant snap without trailing animation (Fixes lag & removes animation)
+  // Hardware-accelerated cursor snap (zero layout thrashing)
   document.addEventListener('mousemove', e => {
-    dot.style.left = e.clientX + 'px';
-    dot.style.top = e.clientY + 'px';
-    ring.style.left = e.clientX + 'px';
-    ring.style.top = e.clientY + 'px';
+    const x = e.clientX;
+    const y = e.clientY;
+    dot.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`;
+    ring.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`;
   }, { passive: true });
 })();
 
@@ -170,71 +170,55 @@ let lenis;
     scrollTrigger: { trigger: '.pricing-grid', start: 'top 88%' }
   });
 
-  // ── DYNAMIC ROBOT ZIG-ZAG SCROLL (Desktop Only) ──
-  // The robot flies left and right to fill the alternating empty spaces
-  // in the zigzag layout, acting as a true dynamic guide.
+  // ── DYNAMIC ROBOT ZIG-ZAG SCROLL (Desktop & Mobile) ──
+  // Uses matchMedia to ensure safe layouts on mobile while keeping the robot interactive.
   const robotWrap = document.querySelector('.global-robot-wrap');
-  if (robotWrap && window.innerWidth > 900) {
-    
-    // Initial state: Massive and parked on the Right for the Hero section
-    gsap.set(robotWrap, { xPercent: 25, scale: 1.25 });
+  if (robotWrap) {
+    let mm = gsap.matchMedia();
 
-    // 1. Hero -> About: Text is on Right, so Robot flies LEFT and shrinks
-    gsap.to(robotWrap, {
-      xPercent: -35,
-      yPercent: 8,
-      scale: 0.85,
-      opacity: 0.9,
-      ease: 'power2.inOut',
-      scrollTrigger: {
-        trigger: '#about',
-        start: 'top bottom',
-        end: 'top 20%',
-        scrub: 1.5
-      }
+    // DESKTOP: Sweeping Zig-Zag S-Curve path
+    mm.add("(min-width: 901px)", () => {
+      gsap.set(robotWrap, { xPercent: 25, scale: 1.25 });
+
+      gsap.to(robotWrap, {
+        xPercent: -35, yPercent: 8, scale: 0.85, opacity: 0.9, ease: 'power2.inOut',
+        scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'top 20%', scrub: 1.5 }
+      });
+      gsap.to(robotWrap, {
+        xPercent: 25, yPercent: -2, scale: 0.85, opacity: 1, ease: 'power2.inOut',
+        scrollTrigger: { trigger: '#services', start: 'top bottom', end: 'top 20%', scrub: 1.5 }
+      });
+      gsap.to(robotWrap, {
+        xPercent: -35, yPercent: 5, scale: 0.85, opacity: 0.8, ease: 'power2.inOut',
+        scrollTrigger: { trigger: '#showcase', start: 'top bottom', end: 'top 30%', scrub: 1.5 }
+      });
+      gsap.to(robotWrap, {
+        opacity: 0.05, yPercent: 15, ease: 'power2.inOut',
+        scrollTrigger: { trigger: '#portfolio', start: 'top 50%', end: 'bottom bottom', scrub: 1.5 }
+      });
     });
 
-    // 2. About -> Services: Content is on Left, so Robot flies RIGHT
-    gsap.to(robotWrap, {
-      xPercent: 25,
-      yPercent: -2,
-      scale: 0.85,
-      opacity: 1,
-      ease: 'power2.inOut',
-      scrollTrigger: {
-        trigger: '#services',
-        start: 'top bottom',
-        end: 'top 20%',
-        scrub: 1.5
-      }
-    });
+    // MOBILE: Subtle floating up/down in background to avoid text overlap on narrow screens
+    mm.add("(max-width: 900px)", () => {
+      // Start slightly scaled up but centered
+      gsap.set(robotWrap, { xPercent: 0, yPercent: 0, scale: 1.15, opacity: 0.5 });
 
-    // 3. Services -> Demos: Content is on Right, Robot flies LEFT
-    gsap.to(robotWrap, {
-      xPercent: -35,
-      yPercent: 5,
-      scale: 0.85,
-      opacity: 0.8,
-      ease: 'power2.inOut',
-      scrollTrigger: {
-        trigger: '#showcase',
-        start: 'top bottom',
-        end: 'top 30%',
-        scrub: 1.5
-      }
-    });
-
-    // 4. Fade out gently for Portfolio/Contact so it doesn't distract
-    gsap.to(robotWrap, {
-      opacity: 0.05,
-      yPercent: 15,
-      ease: 'power2.inOut',
-      scrollTrigger: {
-        trigger: '#portfolio',
-        start: 'top 50%',
-        end: 'bottom bottom',
-        scrub: 1.5
-      }
+      gsap.to(robotWrap, {
+        yPercent: 10, scale: 0.9, opacity: 0.2, ease: 'power1.inOut',
+        scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'top center', scrub: 1.5 }
+      });
+      gsap.to(robotWrap, {
+        yPercent: -5, scale: 1, opacity: 0.25, ease: 'power1.inOut',
+        scrollTrigger: { trigger: '#services', start: 'top bottom', end: 'top center', scrub: 1.5 }
+      });
+      gsap.to(robotWrap, {
+        yPercent: 15, scale: 0.8, opacity: 0.15, ease: 'power1.inOut',
+        scrollTrigger: { trigger: '#showcase', start: 'top bottom', end: 'top center', scrub: 1.5 }
+      });
+      gsap.to(robotWrap, {
+        opacity: 0.05, yPercent: 25, ease: 'power1.inOut',
+        scrollTrigger: { trigger: '#portfolio', start: 'top 50%', end: 'bottom bottom', scrub: 1.5 }
+      });
     });
   }
 
