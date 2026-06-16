@@ -170,16 +170,20 @@ let lenis;
     scrollTrigger: { trigger: '.pricing-grid', start: 'top 88%' }
   });
 
-  // ── DYNAMIC ROBOT SCROLL ANIMATIONS (Desktop Only) ──
-  // The robot stays strictly in the newly created 40% empty right-lane,
-  // preventing any overlap with text while smoothly transitioning scales/positions.
+  // ── DYNAMIC ROBOT ZIG-ZAG SCROLL (Desktop Only) ──
+  // The robot flies left and right to fill the alternating empty spaces
+  // in the zigzag layout, acting as a true dynamic guide.
   const robotWrap = document.querySelector('.global-robot-wrap');
   if (robotWrap && window.innerWidth > 900) {
     
-    // 1. Hero -> About: Robot shifts slightly and scales to fit About lane
+    // Initial state: Massive and parked on the Right for the Hero section
+    gsap.set(robotWrap, { xPercent: 25, scale: 1.25 });
+
+    // 1. Hero -> About: Text is on Right, so Robot flies LEFT and shrinks
     gsap.to(robotWrap, {
+      xPercent: -35,
       yPercent: 8,
-      scale: 1.0,
+      scale: 0.85,
       opacity: 0.9,
       ease: 'power2.inOut',
       scrollTrigger: {
@@ -190,10 +194,11 @@ let lenis;
       }
     });
 
-    // 2. About -> Services: Robot floats up slightly and scales
+    // 2. About -> Services: Content is on Left, so Robot flies RIGHT
     gsap.to(robotWrap, {
+      xPercent: 25,
       yPercent: -2,
-      scale: 1.1,
+      scale: 0.85,
       opacity: 1,
       ease: 'power2.inOut',
       scrollTrigger: {
@@ -204,10 +209,11 @@ let lenis;
       }
     });
 
-    // 3. Services -> Demos: Robot centers and scales down
+    // 3. Services -> Demos: Content is on Right, Robot flies LEFT
     gsap.to(robotWrap, {
+      xPercent: -35,
       yPercent: 5,
-      scale: 0.9,
+      scale: 0.85,
       opacity: 0.8,
       ease: 'power2.inOut',
       scrollTrigger: {
@@ -222,7 +228,6 @@ let lenis;
     gsap.to(robotWrap, {
       opacity: 0.05,
       yPercent: 15,
-      scale: 0.8,
       ease: 'power2.inOut',
       scrollTrigger: {
         trigger: '#portfolio',

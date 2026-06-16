@@ -1906,11 +1906,17 @@ spline-viewer {
    RESPONSIVE
 ══════════════════════════════ */
 @media (min-width: 901px) {
-  /* Create a dedicated Right-Side Robot Travel Lane */
+  /* Zig-Zag Layout: Alternate content left and right */
   .about-grid, .services-grid, .tab-panel-content, .stats-grid, .pricing-grid, .contact-grid {
     max-width: 55%; 
     grid-template-columns: 1fr !important; /* Stack columns so they fit in 55% */
   }
+
+  /* Sections pushed to the RIGHT (Robot flies LEFT) */
+  .about-grid, .tab-panel-content, .contact-grid { margin-left: auto; }
+  
+  /* Sections kept on the LEFT (Robot flies RIGHT) */
+  .services-grid, .stats-grid, .pricing-grid { margin-right: auto; }
   .svc-card { grid-template-columns: 1fr; gap: 2rem; }
   .svc-card.reverse .svc-demo { order: 0; }
   .svc-card.reverse .svc-body { order: 1; }
