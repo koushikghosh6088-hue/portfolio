@@ -538,12 +538,16 @@ input, select, textarea { font-family: inherit; }
 ══════════════════════════════ */
 .hero-spline-wrap {
   position: relative; z-index: 3;
-  width: 100%; min-height: 500px;
+  width: 100%; min-height: 600px;
   display: flex; align-items: center; justify-content: center;
+  transform: scale(1.18) translateY(-5%); /* Higher and bigger on PC */
   animation: splineEntrance 1s 0.2s ease both;
 }
 
-@keyframes splineEntrance { from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)} }
+@keyframes splineEntrance { from{opacity:0; transform:translateY(30px) scale(1.18)} to{opacity:1; transform:translateY(-5%) scale(1.18)} }
+
+spline-viewer::part(logo) { display: none !important; }
+spline-viewer::part(watermark) { display: none !important; }
 
 spline-viewer {
   width: 100%; height: 100%;
@@ -1883,14 +1887,21 @@ spline-viewer {
 }
 
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; padding-top: 8rem; text-align: center; gap: 3rem; }
-  .hero-content { max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .hero { display: flex; flex-direction: column; padding-top: 6.5rem; text-align: center; gap: 1rem; overflow-x: hidden; }
+  .hero-content { max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 5; }
   .hero-heading { justify-content: center; }
   .hero-services-strip { justify-content: center; }
   .hero-ctas { justify-content: center; }
   .hero-stats-row { justify-content: center; }
   .hero-sub { margin: 0 auto 2.5rem; }
-  .hero-spline-wrap { margin: 0 auto; width: 100%; min-height: 400px; }
+  .hero-spline-wrap { 
+    order: -1; /* Pushes robot to the absolute top on mobile */
+    width: 140%; margin-left: -20%; 
+    height: 420px; min-height: unset; 
+    transform: scale(1);
+    animation: none; /* remove pc entrance */
+    opacity: 1;
+  }
 
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-left .section-heading { text-align: center; }
@@ -1933,7 +1944,7 @@ spline-viewer {
   .hstat-sep { height: 28px; }
   .hero-ctas { flex-direction: column; align-items: stretch; width: 100%; gap: 0.8rem; }
   .hero-ctas a { justify-content: center; width: 100%; }
-  .hero-spline-wrap { width: 100%; min-height: 350px; margin-top: -1rem; }
+  .hero-spline-wrap { width: 150%; margin-left: -25%; height: 350px; transform: scale(1.1); margin-top: -2rem; margin-bottom: 1rem; }
 
   /* About */
   .about-badges { align-items: flex-start; text-align: left; }
