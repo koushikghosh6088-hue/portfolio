@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=7" />
 </head>
-<body>
+<body class="subpage">
 
   <!-- ═══ PAGE LOADER ═══ -->
   <div id="loader">
@@ -94,88 +94,55 @@
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════
-       HERO SECTION — Redesigned
-  ════════════════════════════════════════ -->
-  <section id="home" class="hero" aria-label="Hero">
-    <!-- ═══ HERO 3D ROBOT (Absolute Background) ═══ -->
-    <div class="global-robot-wrap" id="global-robot" aria-hidden="true">
-      <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer>
-      <div class="spline-watermark-hider"></div>
-    </div>
-    
-    <div class="hero-content">
-      <!-- Added Lucrative Visuals -->
-      <div class="hero-glow"></div>
-      <div class="hero-particles"></div>
-
-      <div class="hero-eyebrow">
-        <span class="eyebrow-dot"></span>
-        <span id="hero-typing-text">AI-Powered Business Solutions</span>
-        <span class="eyebrow-cursor">|</span>
-      </div>
-
-      <h1 class="hero-heading">
-        <span class="h-word">JOINT</span>
-        <span class="h-word h-ai">AI</span>
-        <span class="h-word">LABS</span>
-      </h1>
-
-      <p class="hero-sub">We build AI-powered websites, chatbots, WhatsApp agents, and custom business software that automate growth — for businesses worldwide.</p>
-
-      <div class="hero-services-strip">
-        <span class="hs-pill"><span class="hsp-dot"></span>Website Design</span>
-        <span class="hs-pill"><span class="hsp-dot green"></span>AI Chatbots</span>
-        <span class="hs-pill"><span class="hsp-dot wa"></span>WhatsApp AI</span>
-        <span class="hs-pill"><span class="hsp-dot purple"></span>Mobile Apps</span>
-        <span class="hs-pill"><span class="hsp-dot orange"></span>Business ERP</span>
-      </div>
-
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-primary" id="hero-cta-main">
-          <span>Get Free Consultation</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-        </a>
-        <a href="https://wa.me/918017683428?text=Hi%20Joint%20AI%20Labs!" class="btn-wa" target="_blank" rel="noopener" id="hero-wa-btn">
-          <span>💬 WhatsApp Us</span>
-        </a>
-      </div>
-
-      <div class="hero-stats-row">
-        <div class="hstat">
-          <strong class="hstat-num" data-target="500">0</strong><strong class="hstat-sym">+</strong>
-          <span>Projects Done</span>
-        </div>
-        <div class="hstat-sep"></div>
-        <div class="hstat">
-          <strong class="hstat-num" data-target="200">0</strong><strong class="hstat-sym">+</strong>
-          <span>Happy Clients</span>
-        </div>
-        <div class="hstat-sep"></div>
-        <div class="hstat">
-          <strong class="hstat-num" data-target="50">0</strong><strong class="hstat-sym">+</strong>
-          <span>AI Agents Live</span>
-        </div>
-        <div class="hstat-sep"></div>
-        <div class="hstat">
-          <strong class="hstat-num" data-target="98">0</strong><strong class="hstat-sym">%</strong>
-          <span>Satisfaction</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Spline viewer moved to global root -->
-
-    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
-      <span>Scroll</span>
-      <div class="scroll-track"><div class="scroll-thumb"></div></div>
-    </a>
-  </section>
+  
 
   <!-- ═══════════════════════════════════════
        ABOUT SECTION
   ════════════════════════════════════════ -->
-  <footer class="site-footer" role="contentinfo">
+  <section id="about" class="about-section premium-glass-layout" aria-label="About Us">
+    <div class="container">
+      <div class="pg-grid">
+        <div class="pg-left" data-gsap="fadeUp">
+          <span class="section-tag">Who We Are</span>
+          <h2 class="pg-mission">
+            We are the architects of the <span class="grad-text">AI era</span>, building systems that think, learn, and accelerate growth.
+          </h2>
+          <p class="body-text mt-1">Joint AI Labs is an elite technology agency headquartered in India. We don't just write code; we design neural ecosystems and automated workflows that transform ordinary businesses into unstoppable industry leaders.</p>
+          <a href="#contact" class="btn-primary mt-2 magnetic">
+            <span>Consult With Us</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="pg-right">
+          <div class="pg-card card-1" data-gsap="fadeLeft">
+            <div class="pg-icon">🌐</div>
+            <div class="pg-content">
+              <strong>Global Footprint</strong>
+              <p>Scaling businesses across the US, Middle East, and Asia.</p>
+            </div>
+          </div>
+          <div class="pg-card card-2" data-gsap="fadeLeft" data-delay="0.1">
+            <div class="pg-icon">⚡</div>
+            <div class="pg-content">
+              <strong>Lightning Fast</strong>
+              <p>Agile deployment of fully functional digital products in weeks, not months.</p>
+            </div>
+          </div>
+          <div class="pg-card card-3 glass-highlight" data-gsap="fadeLeft" data-delay="0.2">
+            <div class="pg-icon">🧠</div>
+            <div class="pg-content">
+              <strong>Deep Automation</strong>
+              <p>From complex enterprise ERPs to autonomous customer service agents.</p>
+            </div>
+            <div class="pg-glow"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<footer class="site-footer" role="contentinfo">
     <div class="footer-top">
       <div class="container footer-grid">
         <div class="footer-brand">

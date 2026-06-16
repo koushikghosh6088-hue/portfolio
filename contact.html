@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=7" />
 </head>
-<body>
+<body class="subpage">
 
   <!-- ═══ PAGE LOADER ═══ -->
   <div id="loader">
@@ -94,88 +94,122 @@
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════
-       HERO SECTION — Redesigned
-  ════════════════════════════════════════ -->
-  <section id="home" class="hero" aria-label="Hero">
-    <!-- ═══ HERO 3D ROBOT (Absolute Background) ═══ -->
-    <div class="global-robot-wrap" id="global-robot" aria-hidden="true">
-      <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer>
-      <div class="spline-watermark-hider"></div>
-    </div>
-    
-    <div class="hero-content">
-      <!-- Added Lucrative Visuals -->
-      <div class="hero-glow"></div>
-      <div class="hero-particles"></div>
-
-      <div class="hero-eyebrow">
-        <span class="eyebrow-dot"></span>
-        <span id="hero-typing-text">AI-Powered Business Solutions</span>
-        <span class="eyebrow-cursor">|</span>
-      </div>
-
-      <h1 class="hero-heading">
-        <span class="h-word">JOINT</span>
-        <span class="h-word h-ai">AI</span>
-        <span class="h-word">LABS</span>
-      </h1>
-
-      <p class="hero-sub">We build AI-powered websites, chatbots, WhatsApp agents, and custom business software that automate growth — for businesses worldwide.</p>
-
-      <div class="hero-services-strip">
-        <span class="hs-pill"><span class="hsp-dot"></span>Website Design</span>
-        <span class="hs-pill"><span class="hsp-dot green"></span>AI Chatbots</span>
-        <span class="hs-pill"><span class="hsp-dot wa"></span>WhatsApp AI</span>
-        <span class="hs-pill"><span class="hsp-dot purple"></span>Mobile Apps</span>
-        <span class="hs-pill"><span class="hsp-dot orange"></span>Business ERP</span>
-      </div>
-
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-primary" id="hero-cta-main">
-          <span>Get Free Consultation</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-        </a>
-        <a href="https://wa.me/918017683428?text=Hi%20Joint%20AI%20Labs!" class="btn-wa" target="_blank" rel="noopener" id="hero-wa-btn">
-          <span>💬 WhatsApp Us</span>
-        </a>
-      </div>
-
-      <div class="hero-stats-row">
-        <div class="hstat">
-          <strong class="hstat-num" data-target="500">0</strong><strong class="hstat-sym">+</strong>
-          <span>Projects Done</span>
-        </div>
-        <div class="hstat-sep"></div>
-        <div class="hstat">
-          <strong class="hstat-num" data-target="200">0</strong><strong class="hstat-sym">+</strong>
-          <span>Happy Clients</span>
-        </div>
-        <div class="hstat-sep"></div>
-        <div class="hstat">
-          <strong class="hstat-num" data-target="50">0</strong><strong class="hstat-sym">+</strong>
-          <span>AI Agents Live</span>
-        </div>
-        <div class="hstat-sep"></div>
-        <div class="hstat">
-          <strong class="hstat-num" data-target="98">0</strong><strong class="hstat-sym">%</strong>
-          <span>Satisfaction</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Spline viewer moved to global root -->
-
-    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
-      <span>Scroll</span>
-      <div class="scroll-track"><div class="scroll-thumb"></div></div>
-    </a>
-  </section>
+  
 
   <!-- ═══════════════════════════════════════
        ABOUT SECTION
   ════════════════════════════════════════ -->
-  <footer class="site-footer" role="contentinfo">
+  <section id="contact" class="contact-section" aria-label="Contact Us">
+    
+    <!-- Abstract 3D/Glowing background for contact page -->
+    <div class="contact-bg-glow"></div>
+    <div class="contact-bg-grid"></div>
+
+    <div class="container contact-container-futuristic">
+      <div class="section-header" data-gsap="fadeUp">
+        <span class="section-tag" style="background: rgba(0, 212, 255, 0.1); color: var(--cyan); border: 1px solid var(--cyan);">Transmission Open</span>
+        <h2 class="section-heading" style="font-size: 3.5rem;">Initialize <span class="grad-text">Contact Protocol</span></h2>
+        <p class="section-sub" style="font-size: 1.2rem; color: #a1a1aa;">Establish a secure connection with our engineering core to begin your digital transformation.</p>
+      </div>
+
+      <div class="contact-grid-futuristic">
+        
+        <!-- Left: Glowing Data Cards -->
+        <div class="contact-left-console" data-gsap="fadeRight">
+          
+          <div class="console-card primary-console">
+            <div class="cc-icon">📡</div>
+            <div class="cc-content">
+              <span>Direct Link</span>
+              <strong>+91 8017683428</strong>
+              <p>Voice / WhatsApp Transmission</p>
+            </div>
+            <a href="tel:8017683428" class="cc-btn">Initiate Call</a>
+          </div>
+
+          <div class="console-card secondary-console">
+            <div class="cc-icon">✉️</div>
+            <div class="cc-content">
+              <span>Data Stream</span>
+              <strong>jointailabs@gmail.com</strong>
+              <p>Email your project specifications.</p>
+            </div>
+            <a href="mailto:jointailabs@gmail.com" class="cc-btn">Send Data</a>
+          </div>
+
+          <div class="console-promise">
+            <div class="promise-header">System Guarantees</div>
+            <ul>
+              <li><span class="p-dot"></span> Response &lt; 2 Hours</li>
+              <li><span class="p-dot cyan"></span> Zero-Cost Architecture Review</li>
+              <li><span class="p-dot purple"></span> End-to-End Encryption / NDA</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right: Glass Form -->
+        <div class="contact-right-glass" data-gsap="fadeLeft">
+          <form class="futuristic-form" id="contact-form-main" novalidate>
+            <div class="ff-header">
+              <h3>Secure Message Terminal</h3>
+              <div class="ff-status"><span class="pulse-dot"></span> System Ready</div>
+            </div>
+            
+            <div class="ff-row">
+              <div class="ff-group">
+                <input type="text" id="cf-name" name="name" placeholder=" " required />
+                <label for="cf-name">Operator Name</label>
+                <div class="ff-border"></div>
+              </div>
+              <div class="ff-group">
+                <input type="email" id="cf-email" name="email" placeholder=" " required />
+                <label for="cf-email">Return Address (Email)</label>
+                <div class="ff-border"></div>
+              </div>
+            </div>
+
+            <div class="ff-row">
+              <div class="ff-group">
+                <input type="tel" id="cf-phone" name="phone" placeholder=" " />
+                <label for="cf-phone">Commlink (Phone/WA)</label>
+                <div class="ff-border"></div>
+              </div>
+              <div class="ff-group">
+                <select id="cf-service" name="service" required>
+                  <option value="" disabled selected>Select Objective...</option>
+                  <option>Website Engineering</option>
+                  <option>AI Chatbot Integration</option>
+                  <option>WhatsApp Automation</option>
+                  <option>Enterprise Architecture</option>
+                  <option>Mobile App Deployment</option>
+                  <option>Other Consultation</option>
+                </select>
+                <div class="ff-border"></div>
+              </div>
+            </div>
+
+            <div class="ff-group full-width">
+              <textarea id="cf-message" name="message" rows="4" placeholder=" " required></textarea>
+              <label for="cf-message">Transmission Data (Project Details)</label>
+              <div class="ff-border"></div>
+            </div>
+
+            <button type="submit" class="btn-primary ff-submit magnetic" id="cf-submit-btn">
+              <span>Transmit Data</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"/></svg>
+            </button>
+            
+            <div class="form-success" id="form-success" hidden>
+              <span>✅ Transmission Successful! Our neural network will contact you shortly.</span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<footer class="site-footer" role="contentinfo">
     <div class="footer-top">
       <div class="container footer-grid">
         <div class="footer-brand">

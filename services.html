@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joint AI Labs — AI-Powered Business Solutions | India</title>
+  <meta name="description" content="Joint AI Labs delivers cutting-edge AI solutions — Website Design, AI Chatbots, WhatsApp Agents, Business Management Software, and Custom Digital Transformation for businesses worldwide." />
+  <meta name="keywords" content="AI solutions, chatbot development, WhatsApp AI agent, website design, business management software, custom software India" />
+  <meta property="og:title" content="Joint AI Labs — AI-Powered Business Solutions" />
+  <meta property="og:description" content="We transform businesses with AI. Chatbots, Web Apps, WhatsApp AI Agents & Custom Software." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=7" />
+</head>
+<body class="subpage">
+
+  <!-- ═══ PAGE LOADER ═══ -->
+  <div id="loader">
+    <div class="loader-content">
+      <svg class="loader-logo" viewBox="0 0 80 80" fill="none">
+        <path d="M12 68 L12 12 L40 40 L68 12 L68 68" stroke="url(#lg)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="56" cy="26" r="10" fill="url(#lg2)" opacity="0.9"/>
+        <circle cx="51" cy="22" r="2.5" fill="#030712"/>
+        <circle cx="61" cy="22" r="2.5" fill="#030712"/>
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff88"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0066ff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="loader-bar"><div class="loader-progress" id="loader-progress"></div></div>
+      <p class="loader-text">Initializing AI Systems<span class="dots-anim">...</span></p>
+    </div>
+  </div>
+
+  <!-- ═══ CSS BACKGROUND (Zero-JS, GPU-accelerated) ═══ -->
+  <div class="site-bg" aria-hidden="true">
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+    <div class="bg-grid"></div>
+    <!-- Animated data-stream lines -->
+    <div class="data-line dl-1"></div>
+    <div class="data-line dl-2"></div>
+    <div class="data-line dl-3"></div>
+    <div class="data-line dl-4"></div>
+    <div class="data-line dl-5"></div>
+  </div>
+
+
+  <!-- ═══ CURSOR ═══ -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav id="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Joint AI Labs Home">
+        <svg class="logo-svg" viewBox="0 0 60 60" fill="none">
+          <path d="M10 50 L10 10 L30 30 L50 10 L50 50" stroke="url(#ng1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="42" cy="20" r="9" fill="url(#ng2)" opacity="0.95"/>
+          <circle cx="38.5" cy="17" r="2" fill="#030712"/>
+          <circle cx="45.5" cy="17" r="2" fill="#030712"/>
+          <defs>
+            <linearGradient id="ng1" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff88"/>
+            </linearGradient>
+            <linearGradient id="ng2" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0066ff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">Joint <span class="logo-ai">AI</span> Labs</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="services.html#showcase" class="nav-link">Demos</a></li>
+        <li><a href="services.html#showcase" class="nav-link">Work</a></li>
+        <li><a href="services.html#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <a href="tel:8017683428" class="nav-cta magnetic" id="nav-cta-btn">
+        <span>📞 Call Us</span>
+      </a>
+    </div>
+  </nav>
+
+  
+
+  <!-- ═══════════════════════════════════════
+       ABOUT SECTION
+  ════════════════════════════════════════ -->
+  <section id="services" class="services-section" aria-label="Services">
+    <div class="container">
+      <div class="section-header" data-gsap="fadeUp">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-heading">Our <span class="grad-text">Services</span></h2>
+        <p class="section-sub">Intelligent solutions crafted for every stage of your digital journey</p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Service 1: Website Design -->
+        <div class="svc-card" id="svc-web" data-delay="0">
+          <div class="svc-demo">
+            <!-- Animated browser mockup -->
+            <div class="demo-browser">
+              <div class="db-header">
+                <div class="db-dots"><span class="dbd r"></span><span class="dbd y"></span><span class="dbd g"></span></div>
+                <div class="db-url">jointailabs.com</div>
+              </div>
+              <div class="db-body">
+                <div class="db-nav-bar">
+                  <div class="db-nav-logo"></div>
+                  <div class="db-nav-links"><span></span><span></span><span></span></div>
+                </div>
+                <div class="db-hero-area">
+                  <div class="db-text-lines">
+                    <div class="db-line l1"></div>
+                    <div class="db-line l2"></div>
+                    <div class="db-line l3 short"></div>
+                  </div>
+                  <div class="db-hero-img"></div>
+                </div>
+                <div class="db-cards-row">
+                  <div class="db-mini-card"></div>
+                  <div class="db-mini-card"></div>
+                  <div class="db-mini-card"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">Website Design & Development</div>
+            <h3>Modern, High-Performance <span class="grad-text">Websites</span></h3>
+            <p>We design and develop blazing-fast, SEO-optimized websites that convert visitors into customers. From landing pages to complex web applications.</p>
+            <ul class="svc-features">
+              <li>✦ Responsive across all devices</li>
+              <li>✦ SEO-optimized from day one</li>
+              <li>✦ 3D & interactive UI/UX</li>
+              <li>✦ Lightning-fast performance</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Get a Website →</a>
+          </div>
+        </div>
+
+        <!-- Service 2: AI Chatbots -->
+        <div class="svc-card reverse" id="svc-chat" data-delay="1">
+          <div class="svc-demo">
+            <!-- Animated chatbot UI -->
+            <div class="demo-chat" id="demo-chat-ui">
+              <div class="dc-header">
+                <div class="dc-avatar">🤖</div>
+                <div class="dc-info">
+                  <strong>AI Assistant</strong>
+                  <span class="dc-online"><span class="online-dot"></span>Online · Powered by GPT-4</span>
+                </div>
+              </div>
+              <div class="dc-messages" id="dc-messages">
+                <div class="dc-msg bot">👋 Hi! How can I help you today?</div>
+                <div class="dc-msg user">I want to know your pricing</div>
+                <div class="dc-typing"><span></span><span></span><span></span></div>
+                <div class="dc-msg bot hidden">Great! Our plans start from ₹4,999/mo 🚀</div>
+                <div class="dc-msg user hidden">Can I get a demo?</div>
+                <div class="dc-msg bot hidden">Absolutely! Book a free consultation now 📅</div>
+              </div>
+              <div class="dc-input-row">
+                <div class="dc-input">Type your message...</div>
+                <button class="dc-send">➤</button>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">AI Chatbots</div>
+            <h3>Smart Chatbots for <span class="grad-text">24/7 Engagement</span></h3>
+            <p>Deploy intelligent AI chatbots that handle queries, qualify leads, and book appointments — all without human intervention, around the clock.</p>
+            <ul class="svc-features">
+              <li>✦ GPT-4 & custom AI models</li>
+              <li>✦ Multi-language support</li>
+              <li>✦ CRM & calendar integration</li>
+              <li>✦ Trained on your business data</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Deploy a Chatbot →</a>
+          </div>
+        </div>
+
+        <!-- Service 3: WhatsApp AI -->
+        <div class="svc-card" id="svc-wa" data-delay="2">
+          <div class="svc-demo">
+            <!-- WhatsApp UI mockup -->
+            <div class="demo-whatsapp" id="demo-wa-ui">
+              <div class="wa-header">
+                <span class="wa-back">‹</span>
+                <div class="wa-avatar">🤖</div>
+                <div class="wa-info">
+                  <strong>AI Sales Agent</strong>
+                  <span class="wa-status"><span class="online-dot"></span>online</span>
+                </div>
+                <div class="wa-icons">📞 ⋮</div>
+              </div>
+              <div class="wa-messages" id="wa-messages">
+                <div class="wa-time-tag">Today</div>
+                <div class="wa-msg wa-in">Hello! I'm interested in your services 👋</div>
+                <div class="wa-msg wa-out hidden">Hi! Welcome to Joint AI Labs 🚀 Which service can I help you with today?</div>
+                <div class="wa-msg wa-in hidden">Tell me about your AI chatbot</div>
+                <div class="wa-msg wa-out hidden">Our AI chatbots run 24/7, handle sales & support, and integrate with your existing tools ✅<br/>Want a FREE demo?</div>
+                <div class="wa-msg wa-in hidden">Yes please!</div>
+                <div class="wa-msg wa-out hidden">Perfect! Tap below to schedule your call 👇<br/><div class="wa-btn-msg">📅 Book Free Demo</div></div>
+              </div>
+              <div class="wa-input-row">
+                <div class="wa-input">Message</div>
+                <button class="wa-mic">🎤</button>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">WhatsApp AI Agents</div>
+            <h3>Automate Sales on <span class="grad-text">WhatsApp</span></h3>
+            <p>Turn WhatsApp into your most powerful sales channel with AI agents that qualify leads, nurture prospects, handle support, and close deals — automatically.</p>
+            <ul class="svc-features">
+              <li>✦ WhatsApp Business API</li>
+              <li>✦ AI-powered conversations</li>
+              <li>✦ Auto follow-ups & reminders</li>
+              <li>✦ Lead scoring & qualification</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Get WhatsApp AI →</a>
+          </div>
+        </div>
+
+        <!-- Service 4: Business Management -->
+        <div class="svc-card reverse" id="svc-biz" data-delay="3">
+          <div class="svc-demo">
+            <!-- Animated Dashboard -->
+            <div class="demo-dashboard" id="demo-dash">
+              <div class="dash-header">
+                <span class="dash-title">📊 Business Dashboard</span>
+                <span class="dash-date">Jun 2026</span>
+              </div>
+              <div class="dash-metrics">
+                <div class="dash-metric">
+                  <span class="dm-label">Revenue</span>
+                  <strong class="dm-val green">₹4.8L</strong>
+                  <span class="dm-change">↑ 23%</span>
+                </div>
+                <div class="dash-metric">
+                  <span class="dm-label">Leads</span>
+                  <strong class="dm-val cyan">1,247</strong>
+                  <span class="dm-change">↑ 41%</span>
+                </div>
+                <div class="dash-metric">
+                  <span class="dm-label">Conversions</span>
+                  <strong class="dm-val purple">68%</strong>
+                  <span class="dm-change">↑ 12%</span>
+                </div>
+              </div>
+              <div class="dash-chart">
+                <div class="chart-bars-wrap">
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:45%"><div class="cb-glow"></div></div>
+                    <span>Jan</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:62%"><div class="cb-glow"></div></div>
+                    <span>Feb</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:55%"><div class="cb-glow"></div></div>
+                    <span>Mar</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:78%"><div class="cb-glow"></div></div>
+                    <span>Apr</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:70%"><div class="cb-glow"></div></div>
+                    <span>May</span>
+                  </div>
+                  <div class="chart-bar-item featured-bar">
+                    <div class="cb" style="--h:92%"><div class="cb-glow"></div></div>
+                    <span>Jun</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">Business Management Software</div>
+            <h3>Manage & Grow Your <span class="grad-text">Business</span></h3>
+            <p>Custom ERP, CRM, and management dashboards that give you full visibility and control over your operations, inventory, sales, and team — in one place.</p>
+            <ul class="svc-features">
+              <li>✦ Custom ERP & CRM systems</li>
+              <li>✦ Real-time analytics & reports</li>
+              <li>✦ Inventory & HR management</li>
+              <li>✦ Role-based access control</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Build Your System →</a>
+          </div>
+        </div>
+
+        <!-- Service 5: Mobile Apps -->
+        <div class="svc-card" id="svc-mobile" data-delay="4">
+          <div class="svc-demo">
+            <!-- Phone mockup -->
+            <div class="demo-phone">
+              <div class="dp-frame">
+                <div class="dp-notch"></div>
+                <div class="dp-screen">
+                  <div class="dp-app-header">
+                    <span>MyApp</span>
+                    <span class="dp-bell">🔔</span>
+                  </div>
+                  <div class="dp-greeting">Good Morning, Koushik 👋</div>
+                  <div class="dp-cards-scroll" id="dp-scroll">
+                    <div class="dp-card blue-card">
+                      <div class="dpc-icon">💰</div>
+                      <div class="dpc-info"><strong>Revenue</strong><span>₹1.2L today</span></div>
+                    </div>
+                    <div class="dp-card green-card">
+                      <div class="dpc-icon">📦</div>
+                      <div class="dpc-info"><strong>Orders</strong><span>48 new</span></div>
+                    </div>
+                    <div class="dp-card purple-card">
+                      <div class="dpc-icon">👥</div>
+                      <div class="dpc-info"><strong>Users</strong><span>+120 today</span></div>
+                    </div>
+                  </div>
+                  <div class="dp-nav-bar">
+                    <span class="dp-nav active">🏠</span>
+                    <span class="dp-nav">📊</span>
+                    <span class="dp-nav">💬</span>
+                    <span class="dp-nav">⚙️</span>
+                  </div>
+                </div>
+                <div class="dp-home-bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">Mobile App Development</div>
+            <h3>Native & Cross-Platform <span class="grad-text">Mobile Apps</span></h3>
+            <p>We build beautiful, high-performance mobile apps for iOS and Android that your customers will love — from concept to App Store, end to end.</p>
+            <ul class="svc-features">
+              <li>✦ React Native & Flutter</li>
+              <li>✦ iOS & Android deployment</li>
+              <li>✦ Push notifications & offline mode</li>
+              <li>✦ App Store optimization</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Build Your App →</a>
+          </div>
+        </div>
+
+        <!-- Service 6: Custom Solutions -->
+        <div class="svc-card reverse" id="svc-custom" data-delay="5">
+          <div class="svc-demo">
+            <!-- Terminal / code animation -->
+            <div class="demo-terminal" id="demo-terminal">
+              <div class="term-header">
+                <div class="db-dots"><span class="dbd r"></span><span class="dbd y"></span><span class="dbd g"></span></div>
+                <span class="term-title">joint-ai-labs ~ terminal</span>
+              </div>
+              <div class="term-body" id="term-body">
+                <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">initializing AI engine...</span></div>
+                <div class="term-line success"><span class="term-prompt">✓</span> AI models loaded successfully</div>
+                <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">deploying custom solution...</span></div>
+                <div class="term-line info"><span class="term-prompt">→</span> Building your vision...</div>
+                <div class="term-line success"><span class="term-prompt">✓</span> 47 modules compiled</div>
+                <div class="term-line success"><span class="term-prompt">✓</span> APIs connected & tested</div>
+                <div class="term-line success"><span class="term-prompt">✓</span> Deployed to production 🚀</div>
+                <div class="term-line highlight"><span class="term-prompt">→</span> Solution is LIVE!</div>
+                <div class="term-cursor-line"><span class="term-prompt">$</span> <span class="term-cursor-blink">▊</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">Custom Software Development</div>
+            <h3>Any Solution, <span class="grad-text">Tailored for You</span></h3>
+            <p>Have a unique idea or complex requirement? We architect and build bespoke software solutions from the ground up — designed exactly for your business needs.</p>
+            <ul class="svc-features">
+              <li>✦ Custom architecture design</li>
+              <li>✦ API integrations & microservices</li>
+              <li>✦ Cloud-native & scalable</li>
+              <li>✦ Dedicated development team</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Build Custom →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+<section id="showcase" class="showcase-section" aria-label="Interactive Showcase">
+    <div class="container">
+      <div class="section-header" data-gsap="fadeUp">
+        <span class="section-tag">Live in Action</span>
+        <h2 class="section-heading">See Our <span class="grad-text">Technology</span> Work</h2>
+        <p class="section-sub">Interactive demonstrations of how our AI solutions operate in the real world</p>
+      </div>
+
+      <div class="showcase-tabs">
+        <div class="tab-nav" role="tablist">
+          <button class="tab-btn active" role="tab" data-tab="tab-chatbot" aria-selected="true" id="tab-btn-1">🤖 AI Chatbot</button>
+          <button class="tab-btn" role="tab" data-tab="tab-whatsapp" aria-selected="false" id="tab-btn-2">💬 WhatsApp AI</button>
+          <button class="tab-btn" role="tab" data-tab="tab-dashboard" aria-selected="false" id="tab-btn-3">📊 Dashboard</button>
+          <button class="tab-btn" role="tab" data-tab="tab-ai" aria-selected="false" id="tab-btn-4">🧠 AI Pipeline</button>
+          <div class="tab-indicator" id="tab-indicator"></div>
+        </div>
+
+        <div class="tab-panels">
+          <!-- Chatbot Tab -->
+          <div class="tab-panel active" id="tab-chatbot" role="tabpanel">
+            <div class="tab-panel-content">
+              <div class="tp-info">
+                <h3>AI Customer Support Bot</h3>
+                <p>Our chatbots handle thousands of conversations simultaneously — qualifying leads, answering questions, and booking appointments without any human intervention.</p>
+                <div class="tp-stats">
+                  <div class="tp-stat"><strong>300ms</strong><span>Response time</span></div>
+                  <div class="tp-stat"><strong>95%</strong><span>Query resolution rate</span></div>
+                  <div class="tp-stat"><strong>24/7</strong><span>Always available</span></div>
+                </div>
+                <a href="#contact" class="btn-primary">Deploy This Bot</a>
+              </div>
+              <div class="tp-demo">
+                <div class="full-chat-demo" id="full-chat">
+                  <div class="fcd-header">
+                    <div class="fcd-avatar">🤖</div>
+                    <div>
+                      <strong>JointBot AI</strong>
+                      <div class="online-badge"><span class="online-dot"></span>Online · GPT-4 Powered</div>
+                    </div>
+                    <div class="fcd-close">✕</div>
+                  </div>
+                  <div class="fcd-messages" id="fcd-messages"></div>
+                  <div class="fcd-input">
+                    <input type="text" id="fcd-input-field" placeholder="Ask anything..." />
+                    <button id="fcd-send-btn">➤</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WhatsApp Tab -->
+          <div class="tab-panel" id="tab-whatsapp" role="tabpanel">
+            <div class="tab-panel-content">
+              <div class="tp-info">
+                <h3>WhatsApp AI Sales Agent</h3>
+                <p>Turn every WhatsApp message into a sales opportunity. Our AI agent handles inquiries, sends product catalogs, collects payments, and follows up automatically.</p>
+                <div class="tp-stats">
+                  <div class="tp-stat"><strong>3x</strong><span>Higher open rate</span></div>
+                  <div class="tp-stat"><strong>60%</strong><span>Faster response</span></div>
+                  <div class="tp-stat"><strong>∞</strong><span>Simultaneous chats</span></div>
+                </div>
+                <a href="#contact" class="btn-primary">Get WhatsApp AI</a>
+              </div>
+              <div class="tp-demo">
+                <div class="wa-showcase">
+                  <div class="was-header">
+                    <div class="was-avatar">JAL</div>
+                    <div>
+                      <strong>Joint AI Sales Bot</strong>
+                      <div class="online-badge"><span class="online-dot"></span>typing...</div>
+                    </div>
+                  </div>
+                  <div class="was-msgs" id="was-msgs">
+                    <div class="was-msg in">Hi! I saw your ad for AI solutions. What do you offer?</div>
+                    <div class="was-msg out">Welcome to Joint AI Labs! 🚀 We offer:<br/>1️⃣ AI Chatbots<br/>2️⃣ WhatsApp Agents<br/>3️⃣ Custom Software<br/><br/>Which interests you?</div>
+                    <div class="was-msg in">AI Chatbot — how much does it cost?</div>
+                    <div class="was-msg out">Great choice! Our AI Chatbot plans start at ₹4,999/month.<br/>Includes: GPT-4, unlimited msgs, CRM integration ✅<br/><br/>Want a FREE 7-day trial?</div>
+                    <div class="was-msg in">Yes!</div>
+                    <div class="was-msg out">Perfect! 🎉 Please share your name and business type to get started!</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard Tab -->
+          <div class="tab-panel" id="tab-dashboard" role="tabpanel">
+            <div class="tab-panel-content">
+              <div class="tp-info">
+                <h3>Business Intelligence Dashboard</h3>
+                <p>Get a bird's-eye view of your entire business — revenue, leads, inventory, team performance — all in one real-time dashboard built for you.</p>
+                <div class="tp-stats">
+                  <div class="tp-stat"><strong>Real-time</strong><span>Data updates</span></div>
+                  <div class="tp-stat"><strong>50+</strong><span>Widget types</span></div>
+                  <div class="tp-stat"><strong>Any</strong><span>Data source</span></div>
+                </div>
+                <a href="#contact" class="btn-primary">Build My Dashboard</a>
+              </div>
+              <div class="tp-demo">
+                <div class="full-dashboard">
+                  <div class="fd-header">
+                    <span>📊 Business Overview</span>
+                    <span class="fd-live"><span class="online-dot"></span>Live</span>
+                  </div>
+                  <div class="fd-metrics">
+                    <div class="fd-metric"><span>Revenue</span><strong class="green">₹12.4L</strong><em>↑28%</em></div>
+                    <div class="fd-metric"><span>Orders</span><strong class="cyan">3,240</strong><em>↑15%</em></div>
+                    <div class="fd-metric"><span>Customers</span><strong class="purple">8,920</strong><em>↑33%</em></div>
+                    <div class="fd-metric"><span>Satisfaction</span><strong class="green">4.9★</strong><em>↑4%</em></div>
+                  </div>
+                  <div class="fd-chart-area">
+                    <div class="fd-chart-label">Revenue Trend (6 months)</div>
+                    <svg class="fd-line-chart" viewBox="0 0 300 80" fill="none">
+                      <defs>
+                        <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.3"/>
+                          <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M10 70 L60 55 L110 60 L160 35 L210 42 L260 15" stroke="url(#lineGradStroke)" stroke-width="2.5" fill="none" stroke-linecap="round" class="chart-line-path"/>
+                      <path d="M10 70 L60 55 L110 60 L160 35 L210 42 L260 15 L260 80 L10 80Z" fill="url(#lineGrad)" class="chart-fill-path"/>
+                      <defs>
+                        <linearGradient id="lineGradStroke" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0%" stop-color="#0066ff"/><stop offset="100%" stop-color="#00d4ff"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Pipeline Tab -->
+          <div class="tab-panel" id="tab-ai" role="tabpanel">
+            <div class="tab-panel-content">
+              <div class="tp-info">
+                <h3>Custom AI Pipeline</h3>
+                <p>We build end-to-end AI pipelines — from data ingestion and model training to deployment and monitoring. Your data, your model, your competitive advantage.</p>
+                <div class="tp-stats">
+                  <div class="tp-stat"><strong>GPT-4</strong><span>Foundation model</span></div>
+                  <div class="tp-stat"><strong>Fine-tuned</strong><span>On your data</span></div>
+                  <div class="tp-stat"><strong>99.9%</strong><span>Uptime SLA</span></div>
+                </div>
+                <a href="#contact" class="btn-primary">Build AI Pipeline</a>
+              </div>
+              <div class="tp-demo">
+                <div class="ai-pipeline-viz" id="ai-pipeline">
+                  <div class="pipeline-step ps-active">
+                    <div class="ps-icon">📥</div>
+                    <strong>Data Input</strong>
+                    <span>Customer messages, docs, FAQs</span>
+                    <div class="ps-pulse"></div>
+                  </div>
+                  <div class="pipeline-arrow">→</div>
+                  <div class="pipeline-step">
+                    <div class="ps-icon">🧹</div>
+                    <strong>Processing</strong>
+                    <span>Clean, embed & vectorize</span>
+                  </div>
+                  <div class="pipeline-arrow">→</div>
+                  <div class="pipeline-step">
+                    <div class="ps-icon">🧠</div>
+                    <strong>AI Model</strong>
+                    <span>Fine-tuned GPT-4</span>
+                  </div>
+                  <div class="pipeline-arrow">→</div>
+                  <div class="pipeline-step">
+                    <div class="ps-icon">🚀</div>
+                    <strong>Deploy</strong>
+                    <span>API · Web · WhatsApp</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joint AI Labs — AI-Powered Business Solutions | India</title>
+  <meta name="description" content="Joint AI Labs delivers cutting-edge AI solutions — Website Design, AI Chatbots, WhatsApp Agents, Business Management Software, and Custom Digital Transformation for businesses worldwide." />
+  <meta name="keywords" content="AI solutions, chatbot development, WhatsApp AI agent, website design, business management software, custom software India" />
+  <meta property="og:title" content="Joint AI Labs — AI-Powered Business Solutions" />
+  <meta property="og:description" content="We transform businesses with AI. Chatbots, Web Apps, WhatsApp AI Agents & Custom Software." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=7" />
+</head>
+<body>
+
+  <!-- ═══ PAGE LOADER ═══ -->
+  <div id="loader">
+    <div class="loader-content">
+      <svg class="loader-logo" viewBox="0 0 80 80" fill="none">
+        <path d="M12 68 L12 12 L40 40 L68 12 L68 68" stroke="url(#lg)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="56" cy="26" r="10" fill="url(#lg2)" opacity="0.9"/>
+        <circle cx="51" cy="22" r="2.5" fill="#030712"/>
+        <circle cx="61" cy="22" r="2.5" fill="#030712"/>
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff88"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0066ff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="loader-bar"><div class="loader-progress" id="loader-progress"></div></div>
+      <p class="loader-text">Initializing AI Systems<span class="dots-anim">...</span></p>
+    </div>
+  </div>
+
+  <!-- ═══ CSS BACKGROUND (Zero-JS, GPU-accelerated) ═══ -->
+  <div class="site-bg" aria-hidden="true">
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+    <div class="bg-grid"></div>
+    <!-- Animated data-stream lines -->
+    <div class="data-line dl-1"></div>
+    <div class="data-line dl-2"></div>
+    <div class="data-line dl-3"></div>
+    <div class="data-line dl-4"></div>
+    <div class="data-line dl-5"></div>
+  </div>
+
+
+  <!-- ═══ CURSOR ═══ -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav id="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Joint AI Labs Home">
+        <svg class="logo-svg" viewBox="0 0 60 60" fill="none">
+          <path d="M10 50 L10 10 L30 30 L50 10 L50 50" stroke="url(#ng1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="42" cy="20" r="9" fill="url(#ng2)" opacity="0.95"/>
+          <circle cx="38.5" cy="17" r="2" fill="#030712"/>
+          <circle cx="45.5" cy="17" r="2" fill="#030712"/>
+          <defs>
+            <linearGradient id="ng1" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff88"/>
+            </linearGradient>
+            <linearGradient id="ng2" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0066ff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">Joint <span class="logo-ai">AI</span> Labs</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
+        <li><a href="#showcase" class="nav-link" data-section="showcase">Demos</a></li>
+        <li><a href="#portfolio" class="nav-link" data-section="portfolio">Work</a></li>
+        <li><a href="#pricing" class="nav-link" data-section="pricing">Pricing</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <a href="tel:8017683428" class="nav-cta magnetic" id="nav-cta-btn">
+        <span>📞 Call Us</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO SECTION — Redesigned
+  ════════════════════════════════════════ -->
+  <section id="home" class="hero" aria-label="Hero">
+    <!-- ═══ HERO 3D ROBOT (Absolute Background) ═══ -->
+    <div class="global-robot-wrap" id="global-robot" aria-hidden="true">
+      <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer>
+      <div class="spline-watermark-hider"></div>
+    </div>
+    
+    <div class="hero-content">
+      <!-- Added Lucrative Visuals -->
+      <div class="hero-glow"></div>
+      <div class="hero-particles"></div>
+
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span id="hero-typing-text">AI-Powered Business Solutions</span>
+        <span class="eyebrow-cursor">|</span>
+      </div>
+
+      <h1 class="hero-heading">
+        <span class="h-word">JOINT</span>
+        <span class="h-word h-ai">AI</span>
+        <span class="h-word">LABS</span>
+      </h1>
+
+      <p class="hero-sub">We build AI-powered websites, chatbots, WhatsApp agents, and custom business software that automate growth — for businesses worldwide.</p>
+
+      <div class="hero-services-strip">
+        <span class="hs-pill"><span class="hsp-dot"></span>Website Design</span>
+        <span class="hs-pill"><span class="hsp-dot green"></span>AI Chatbots</span>
+        <span class="hs-pill"><span class="hsp-dot wa"></span>WhatsApp AI</span>
+        <span class="hs-pill"><span class="hsp-dot purple"></span>Mobile Apps</span>
+        <span class="hs-pill"><span class="hsp-dot orange"></span>Business ERP</span>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary" id="hero-cta-main">
+          <span>Get Free Consultation</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="https://wa.me/918017683428?text=Hi%20Joint%20AI%20Labs!" class="btn-wa" target="_blank" rel="noopener" id="hero-wa-btn">
+          <span>💬 WhatsApp Us</span>
+        </a>
+      </div>
+
+      <div class="hero-stats-row">
+        <div class="hstat">
+          <strong class="hstat-num" data-target="500">0</strong><strong class="hstat-sym">+</strong>
+          <span>Projects Done</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <strong class="hstat-num" data-target="200">0</strong><strong class="hstat-sym">+</strong>
+          <span>Happy Clients</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <strong class="hstat-num" data-target="50">0</strong><strong class="hstat-sym">+</strong>
+          <span>AI Agents Live</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <strong class="hstat-num" data-target="98">0</strong><strong class="hstat-sym">%</strong>
+          <span>Satisfaction</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spline viewer moved to global root -->
+
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <span>Scroll</span>
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT SECTION
+  ════════════════════════════════════════ -->
+  <section id="about" class="about-section premium-glass-layout" aria-label="About Us">
+    <div class="container">
+      <div class="pg-grid">
+        <div class="pg-left" data-gsap="fadeUp">
+          <span class="section-tag">Who We Are</span>
+          <h2 class="pg-mission">
+            We are the architects of the <span class="grad-text">AI era</span>, building systems that think, learn, and accelerate growth.
+          </h2>
+          <p class="body-text mt-1">Joint AI Labs is an elite technology agency headquartered in India. We don't just write code; we design neural ecosystems and automated workflows that transform ordinary businesses into unstoppable industry leaders.</p>
+          <a href="#contact" class="btn-primary mt-2 magnetic">
+            <span>Consult With Us</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="pg-right">
+          <div class="pg-card card-1" data-gsap="fadeLeft">
+            <div class="pg-icon">🌐</div>
+            <div class="pg-content">
+              <strong>Global Footprint</strong>
+              <p>Scaling businesses across the US, Middle East, and Asia.</p>
+            </div>
+          </div>
+          <div class="pg-card card-2" data-gsap="fadeLeft" data-delay="0.1">
+            <div class="pg-icon">⚡</div>
+            <div class="pg-content">
+              <strong>Lightning Fast</strong>
+              <p>Agile deployment of fully functional digital products in weeks, not months.</p>
+            </div>
+          </div>
+          <div class="pg-card card-3 glass-highlight" data-gsap="fadeLeft" data-delay="0.2">
+            <div class="pg-icon">🧠</div>
+            <div class="pg-content">
+              <strong>Deep Automation</strong>
+              <p>From complex enterprise ERPs to autonomous customer service agents.</p>
+            </div>
+            <div class="pg-glow"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SERVICES SECTION
+  ════════════════════════════════════════ -->
+  <section id="services" class="services-section" aria-label="Services">
+    <div class="container">
+      <div class="section-header" data-gsap="fadeUp">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-heading">Our <span class="grad-text">Services</span></h2>
+        <p class="section-sub">Intelligent solutions crafted for every stage of your digital journey</p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Service 1: Website Design -->
+        <div class="svc-card" id="svc-web" data-delay="0">
+          <div class="svc-demo">
+            <!-- Animated browser mockup -->
+            <div class="demo-browser">
+              <div class="db-header">
+                <div class="db-dots"><span class="dbd r"></span><span class="dbd y"></span><span class="dbd g"></span></div>
+                <div class="db-url">jointailabs.com</div>
+              </div>
+              <div class="db-body">
+                <div class="db-nav-bar">
+                  <div class="db-nav-logo"></div>
+                  <div class="db-nav-links"><span></span><span></span><span></span></div>
+                </div>
+                <div class="db-hero-area">
+                  <div class="db-text-lines">
+                    <div class="db-line l1"></div>
+                    <div class="db-line l2"></div>
+                    <div class="db-line l3 short"></div>
+                  </div>
+                  <div class="db-hero-img"></div>
+                </div>
+                <div class="db-cards-row">
+                  <div class="db-mini-card"></div>
+                  <div class="db-mini-card"></div>
+                  <div class="db-mini-card"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">Website Design & Development</div>
+            <h3>Modern, High-Performance <span class="grad-text">Websites</span></h3>
+            <p>We design and develop blazing-fast, SEO-optimized websites that convert visitors into customers. From landing pages to complex web applications.</p>
+            <ul class="svc-features">
+              <li>✦ Responsive across all devices</li>
+              <li>✦ SEO-optimized from day one</li>
+              <li>✦ 3D & interactive UI/UX</li>
+              <li>✦ Lightning-fast performance</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Get a Website →</a>
+          </div>
+        </div>
+
+        <!-- Service 2: AI Chatbots -->
+        <div class="svc-card reverse" id="svc-chat" data-delay="1">
+          <div class="svc-demo">
+            <!-- Animated chatbot UI -->
+            <div class="demo-chat" id="demo-chat-ui">
+              <div class="dc-header">
+                <div class="dc-avatar">🤖</div>
+                <div class="dc-info">
+                  <strong>AI Assistant</strong>
+                  <span class="dc-online"><span class="online-dot"></span>Online · Powered by GPT-4</span>
+                </div>
+              </div>
+              <div class="dc-messages" id="dc-messages">
+                <div class="dc-msg bot">👋 Hi! How can I help you today?</div>
+                <div class="dc-msg user">I want to know your pricing</div>
+                <div class="dc-typing"><span></span><span></span><span></span></div>
+                <div class="dc-msg bot hidden">Great! Our plans start from ₹4,999/mo 🚀</div>
+                <div class="dc-msg user hidden">Can I get a demo?</div>
+                <div class="dc-msg bot hidden">Absolutely! Book a free consultation now 📅</div>
+              </div>
+              <div class="dc-input-row">
+                <div class="dc-input">Type your message...</div>
+                <button class="dc-send">➤</button>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">AI Chatbots</div>
+            <h3>Smart Chatbots for <span class="grad-text">24/7 Engagement</span></h3>
+            <p>Deploy intelligent AI chatbots that handle queries, qualify leads, and book appointments — all without human intervention, around the clock.</p>
+            <ul class="svc-features">
+              <li>✦ GPT-4 & custom AI models</li>
+              <li>✦ Multi-language support</li>
+              <li>✦ CRM & calendar integration</li>
+              <li>✦ Trained on your business data</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Deploy a Chatbot →</a>
+          </div>
+        </div>
+
+        <!-- Service 3: WhatsApp AI -->
+        <div class="svc-card" id="svc-wa" data-delay="2">
+          <div class="svc-demo">
+            <!-- WhatsApp UI mockup -->
+            <div class="demo-whatsapp" id="demo-wa-ui">
+              <div class="wa-header">
+                <span class="wa-back">‹</span>
+                <div class="wa-avatar">🤖</div>
+                <div class="wa-info">
+                  <strong>AI Sales Agent</strong>
+                  <span class="wa-status"><span class="online-dot"></span>online</span>
+                </div>
+                <div class="wa-icons">📞 ⋮</div>
+              </div>
+              <div class="wa-messages" id="wa-messages">
+                <div class="wa-time-tag">Today</div>
+                <div class="wa-msg wa-in">Hello! I'm interested in your services 👋</div>
+                <div class="wa-msg wa-out hidden">Hi! Welcome to Joint AI Labs 🚀 Which service can I help you with today?</div>
+                <div class="wa-msg wa-in hidden">Tell me about your AI chatbot</div>
+                <div class="wa-msg wa-out hidden">Our AI chatbots run 24/7, handle sales & support, and integrate with your existing tools ✅<br/>Want a FREE demo?</div>
+                <div class="wa-msg wa-in hidden">Yes please!</div>
+                <div class="wa-msg wa-out hidden">Perfect! Tap below to schedule your call 👇<br/><div class="wa-btn-msg">📅 Book Free Demo</div></div>
+              </div>
+              <div class="wa-input-row">
+                <div class="wa-input">Message</div>
+                <button class="wa-mic">🎤</button>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">WhatsApp AI Agents</div>
+            <h3>Automate Sales on <span class="grad-text">WhatsApp</span></h3>
+            <p>Turn WhatsApp into your most powerful sales channel with AI agents that qualify leads, nurture prospects, handle support, and close deals — automatically.</p>
+            <ul class="svc-features">
+              <li>✦ WhatsApp Business API</li>
+              <li>✦ AI-powered conversations</li>
+              <li>✦ Auto follow-ups & reminders</li>
+              <li>✦ Lead scoring & qualification</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Get WhatsApp AI →</a>
+          </div>
+        </div>
+
+        <!-- Service 4: Business Management -->
+        <div class="svc-card reverse" id="svc-biz" data-delay="3">
+          <div class="svc-demo">
+            <!-- Animated Dashboard -->
+            <div class="demo-dashboard" id="demo-dash">
+              <div class="dash-header">
+                <span class="dash-title">📊 Business Dashboard</span>
+                <span class="dash-date">Jun 2026</span>
+              </div>
+              <div class="dash-metrics">
+                <div class="dash-metric">
+                  <span class="dm-label">Revenue</span>
+                  <strong class="dm-val green">₹4.8L</strong>
+                  <span class="dm-change">↑ 23%</span>
+                </div>
+                <div class="dash-metric">
+                  <span class="dm-label">Leads</span>
+                  <strong class="dm-val cyan">1,247</strong>
+                  <span class="dm-change">↑ 41%</span>
+                </div>
+                <div class="dash-metric">
+                  <span class="dm-label">Conversions</span>
+                  <strong class="dm-val purple">68%</strong>
+                  <span class="dm-change">↑ 12%</span>
+                </div>
+              </div>
+              <div class="dash-chart">
+                <div class="chart-bars-wrap">
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:45%"><div class="cb-glow"></div></div>
+                    <span>Jan</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:62%"><div class="cb-glow"></div></div>
+                    <span>Feb</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:55%"><div class="cb-glow"></div></div>
+                    <span>Mar</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:78%"><div class="cb-glow"></div></div>
+                    <span>Apr</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <div class="cb" style="--h:70%"><div class="cb-glow"></div></div>
+                    <span>May</span>
+                  </div>
+                  <div class="chart-bar-item featured-bar">
+                    <div class="cb" style="--h:92%"><div class="cb-glow"></div></div>
+                    <span>Jun</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">Business Management Software</div>
+            <h3>Manage & Grow Your <span class="grad-text">Business</span></h3>
+            <p>Custom ERP, CRM, and management dashboards that give you full visibility and control over your operations, inventory, sales, and team — in one place.</p>
+            <ul class="svc-features">
+              <li>✦ Custom ERP & CRM systems</li>
+              <li>✦ Real-time analytics & reports</li>
+              <li>✦ Inventory & HR management</li>
+              <li>✦ Role-based access control</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Build Your System →</a>
+          </div>
+        </div>
+
+        <!-- Service 5: Mobile Apps -->
+        <div class="svc-card" id="svc-mobile" data-delay="4">
+          <div class="svc-demo">
+            <!-- Phone mockup -->
+            <div class="demo-phone">
+              <div class="dp-frame">
+                <div class="dp-notch"></div>
+                <div class="dp-screen">
+                  <div class="dp-app-header">
+                    <span>MyApp</span>
+                    <span class="dp-bell">🔔</span>
+                  </div>
+                  <div class="dp-greeting">Good Morning, Koushik 👋</div>
+                  <div class="dp-cards-scroll" id="dp-scroll">
+                    <div class="dp-card blue-card">
+                      <div class="dpc-icon">💰</div>
+                      <div class="dpc-info"><strong>Revenue</strong><span>₹1.2L today</span></div>
+                    </div>
+                    <div class="dp-card green-card">
+                      <div class="dpc-icon">📦</div>
+                      <div class="dpc-info"><strong>Orders</strong><span>48 new</span></div>
+                    </div>
+                    <div class="dp-card purple-card">
+                      <div class="dpc-icon">👥</div>
+                      <div class="dpc-info"><strong>Users</strong><span>+120 today</span></div>
+                    </div>
+                  </div>
+                  <div class="dp-nav-bar">
+                    <span class="dp-nav active">🏠</span>
+                    <span class="dp-nav">📊</span>
+                    <span class="dp-nav">💬</span>
+                    <span class="dp-nav">⚙️</span>
+                  </div>
+                </div>
+                <div class="dp-home-bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">Mobile App Development</div>
+            <h3>Native & Cross-Platform <span class="grad-text">Mobile Apps</span></h3>
+            <p>We build beautiful, high-performance mobile apps for iOS and Android that your customers will love — from concept to App Store, end to end.</p>
+            <ul class="svc-features">
+              <li>✦ React Native & Flutter</li>
+              <li>✦ iOS & Android deployment</li>
+              <li>✦ Push notifications & offline mode</li>
+              <li>✦ App Store optimization</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Build Your App →</a>
+          </div>
+        </div>
+
+        <!-- Service 6: Custom Solutions -->
+        <div class="svc-card reverse" id="svc-custom" data-delay="5">
+          <div class="svc-demo">
+            <!-- Terminal / code animation -->
+            <div class="demo-terminal" id="demo-terminal">
+              <div class="term-header">
+                <div class="db-dots"><span class="dbd r"></span><span class="dbd y"></span><span class="dbd g"></span></div>
+                <span class="term-title">joint-ai-labs ~ terminal</span>
+              </div>
+              <div class="term-body" id="term-body">
+                <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">initializing AI engine...</span></div>
+                <div class="term-line success"><span class="term-prompt">✓</span> AI models loaded successfully</div>
+                <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">deploying custom solution...</span></div>
+                <div class="term-line info"><span class="term-prompt">→</span> Building your vision...</div>
+                <div class="term-line success"><span class="term-prompt">✓</span> 47 modules compiled</div>
+                <div class="term-line success"><span class="term-prompt">✓</span> APIs connected & tested</div>
+                <div class="term-line success"><span class="term-prompt">✓</span> Deployed to production 🚀</div>
+                <div class="term-line highlight"><span class="term-prompt">→</span> Solution is LIVE!</div>
+                <div class="term-cursor-line"><span class="term-prompt">$</span> <span class="term-cursor-blink">▊</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <div class="svc-tag">Custom Software Development</div>
+            <h3>Any Solution, <span class="grad-text">Tailored for You</span></h3>
+            <p>Have a unique idea or complex requirement? We architect and build bespoke software solutions from the ground up — designed exactly for your business needs.</p>
+            <ul class="svc-features">
+              <li>✦ Custom architecture design</li>
+              <li>✦ API integrations & microservices</li>
+              <li>✦ Cloud-native & scalable</li>
+              <li>✦ Dedicated development team</li>
+            </ul>
+            <a href="#contact" class="svc-cta">Build Custom →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       INTERACTIVE SHOWCASE (Tabs)
+  ════════════════════════════════════════ -->
+  <section id="showcase" class="showcase-section" aria-label="Interactive Showcase">
+    <div class="container">
+      <div class="section-header" data-gsap="fadeUp">
+        <span class="section-tag">Live in Action</span>
+        <h2 class="section-heading">See Our <span class="grad-text">Technology</span> Work</h2>
+        <p class="section-sub">Interactive demonstrations of how our AI solutions operate in the real world</p>
+      </div>
+
+      <div class="showcase-tabs">
+        <div class="tab-nav" role="tablist">
+          <button class="tab-btn active" role="tab" data-tab="tab-chatbot" aria-selected="true" id="tab-btn-1">🤖 AI Chatbot</button>
+          <button class="tab-btn" role="tab" data-tab="tab-whatsapp" aria-selected="false" id="tab-btn-2">💬 WhatsApp AI</button>
+          <button class="tab-btn" role="tab" data-tab="tab-dashboard" aria-selected="false" id="tab-btn-3">📊 Dashboard</button>
+          <button class="tab-btn" role="tab" data-tab="tab-ai" aria-selected="false" id="tab-btn-4">🧠 AI Pipeline</button>
+          <div class="tab-indicator" id="tab-indicator"></div>
+        </div>
+
+        <div class="tab-panels">
+          <!-- Chatbot Tab -->
+          <div class="tab-panel active" id="tab-chatbot" role="tabpanel">
+            <div class="tab-panel-content">
+              <div class="tp-info">
+                <h3>AI Customer Support Bot</h3>
+                <p>Our chatbots handle thousands of conversations simultaneously — qualifying leads, answering questions, and booking appointments without any human intervention.</p>
+                <div class="tp-stats">
+                  <div class="tp-stat"><strong>300ms</strong><span>Response time</span></div>
+                  <div class="tp-stat"><strong>95%</strong><span>Query resolution rate</span></div>
+                  <div class="tp-stat"><strong>24/7</strong><span>Always available</span></div>
+                </div>
+                <a href="#contact" class="btn-primary">Deploy This Bot</a>
+              </div>
+              <div class="tp-demo">
+                <div class="full-chat-demo" id="full-chat">
+                  <div class="fcd-header">
+                    <div class="fcd-avatar">🤖</div>
+                    <div>
+                      <strong>JointBot AI</strong>
+                      <div class="online-badge"><span class="online-dot"></span>Online · GPT-4 Powered</div>
+                    </div>
+                    <div class="fcd-close">✕</div>
+                  </div>
+                  <div class="fcd-messages" id="fcd-messages"></div>
+                  <div class="fcd-input">
+                    <input type="text" id="fcd-input-field" placeholder="Ask anything..." />
+                    <button id="fcd-send-btn">➤</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WhatsApp Tab -->
+          <div class="tab-panel" id="tab-whatsapp" role="tabpanel">
+            <div class="tab-panel-content">
+              <div class="tp-info">
+                <h3>WhatsApp AI Sales Agent</h3>
+                <p>Turn every WhatsApp message into a sales opportunity. Our AI agent handles inquiries, sends product catalogs, collects payments, and follows up automatically.</p>
+                <div class="tp-stats">
+                  <div class="tp-stat"><strong>3x</strong><span>Higher open rate</span></div>
+                  <div class="tp-stat"><strong>60%</strong><span>Faster response</span></div>
+                  <div class="tp-stat"><strong>∞</strong><span>Simultaneous chats</span></div>
+                </div>
+                <a href="#contact" class="btn-primary">Get WhatsApp AI</a>
+              </div>
+              <div class="tp-demo">
+                <div class="wa-showcase">
+                  <div class="was-header">
+                    <div class="was-avatar">JAL</div>
+                    <div>
+                      <strong>Joint AI Sales Bot</strong>
+                      <div class="online-badge"><span class="online-dot"></span>typing...</div>
+                    </div>
+                  </div>
+                  <div class="was-msgs" id="was-msgs">
+                    <div class="was-msg in">Hi! I saw your ad for AI solutions. What do you offer?</div>
+                    <div class="was-msg out">Welcome to Joint AI Labs! 🚀 We offer:<br/>1️⃣ AI Chatbots<br/>2️⃣ WhatsApp Agents<br/>3️⃣ Custom Software<br/><br/>Which interests you?</div>
+                    <div class="was-msg in">AI Chatbot — how much does it cost?</div>
+                    <div class="was-msg out">Great choice! Our AI Chatbot plans start at ₹4,999/month.<br/>Includes: GPT-4, unlimited msgs, CRM integration ✅<br/><br/>Want a FREE 7-day trial?</div>
+                    <div class="was-msg in">Yes!</div>
+                    <div class="was-msg out">Perfect! 🎉 Please share your name and business type to get started!</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard Tab -->
+          <div class="tab-panel" id="tab-dashboard" role="tabpanel">
+            <div class="tab-panel-content">
+              <div class="tp-info">
+                <h3>Business Intelligence Dashboard</h3>
+                <p>Get a bird's-eye view of your entire business — revenue, leads, inventory, team performance — all in one real-time dashboard built for you.</p>
+                <div class="tp-stats">
+                  <div class="tp-stat"><strong>Real-time</strong><span>Data updates</span></div>
+                  <div class="tp-stat"><strong>50+</strong><span>Widget types</span></div>
+                  <div class="tp-stat"><strong>Any</strong><span>Data source</span></div>
+                </div>
+                <a href="#contact" class="btn-primary">Build My Dashboard</a>
+              </div>
+              <div class="tp-demo">
+                <div class="full-dashboard">
+                  <div class="fd-header">
+                    <span>📊 Business Overview</span>
+                    <span class="fd-live"><span class="online-dot"></span>Live</span>
+                  </div>
+                  <div class="fd-metrics">
+                    <div class="fd-metric"><span>Revenue</span><strong class="green">₹12.4L</strong><em>↑28%</em></div>
+                    <div class="fd-metric"><span>Orders</span><strong class="cyan">3,240</strong><em>↑15%</em></div>
+                    <div class="fd-metric"><span>Customers</span><strong class="purple">8,920</strong><em>↑33%</em></div>
+                    <div class="fd-metric"><span>Satisfaction</span><strong class="green">4.9★</strong><em>↑4%</em></div>
+                  </div>
+                  <div class="fd-chart-area">
+                    <div class="fd-chart-label">Revenue Trend (6 months)</div>
+                    <svg class="fd-line-chart" viewBox="0 0 300 80" fill="none">
+                      <defs>
+                        <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.3"/>
+                          <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M10 70 L60 55 L110 60 L160 35 L210 42 L260 15" stroke="url(#lineGradStroke)" stroke-width="2.5" fill="none" stroke-linecap="round" class="chart-line-path"/>
+                      <path d="M10 70 L60 55 L110 60 L160 35 L210 42 L260 15 L260 80 L10 80Z" fill="url(#lineGrad)" class="chart-fill-path"/>
+                      <defs>
+                        <linearGradient id="lineGradStroke" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0%" stop-color="#0066ff"/><stop offset="100%" stop-color="#00d4ff"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Pipeline Tab -->
+          <div class="tab-panel" id="tab-ai" role="tabpanel">
+            <div class="tab-panel-content">
+              <div class="tp-info">
+                <h3>Custom AI Pipeline</h3>
+                <p>We build end-to-end AI pipelines — from data ingestion and model training to deployment and monitoring. Your data, your model, your competitive advantage.</p>
+                <div class="tp-stats">
+                  <div class="tp-stat"><strong>GPT-4</strong><span>Foundation model</span></div>
+                  <div class="tp-stat"><strong>Fine-tuned</strong><span>On your data</span></div>
+                  <div class="tp-stat"><strong>99.9%</strong><span>Uptime SLA</span></div>
+                </div>
+                <a href="#contact" class="btn-primary">Build AI Pipeline</a>
+              </div>
+              <div class="tp-demo">
+                <div class="ai-pipeline-viz" id="ai-pipeline">
+                  <div class="pipeline-step ps-active">
+                    <div class="ps-icon">📥</div>
+                    <strong>Data Input</strong>
+                    <span>Customer messages, docs, FAQs</span>
+                    <div class="ps-pulse"></div>
+                  </div>
+                  <div class="pipeline-arrow">→</div>
+                  <div class="pipeline-step">
+                    <div class="ps-icon">🧹</div>
+                    <strong>Processing</strong>
+                    <span>Clean, embed & vectorize</span>
+                  </div>
+                  <div class="pipeline-arrow">→</div>
+                  <div class="pipeline-step">
+                    <div class="ps-icon">🧠</div>
+                    <strong>AI Model</strong>
+                    <span>Fine-tuned GPT-4</span>
+                  </div>
+                  <div class="pipeline-arrow">→</div>
+                  <div class="pipeline-step">
+                    <div class="ps-icon">🚀</div>
+                    <strong>Deploy</strong>
+                    <span>API · Web · WhatsApp</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       STATS SECTION
+  ════════════════════════════════════════ -->
+  <section class="stats-section" aria-label="Statistics">
+    <div class="stats-bg"></div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-block" data-gsap="fadeUp">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-number-wrap">
+            <span class="stat-num" data-target="500">0</span><span class="stat-sym">+</span>
+          </div>
+          <p>Projects Successfully Delivered</p>
+        </div>
+        <div class="stat-block" data-gsap="fadeUp">
+          <div class="stat-icon">😊</div>
+          <div class="stat-number-wrap">
+            <span class="stat-num" data-target="200">0</span><span class="stat-sym">+</span>
+          </div>
+          <p>Happy Clients Worldwide</p>
+        </div>
+        <div class="stat-block" data-gsap="fadeUp">
+          <div class="stat-icon">🤖</div>
+          <div class="stat-number-wrap">
+            <span class="stat-num" data-target="50">0</span><span class="stat-sym">+</span>
+          </div>
+          <p>AI Agents Deployed</p>
+        </div>
+        <div class="stat-block" data-gsap="fadeUp">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-number-wrap">
+            <span class="stat-num" data-target="98">0</span><span class="stat-sym">%</span>
+          </div>
+          <p>Client Satisfaction Rate</p>
+        </div>
+        <div class="stat-block" data-gsap="fadeUp">
+          <div class="stat-icon">🌍</div>
+          <div class="stat-number-wrap">
+            <span class="stat-num" data-target="12">0</span><span class="stat-sym">+</span>
+          </div>
+          <p>Countries Served</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="process" class="process-section" aria-label="Our Process">
+    <div class="container">
+      <div class="section-header" data-gsap="fadeUp">
+        <span class="section-tag">How We Work</span>
+        <h2 class="section-heading">From <span class="grad-text">Idea to Launch</span> in 4 Steps</h2>
+      </div>
+      <div class="process-timeline">
+        <div class="pt-line"></div>
+        <div class="pt-step" data-gsap="fadeUp">
+          <div class="pts-number">01</div>
+          <div class="pts-icon">🔍</div>
+          <div class="pts-content">
+            <h3>Discovery & Strategy</h3>
+            <p>We deeply understand your business, goals, and target audience. We research your market, competitors, and identify the best technological approach for your unique needs.</p>
+            <div class="pts-tags"><span>Requirements</span><span>Research</span><span>Roadmap</span></div>
+          </div>
+        </div>
+        <div class="pt-step" data-gsap="fadeUp">
+          <div class="pts-number">02</div>
+          <div class="pts-icon">🎨</div>
+          <div class="pts-content">
+            <h3>Design & Prototype</h3>
+            <p>Our designers create stunning wireframes and interactive prototypes. We iterate rapidly based on your feedback until every pixel and flow is exactly right.</p>
+            <div class="pts-tags"><span>UI/UX Design</span><span>Prototype</span><span>Review</span></div>
+          </div>
+        </div>
+        <div class="pt-step" data-gsap="fadeUp">
+          <div class="pts-number">03</div>
+          <div class="pts-icon">⚙️</div>
+          <div class="pts-content">
+            <h3>Build & Integrate</h3>
+            <p>Our engineers build your solution using the latest technologies — React, Node.js, Python, AI/ML frameworks — with clean, scalable code and thorough testing.</p>
+            <div class="pts-tags"><span>Development</span><span>AI Integration</span><span>Testing</span></div>
+          </div>
+        </div>
+        <div class="pt-step" data-gsap="fadeUp">
+          <div class="pts-number">04</div>
+          <div class="pts-icon">🚀</div>
+          <div class="pts-content">
+            <h3>Launch & Support</h3>
+            <p>We deploy your solution, train your team, and provide ongoing support and optimization. We monitor performance and continuously improve your product.</p>
+            <div class="pts-tags"><span>Deployment</span><span>Training</span><span>Support</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="portfolio" class="portfolio-section" aria-label="Portfolio">
+    <div class="container">
+      <div class="section-header" data-gsap="fadeUp">
+        <span class="section-tag">Our Work</span>
+        <h2 class="section-heading">Projects We're <span class="grad-text">Proud Of</span></h2>
+        <p class="section-sub">A selection of solutions we've built for clients around the world</p>
+      </div>
+
+      <div class="portfolio-filters" id="portfolio-filters">
+        <button class="pf-btn active" data-filter="all">All</button>
+        <button class="pf-btn" data-filter="web">Web Apps</button>
+        <button class="pf-btn" data-filter="ai">AI Solutions</button>
+        <button class="pf-btn" data-filter="mobile">Mobile</button>
+        <button class="pf-btn" data-filter="biz">Business</button>
+      </div>
+
+      <div class="portfolio-grid" id="portfolio-grid">
+        <div class="portfolio-item" data-category="ai web" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#00d4ff; --bg: linear-gradient(135deg, #0d1f3c, #0a2a4a)">
+            <div class="pi-mockup">
+              <div class="pim-header">🤖 ChatMind AI Platform</div>
+              <div class="pim-content">
+                <div class="pim-line"></div><div class="pim-line short"></div>
+                <div class="pim-chat">
+                  <div class="pim-bubble user-b"></div>
+                  <div class="pim-bubble bot-b"></div>
+                  <div class="pim-bubble user-b short-b"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag ai">AI</span><span class="pi-tag web">Web</span></div>
+            <h3>ChatMind AI Platform</h3>
+            <p>Enterprise AI chatbot platform serving 50,000+ daily conversations with 98% accuracy</p>
+            <div class="pi-meta">
+              <span>React + Python + GPT-4</span>
+              <a href="#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="biz web" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#00ff88; --bg: linear-gradient(135deg, #0d2b1a, #0a3b22)">
+            <div class="pi-mockup">
+              <div class="pim-header">📊 FinTrack Pro Dashboard</div>
+              <div class="pim-content">
+                <div class="pim-chart-row">
+                  <div class="pim-bar" style="height:45%"></div>
+                  <div class="pim-bar" style="height:70%"></div>
+                  <div class="pim-bar" style="height:55%"></div>
+                  <div class="pim-bar" style="height:90%"></div>
+                  <div class="pim-bar" style="height:75%"></div>
+                </div>
+                <div class="pim-line"></div><div class="pim-line short"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag biz">Business</span><span class="pi-tag web">Web</span></div>
+            <h3>FinTrack Pro</h3>
+            <p>Complete financial management system for a retail chain managing 200+ stores across India</p>
+            <div class="pi-meta">
+              <span>Next.js + Node + MySQL</span>
+              <a href="#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="mobile ai" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#8b5cf6; --bg: linear-gradient(135deg, #1a0d3c, #2a0a4a)">
+            <div class="pi-mockup phone-mockup-mini">
+              <div class="pmm-phone">
+                <div class="pmm-screen">
+                  <div class="pmm-app-bar">EduBot</div>
+                  <div class="pmm-content">
+                    <div class="pmm-line"></div>
+                    <div class="pmm-line short"></div>
+                    <div class="pmm-msg"></div>
+                    <div class="pmm-msg right"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag mobile">Mobile</span><span class="pi-tag ai">AI</span></div>
+            <h3>EduBot — AI Tutor App</h3>
+            <p>AI-powered learning companion app with 10,000+ students using it daily for personalized education</p>
+            <div class="pi-meta">
+              <span>Flutter + Python + LangChain</span>
+              <a href="#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="ai web" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#ff6b35; --bg: linear-gradient(135deg, #2a1a0d, #3b220a)">
+            <div class="pi-mockup">
+              <div class="pim-header">💬 RealEstate AI Agent</div>
+              <div class="pim-content">
+                <div class="pim-wa-msgs">
+                  <div class="pim-wa-in"></div>
+                  <div class="pim-wa-out"></div>
+                  <div class="pim-wa-in short-m"></div>
+                  <div class="pim-wa-out short-m"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag ai">AI</span><span class="pi-tag web">WhatsApp</span></div>
+            <h3>RealEstate WhatsApp AI</h3>
+            <p>WhatsApp AI agent for a real estate firm that qualifies leads and books property viewings automatically</p>
+            <div class="pi-meta">
+              <span>WhatsApp API + GPT-4</span>
+              <a href="#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="biz mobile" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#00d4ff; --bg: linear-gradient(135deg, #0d1f3c, #112244)">
+            <div class="pi-mockup phone-mockup-mini">
+              <div class="pmm-phone">
+                <div class="pmm-screen">
+                  <div class="pmm-app-bar">MediConnect</div>
+                  <div class="pmm-content">
+                    <div class="pmm-line"></div>
+                    <div class="pmm-card-mini"></div>
+                    <div class="pmm-card-mini"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag mobile">Mobile</span><span class="pi-tag biz">Business</span></div>
+            <h3>MediConnect Portal</h3>
+            <p>Healthcare appointment & records management platform connecting 500+ doctors with patients</p>
+            <div class="pi-meta">
+              <span>React Native + Node.js</span>
+              <a href="#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="web biz" data-gsap="scaleIn">
+          <div class="pi-visual" style="--accent:#00ff88; --bg: linear-gradient(135deg, #0a1a10, #0d2a18)">
+            <div class="pi-mockup">
+              <div class="pim-header">🛍️ ShopSmart E-Commerce</div>
+              <div class="pim-content">
+                <div class="pim-product-grid">
+                  <div class="pim-product"></div>
+                  <div class="pim-product"></div>
+                  <div class="pim-product"></div>
+                  <div class="pim-product"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-tags"><span class="pi-tag web">Web</span><span class="pi-tag ai">AI</span></div>
+            <h3>ShopSmart AI Commerce</h3>
+            <p>AI-powered e-commerce platform with personalized recommendations driving 40% increase in conversions</p>
+            <div class="pi-meta">
+              <span>Next.js + AI + Stripe</span>
+              <a href="#contact" class="pi-link">View Case Study →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="testimonials" class="testimonials-section" aria-label="Testimonials">
+    <div class="section-header" data-gsap="fadeUp">
+      <span class="section-tag">Client Love</span>
+      <h2 class="section-heading">What Our <span class="grad-text">Clients Say</span></h2>
+    </div>
+    <div class="testimonials-track-wrap">
+      <div class="testimonials-track" id="testimonials-track">
+        <!-- Row 1 -->
+        <div class="testi-card">
+          <div class="tc-stars">★★★★★</div>
+          <p>"Joint AI Labs deployed a WhatsApp AI agent for our business that now handles 80% of customer queries automatically. Our team focuses on closing deals, not answering repetitive questions."</p>
+          <div class="tc-author">
+            <div class="tc-avatar" style="background: linear-gradient(135deg,#00d4ff,#0066ff)">RK</div>
+            <div><strong>Rajesh Kumar</strong><span>CEO, TechStart India</span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="tc-stars">★★★★★</div>
+          <p>"The business management dashboard they built transformed how we manage our 12 retail stores. We went from Excel sheets to real-time analytics overnight. Highly recommended!"</p>
+          <div class="tc-author">
+            <div class="tc-avatar" style="background: linear-gradient(135deg,#00ff88,#0066ff)">PS</div>
+            <div><strong>Priya Sharma</strong><span>Owner, Sharma Retail Chain</span></div>
+          </div>
+        </div>
+        <div class="testi-card featured-tc">
+          <div class="tc-stars">★★★★★</div>
+          <p>"Their AI chatbot increased our lead conversion rate by 42% in the first month. The team at Joint AI Labs truly understands AI and delivers solutions that drive real business results."</p>
+          <div class="tc-author">
+            <div class="tc-avatar" style="background: linear-gradient(135deg,#8b5cf6,#00d4ff)">MA</div>
+            <div><strong>Mohammed Al-Rashid</strong><span>Director, Gulf Business Solutions</span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="tc-stars">★★★★★</div>
+          <p>"Outstanding work on our e-commerce platform. The AI recommendation engine they integrated boosted our average order value by 35%. These guys are true professionals."</p>
+          <div class="tc-author">
+            <div class="tc-avatar" style="background: linear-gradient(135deg,#ff6b35,#00d4ff)">SC</div>
+            <div><strong>Sarah Chen</strong><span>CMO, Digital First Agency</span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="tc-stars">★★★★★</div>
+          <p>"We had a complex custom ERP requirement. Joint AI Labs delivered in 6 weeks — on time, within budget, and exceeded expectations. The post-launch support has been exceptional."</p>
+          <div class="tc-author">
+            <div class="tc-avatar" style="background: linear-gradient(135deg,#00d4ff,#00ff88)">AP</div>
+            <div><strong>Arjun Patel</strong><span>Founder, AppVenture</span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="tc-stars">★★★★★</div>
+          <p>"Joint AI Labs built our mobile app from scratch. The UI is beautiful, performance is incredible, and they've been responsive at every step. Our users love it — 4.9 stars on the App Store!"</p>
+          <div class="tc-author">
+            <div class="tc-avatar" style="background: linear-gradient(135deg,#00ff88,#8b5cf6)">NK</div>
+            <div><strong>Nisha Krishnan</strong><span>Founder, HealthSync</span></div>
+          </div>
+        </div>
+        <!-- Duplicate for infinite scroll -->
+        <div class="testi-card">
+          <div class="tc-stars">★★★★★</div>
+          <p>"Joint AI Labs deployed a WhatsApp AI agent for our business that now handles 80% of customer queries automatically. Our team focuses on closing deals, not answering repetitive questions."</p>
+          <div class="tc-author">
+            <div class="tc-avatar" style="background: linear-gradient(135deg,#00d4ff,#0066ff)">RK</div>
+            <div><strong>Rajesh Kumar</strong><span>CEO, TechStart India</span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="tc-stars">★★★★★</div>
+          <p>"The business management dashboard they built transformed how we manage our 12 retail stores. We went from Excel sheets to real-time analytics overnight. Highly recommended!"</p>
+          <div class="tc-author">
+            <div class="tc-avatar" style="background: linear-gradient(135deg,#00ff88,#0066ff)">PS</div>
+            <div><strong>Priya Sharma</strong><span>Owner, Sharma Retail Chain</span></div>
+          </div>
+        </div>
+        <div class="testi-card featured-tc">
+          <div class="tc-stars">★★★★★</div>
+          <p>"Their AI chatbot increased our lead conversion rate by 42% in the first month. The team at Joint AI Labs truly understands AI and delivers solutions that drive real business results."</p>
+          <div class="tc-author">
+            <div class="tc-avatar" style="background: linear-gradient(135deg,#8b5cf6,#00d4ff)">MA</div>
+            <div><strong>Mohammed Al-Rashid</strong><span>Director, Gulf Business Solutions</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="pricing" class="pricing-section" aria-label="Pricing Plans">
+    <div class="container">
+      <div class="section-header" data-gsap="fadeUp">
+        <span class="section-tag">Transparent Pricing</span>
+        <h2 class="section-heading">Plans for Every <span class="grad-text">Business</span></h2>
+        <p class="section-sub">No hidden fees. Choose a plan and get started in days, not months.</p>
+      </div>
+
+      <div class="pricing-toggle">
+        <span class="pt-label" id="pt-monthly">Monthly</span>
+        <button class="pt-switch" id="pricing-toggle" aria-label="Toggle billing period">
+          <div class="pt-thumb"></div>
+        </button>
+        <span class="pt-label" id="pt-yearly">Yearly <span class="pt-save">Save 20%</span></span>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card" data-gsap="fadeUp">
+          <div class="pc-badge">Starter</div>
+          <div class="pc-price">
+            <span class="pc-currency">₹</span>
+            <span class="pc-amount" data-monthly="4999" data-yearly="3999">4,999</span>
+            <span class="pc-period">/month</span>
+          </div>
+          <p class="pc-desc">Perfect for small businesses taking their first step into AI-powered digital presence.</p>
+          <ul class="pc-features">
+            <li><span class="pf-check">✓</span> 1 Professional Website</li>
+            <li><span class="pf-check">✓</span> Basic AI Chatbot</li>
+            <li><span class="pf-check">✓</span> 1,000 chat sessions/month</li>
+            <li><span class="pf-check">✓</span> WhatsApp Integration</li>
+            <li><span class="pf-check">✓</span> Email Support</li>
+            <li><span class="pf-no">✗</span> Business Dashboard</li>
+            <li><span class="pf-no">✗</span> Custom AI Training</li>
+            <li><span class="pf-no">✗</span> Mobile App</li>
+          </ul>
+          <a href="#contact" class="pc-cta btn-ghost">Get Started</a>
+        </div>
+
+        <div class="pricing-card featured-pc" data-gsap="fadeUp">
+          <div class="pc-popular">Most Popular</div>
+          <div class="pc-badge">Professional</div>
+          <div class="pc-price">
+            <span class="pc-currency">₹</span>
+            <span class="pc-amount" data-monthly="14999" data-yearly="11999">14,999</span>
+            <span class="pc-period">/month</span>
+          </div>
+          <p class="pc-desc">The complete AI-powered digital suite for growing businesses ready to scale.</p>
+          <ul class="pc-features">
+            <li><span class="pf-check">✓</span> Custom Web Application</li>
+            <li><span class="pf-check">✓</span> Advanced AI Chatbot</li>
+            <li><span class="pf-check">✓</span> Unlimited chat sessions</li>
+            <li><span class="pf-check">✓</span> WhatsApp AI Agent</li>
+            <li><span class="pf-check">✓</span> Business Dashboard</li>
+            <li><span class="pf-check">✓</span> Custom AI Training</li>
+            <li><span class="pf-check">✓</span> Priority Support 24/7</li>
+            <li><span class="pf-no">✗</span> Mobile App</li>
+          </ul>
+          <a href="#contact" class="pc-cta btn-primary">Get Started</a>
+        </div>
+
+        <div class="pricing-card" data-gsap="fadeUp">
+          <div class="pc-badge">Enterprise</div>
+          <div class="pc-price">
+            <span class="pc-amount">Custom</span>
+          </div>
+          <p class="pc-desc">Full-scale digital transformation with a dedicated team and custom everything.</p>
+          <ul class="pc-features">
+            <li><span class="pf-check">✓</span> Everything in Professional</li>
+            <li><span class="pf-check">✓</span> Mobile App (iOS + Android)</li>
+            <li><span class="pf-check">✓</span> Custom ERP / CRM System</li>
+            <li><span class="pf-check">✓</span> Dedicated AI Engineers</li>
+            <li><span class="pf-check">✓</span> Custom AI Model Training</li>
+            <li><span class="pf-check">✓</span> SLA with 99.9% uptime</li>
+            <li><span class="pf-check">✓</span> On-site Training</li>
+            <li><span class="pf-check">✓</span> White-label Available</li>
+          </ul>
+          <a href="#contact" class="pc-cta btn-ghost">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 50 50" fill="none" width="40">
+              <path d="M8 42L8 8L25 25L42 8L42 42" stroke="url(#fg1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="35" cy="17" r="7" fill="url(#fg2)" opacity="0.9"/>
+              <circle cx="32" cy="14.5" r="1.8" fill="#030712"/><circle cx="38" cy="14.5" r="1.8" fill="#030712"/>
+              <defs>
+                <linearGradient id="fg1" x1="0" y1="0" x2="50" y2="50" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff88"/></linearGradient>
+                <linearGradient id="fg2" x1="0" y1="0" x2="50" y2="50" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0066ff"/></linearGradient>
+              </defs>
+            </svg>
+            <span>Joint <span class="logo-ai">AI</span> Labs</span>
+          </div>
+          <p class="footer-tagline">AI-Powered Business Solutions</p>
+          <p class="footer-desc">We help businesses of all sizes harness the power of artificial intelligence to grow faster, serve customers better, and operate more efficiently.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/918017683428" class="fs-link" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+            <a href="mailto:jointailabs@gmail.com" class="fs-link" aria-label="Email">✉️</a>
+            <a href="tel:8017683428" class="fs-link" aria-label="Phone">📞</a>
+            <a href="https://www.jointailabs.com" class="fs-link" aria-label="Website" target="_blank" rel="noopener">🌐</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Website Design</a></li>
+            <li><a href="#services">AI Chatbots</a></li>
+            <li><a href="#services">WhatsApp AI Agents</a></li>
+            <li><a href="#services">Business Management</a></li>
+            <li><a href="#services">Mobile App Development</a></li>
+            <li><a href="#services">Custom Solutions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#portfolio">Our Work</a></li>
+            <li><a href="#process">How We Work</a></li>
+            <li><a href="#testimonials">Client Reviews</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact-list">
+            <li>📞 <a href="tel:8017683428">8017683428</a></li>
+            <li>📞 <a href="tel:7003383676">70033 83676</a></li>
+            <li>✉️ <a href="mailto:jointailabs@gmail.com">jointailabs@gmail.com</a></li>
+            <li>🌐 <a href="https://www.jointailabs.com" target="_blank" rel="noopener">www.jointailabs.com</a></li>
+            <li>🌍 Serving Businesses Worldwide</li>
+          </ul>
+          <div class="footer-hours">
+            <h4>Available</h4>
+            <p>Mon–Sat: 9AM – 8PM IST<br/>Emergency support 24/7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2024 Joint AI Labs. All Rights Reserved. | <a href="https://www.jointailabs.com" target="_blank" rel="noopener">www.jointailabs.com</a></p>
+        <p>Made with ❤️ in India · Powered by AI</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.5/build/spline-viewer.js"></script>
+  <script src="main.js"></script>
+  <!-- ═══════════════════════════════════════
+       MOBILE BOTTOM NAVIGATION (App Style)
+  ════════════════════════════════════════ -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="mbn-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="services.html" class="mbn-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      <span>Services</span>
+    </a>
+    <a href="about.html" class="mbn-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+      <span>About</span>
+    </a>
+    <a href="contact.html" class="mbn-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+</body>
+</html>
