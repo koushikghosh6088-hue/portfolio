@@ -175,7 +175,29 @@ input, select, textarea { font-family: inherit; }
   33%  { content: '.'; }
   66%  { content: '..'; }
   100% { content: '...'; }
+/* ══════════════════════════════
+   CURSOR (Without Animation Lag)
+══════════════════════════════ */
+.cursor-dot {
+  position: fixed; z-index: 9998;
+  width: 7px; height: 7px;
+  background: var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 12px var(--cyan), 0 0 24px rgba(0,212,255,0.4);
 }
+
+.cursor-ring {
+  position: fixed; z-index: 9997;
+  width: 34px; height: 34px;
+  border: 1.5px solid rgba(0,212,255,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%,-50%);
+}
+
+body, a, button { cursor: none !important; }
 
 /* ══════════════════════════════
    TYPOGRAPHY UTILITIES
@@ -1919,6 +1941,8 @@ spline-viewer {
 
 @media (max-width: 600px) {
   /* Core Layout & Spacing */
+  body, a, button { cursor: auto !important; }
+  .cursor-dot, .cursor-ring { display: none; }
   .container { padding: 0 1.2rem; }
   .about-section, .services-section, .showcase-section, .contact-section, .cta-section { padding: 5rem 0; }
   .section-heading { font-size: clamp(1.8rem, 8vw, 2.5rem); }

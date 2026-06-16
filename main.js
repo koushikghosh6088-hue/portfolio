@@ -59,21 +59,13 @@ let lenis;
   const ring = document.getElementById('cursor-ring');
   if (!dot || !ring || window.innerWidth < 768) return;
 
-  let cx = -100, cy = -100, rx = -100, ry = -100;
-  document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; });
-
-  function moveCursor() {
-    dot.style.left = cx + 'px'; dot.style.top = cy + 'px';
-    rx += (cx - rx) * 0.12; ry += (cy - ry) * 0.12;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(moveCursor);
-  }
-  moveCursor();
-
-  document.querySelectorAll('a, button, [data-hover]').forEach(el => {
-    el.addEventListener('mouseenter', () => { dot.classList.add('cursor-hover'); ring.classList.add('cursor-hover'); });
-    el.addEventListener('mouseleave', () => { dot.classList.remove('cursor-hover'); ring.classList.remove('cursor-hover'); });
-  });
+  // Instant snap without trailing animation (Fixes lag & removes animation)
+  document.addEventListener('mousemove', e => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, { passive: true });
 })();
 
 
