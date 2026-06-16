@@ -1859,7 +1859,7 @@ spline-viewer {
     align-items: center; 
     animation: none !important; 
     opacity: 1 !important; 
-    transform: translateX(25%) scale(1) !important; /* The perfect position the user loved */
+    transform: translateX(15%) scale(1.25) !important; /* Increased scale and centered more */
     z-index: 0;
   }
   
