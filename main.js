@@ -237,18 +237,8 @@ let lenis;
 
 
 // ────────────────────────────────────────────────────
-// 8. HERO CONSOLE — Live counter animation
+// 8. (Console Counter Removed)
 // ────────────────────────────────────────────────────
-(function initConsoleCounter() {
-  const el = document.getElementById('hcl-chats');
-  if (!el) return;
-  let base = 47;
-  setInterval(() => {
-    const delta = Math.random() < 0.5 ? 1 : -1;
-    base = Math.max(40, Math.min(60, base + delta));
-    el.textContent = base;
-  }, 3500);
-})();
 
 
 // ────────────────────────────────────────────────────
@@ -505,18 +495,8 @@ let lenis;
 
 
 // ────────────────────────────────────────────────────
-// 17. HERO METRIC CARD COUNTER (live feel)
+// 17. (Hero Metrics Removed)
 // ────────────────────────────────────────────────────
-(function initHeroMetrics() {
-  let val = 47;
-  setInterval(() => {
-    const c = document.getElementById('hmc-counter');
-    if (!c) return;
-    val += Math.random() < 0.4 ? 1 : 0;
-    val = Math.min(val, 62);
-    c.textContent = val;
-  }, 4000);
-})();
 
 // Signature
 console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d4ff;font-size:18px;font-weight:900;', 'color:rgba(255,255,255,0.5);');

@@ -159,64 +159,14 @@
       </div>
     </div>
 
-    <!-- ── AI Console Visual (Pure CSS/HTML, zero canvas) ── -->
-    <div class="hero-console-wrap" id="hero-visual" aria-hidden="true">
-
-      <!-- Main console window -->
-      <div class="hero-console">
-        <div class="hc-titlebar">
-          <div class="hc-dots"><span class="hcd r"></span><span class="hcd y"></span><span class="hcd g"></span></div>
-          <span class="hc-title">joint-ai-labs — Live System Monitor</span>
-          <span class="hc-live"><span class="hc-live-dot"></span>LIVE</span>
-        </div>
-        <div class="hc-body">
-          <div class="hc-line" style="--d:0s"><span class="hcl-tag sys">SYSTEM</span><span class="hcl-text">Joint AI Labs v3.0 — All systems operational</span></div>
-          <div class="hc-line" style="--d:0.3s"><span class="hcl-tag ok">✓ OK</span><span class="hcl-text">AI Engine connected · GPT-4 online</span></div>
-          <div class="hc-line" style="--d:0.6s"><span class="hcl-tag bot">BOT</span><span class="hcl-text">Handling <span class="hcl-num" id="hcl-chats">47</span> customer conversations...</span></div>
-          <div class="hc-line" style="--d:0.9s"><span class="hcl-tag ok">✓ OK</span><span class="hcl-text">WhatsApp Agent active · 12 new leads captured</span></div>
-          <div class="hc-line" style="--d:1.2s"><span class="hcl-tag web">WEB</span><span class="hcl-text">5 websites live · Traffic: <span class="hcl-num">1,847</span>/day</span></div>
-          <div class="hc-line" style="--d:1.5s"><span class="hcl-tag ai">AI</span><span class="hcl-text">Training model on client data · 94% accuracy</span></div>
-          <div class="hc-line" style="--d:1.8s"><span class="hcl-tag ok">✓ OK</span><span class="hcl-text">Revenue dashboard · Today: <span class="hcl-num">₹2.4L</span></span></div>
-          <div class="hc-line" style="--d:2.1s"><span class="hcl-tag ok">✓ OK</span><span class="hcl-text">Mobile app deployed · 4.9★ on App Store</span></div>
-          <div class="hc-cursor-line" style="--d:2.4s"><span class="hcl-tag sys">$</span><span class="hc-cursor">▊</span></div>
-        </div>
-        <!-- Mini metrics bar -->
-        <div class="hc-metrics">
-          <div class="hcm-item">
-            <span class="hcm-label">CPU</span>
-            <div class="hcm-bar"><div class="hcm-fill" style="--w:34%"></div></div>
-            <span class="hcm-val">34%</span>
-          </div>
-          <div class="hcm-item">
-            <span class="hcm-label">AI Load</span>
-            <div class="hcm-bar"><div class="hcm-fill" style="--w:72%"></div></div>
-            <span class="hcm-val">72%</span>
-          </div>
-          <div class="hcm-item">
-            <span class="hcm-label">Uptime</span>
-            <div class="hcm-bar"><div class="hcm-fill" style="--w:99%"></div></div>
-            <span class="hcm-val">99.9%</span>
-          </div>
-        </div>
+    <!-- ── 3D Robot Animation (Spline) ── -->
+    <div class="hero-spline-wrap" id="hero-visual">
+      <!-- Loading fallback shown before Spline initializes -->
+      <div class="spline-loader">
+        <span class="loader-spinner"></span>
+        <span class="loader-text">Initializing 3D Core...</span>
       </div>
-
-      <!-- Floating metric cards -->
-      <div class="hero-metric-card hmc-1">
-        <div class="hmc-icon">🤖</div>
-        <div class="hmc-info"><strong id="hmc-counter">47</strong><span>Active AI Chats</span></div>
-        <div class="hmc-trend up">↑ 23%</div>
-      </div>
-      <div class="hero-metric-card hmc-2">
-        <div class="hmc-icon">⚡</div>
-        <div class="hmc-info"><strong>300ms</strong><span>Avg AI Response</span></div>
-        <div class="hmc-trend up">↑ Faster</div>
-      </div>
-      <div class="hero-metric-card hmc-3">
-        <div class="hmc-icon">💬</div>
-        <div class="hmc-info"><strong>12</strong><span>New Leads Today</span></div>
-        <div class="hmc-trend up">↑ 41%</div>
-      </div>
-
+      <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy"></spline-viewer>
     </div>
 
     <a href="#about" class="scroll-indicator" aria-label="Scroll down">
@@ -1535,6 +1485,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.5/build/spline-viewer.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
