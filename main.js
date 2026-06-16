@@ -74,30 +74,25 @@ let lenis;
 // ────────────────────────────────────────────────────
 (function initNav() {
   const navbar = document.getElementById('navbar');
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
 
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
 
-  hamburger?.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-
-  navLinks?.querySelectorAll('.nav-link').forEach(l => {
-    l.addEventListener('click', () => { hamburger?.classList.remove('open'); navLinks.classList.remove('open'); });
-  });
-
-  // Active section highlight
+  // Active section highlight for both Desktop Nav and Mobile Bottom Nav
   const sections = document.querySelectorAll('section[id]');
-  const links = document.querySelectorAll('.nav-link[data-section]');
+  const desktopLinks = document.querySelectorAll('.nav-link[data-section]');
+  const mobileLinks = document.querySelectorAll('.mbn-item[data-section]');
+  
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) links.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
+      if (e.isIntersecting) {
+        desktopLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
+        mobileLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
+      }
     });
   }, { threshold: 0.3 });
+  
   sections.forEach(s => io.observe(s));
 })();
 
