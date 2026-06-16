@@ -35,9 +35,12 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
+html, body {
   scrollbar-width: thin;
   scrollbar-color: var(--cyan) var(--dark-2);
+  overflow-x: hidden; /* Force strict boundaries on mobile */
+  width: 100%;
+  position: relative;
 }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--dark-2); }
@@ -1869,13 +1872,14 @@ spline-viewer {
 }
 
 @media (max-width: 900px) {
-  .hero { padding-top: 6.5rem; text-align: center; overflow-x: hidden; justify-content: flex-start; min-height: 110vh; }
+  .hero { padding-top: 6.5rem; text-align: center; overflow-x: hidden; justify-content: flex-start; min-height: 125vh; }
   .global-robot-wrap { 
-    height: 100vh; top: 0; bottom: auto; 
+    height: 70vh; top: auto; bottom: 15vh; 
     align-items: center; 
-    animation: none !important; /* Kills the desktop override bug */
-    opacity: 0.5 !important; 
-    transform: translateY(30%) scale(1.6) !important; 
+    animation: none !important; 
+    opacity: 1 !important; 
+    transform: scale(1.15) !important; 
+    z-index: 0;
   }
   
   /* ── Mobile Bottom Nav ── */
