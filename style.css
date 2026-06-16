@@ -1387,10 +1387,13 @@ spline-viewer {
 .portfolio-item {
   background: rgba(13,21,40,0.7); border: 1px solid rgba(0,212,255,0.07);
   border-radius: var(--radius-lg); overflow: hidden;
-  transition: var(--transition); cursor: none;
+  transition: var(--transition); cursor: default;
+  /* Ensure items are always visible even if GSAP ScrollTrigger doesn't fire */
+  opacity: 1 !important;
+  transform: none;
 }
 
-.portfolio-item:hover { border-color: rgba(0,212,255,0.2); transform: translateY(-6px); box-shadow: var(--shadow-card), 0 0 30px rgba(0,212,255,0.06); }
+.portfolio-item:hover { border-color: rgba(0,212,255,0.2); transform: translateY(-6px) !important; box-shadow: var(--shadow-card), 0 0 30px rgba(0,212,255,0.06); }
 
 .pi-visual {
   background: var(--bg); padding: 1.5rem; min-height: 180px;
@@ -2352,6 +2355,21 @@ spline-viewer {
   box-shadow: 0 20px 60px rgba(0,212,255,0.1); transform: translateY(-4px);
 }
 .tech-card-wide { grid-column: 1 / -1; flex-direction: row; gap: 3rem; align-items: flex-start; }
+
+/* Demo wrapper inside tech cards — must not overflow the card */
+.tech-card-demo {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.tech-card-demo .demo-whatsapp,
+.tech-card-demo .demo-chat {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .tech-badge {
   display: inline-block; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2);
   color: var(--cyan); font-family: var(--font-mono); font-size:.78rem;
@@ -2385,10 +2403,19 @@ spline-viewer {
 .ps-arrow { color:var(--cyan); font-size:1.2rem; transform:rotate(90deg); opacity:.6; }
 @media (max-width: 900px) {
   .tech-cards-grid { grid-template-columns: 1fr; }
+  .tech-card { padding: 1.5rem; }
   .tech-card-wide { flex-direction: column; }
-  .tech-pipeline { flex-direction: row; min-width: unset; }
+  .tech-pipeline { flex-direction: row; flex-wrap: wrap; min-width: unset; width: 100%; justify-content: center; }
   .ps-arrow { transform: rotate(0deg); }
 }
+@media (max-width: 480px) {
+  .tech-card { padding: 1.2rem; gap: 1.2rem; }
+  .tech-card-body h3 { font-size: 1.1rem; }
+  .tech-pipeline { gap: .3rem; padding: .8rem; }
+  .pipeline-step { padding: .6rem .8rem; }
+  .ps-icon { font-size: 1.2rem; }
+}
+
 
 /* ══════════════════════════════════════════════
    PORTFOLIO SECTION
@@ -2408,12 +2435,14 @@ spline-viewer {
   border-color: transparent; color:#fff; box-shadow: 0 4px 20px rgba(0,212,255,0.25);
 }
 .portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
-.portfolio-item {
-  background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius-lg); overflow:hidden; transition: var(--transition);
+/* portfolio-item base rule is above — kept for specificity; hover override: */
+.portfolio-section .portfolio-item {
+  background: rgba(13,21,40,0.8); border: 1px solid rgba(0,212,255,0.1);
+  border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);
+  opacity: 1 !important;
 }
-.portfolio-item:hover {
-  border-color: rgba(0,212,255,0.3); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+.portfolio-section .portfolio-item:hover {
+  border-color: rgba(0,212,255,0.35); transform: translateY(-6px) !important; box-shadow: 0 24px 60px rgba(0,0,0,0.4);
 }
 .pi-visual {
   height: 200px; display: flex; align-items:center; justify-content:center;
