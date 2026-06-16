@@ -1853,13 +1853,14 @@ spline-viewer {
 }
 
 @media (max-width: 900px) {
-  .hero { padding-top: 6.5rem; text-align: center; overflow-x: hidden; justify-content: flex-start; min-height: 100vh; }
+  .hero { padding-top: 0; text-align: center; overflow-x: hidden; justify-content: flex-start; min-height: 100vh; }
   .global-robot-wrap { 
-    height: 100vh; top: 0; bottom: auto; 
+    height: 45vh; top: 0; bottom: auto; 
     align-items: center; 
+    justify-content: center;
     animation: none !important; 
     opacity: 1 !important; 
-    transform: translateX(15%) scale(1.25) !important; /* Increased scale and centered more */
+    transform: translateX(0) scale(1.15) !important; /* Properly aligned in the middle */
     z-index: 0;
   }
   
@@ -1888,7 +1889,21 @@ spline-viewer {
   .mbn-item.active { color: var(--cyan); }
   .mbn-item.active svg { transform: translateY(-3px); filter: drop-shadow(0 0 8px rgba(0,212,255,0.8)); }
 
-  .hero-content { width: 100%; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 5; text-align: center; }
+  .hero-content { 
+    width: 100%; max-width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 5; text-align: center;
+    margin-top: 45vh; /* Pushes content strictly below the robot */
+    background: rgba(8, 15, 31, 0.6);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-top: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 40px 40px 0 0;
+    padding: 3rem 1.5rem 2rem;
+    box-shadow: 0 -15px 50px rgba(0, 212, 255, 0.15);
+  }
+  .hero-glow {
+    background: radial-gradient(circle at top center, rgba(0,212,255,0.2) 0%, transparent 60%);
+    top: 0; transform: translate(-50%, 0); height: 100%;
+  }
   .hero-heading { justify-content: center; }
   .hero-services-strip { justify-content: center; }
   .hero-ctas { justify-content: center; }
