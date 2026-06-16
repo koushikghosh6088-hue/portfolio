@@ -1897,7 +1897,7 @@ spline-viewer {
     -webkit-backdrop-filter: none;
     border: none;
     border-radius: 0;
-    padding: 38vh 1.5rem 5rem; /* Pushes text down to overlap robot waist exactly like Vedastra */
+    padding: 22vh 1.5rem 5rem; /* Text moved up to chest/waist so buttons fit on screen */
     box-shadow: none;
   }
   .hero-glow {
@@ -2091,8 +2091,8 @@ spline-viewer {
 
 .v-pill {
   display: inline-flex; align-items: center; gap: 8px;
-  border: 1px solid #0d4b9f;
-  background: rgba(13, 75, 159, 0.15);
+  border: 1px solid rgba(60, 32, 163, 0.6);
+  background: rgba(60, 32, 163, 0.15);
   padding: 6px 12px;
   border-radius: 30px;
   margin-bottom: 1.5rem;
@@ -2102,13 +2102,13 @@ spline-viewer {
   font-family: var(--font-disp);
   font-size: 0.6rem;
   font-weight: 700;
-  color: #1d7cf2;
+  color: #7a42ff;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .v-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: #1d7cf2;
-  box-shadow: 0 0 8px #1d7cf2;
+  width: 6px; height: 6px; border-radius: 50%; background: #7a42ff;
+  box-shadow: 0 0 8px #7a42ff;
 }
 
 .v-heading {
@@ -2122,7 +2122,7 @@ spline-viewer {
   letter-spacing: -0.02em;
 }
 .v-grow {
-  color: #0066ff;
+  color: #7a42ff;
   font-style: italic;
   display: inline-block;
   padding-right: 4px;
@@ -2140,7 +2140,7 @@ spline-viewer {
   font-family: var(--font-disp);
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 800;
-  color: #0066ff;
+  color: #7a42ff;
   text-transform: uppercase;
   margin-bottom: 2.5rem;
   letter-spacing: -0.02em;
@@ -2152,7 +2152,7 @@ spline-viewer {
 
 .v-btn-primary {
   width: 100%;
-  background: #0066ff;
+  background: #3c20a3;
   color: white;
   border-radius: 50px;
   padding: 1.2rem;
@@ -2170,7 +2170,7 @@ spline-viewer {
   text-decoration: none;
 }
 .v-btn-primary:hover {
-  background: #0052cc; transform: translateY(-2px);
+  background: #2c167d; transform: translateY(-2px);
 }
 
 .v-see-work {
@@ -2194,13 +2194,13 @@ spline-viewer {
   right: 20px;
   width: 60px;
   height: 60px;
-  background: #0066ff;
+  background: #3c20a3;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(60, 32, 163, 0.4);
   z-index: 10000;
   cursor: pointer;
   transition: transform 0.3s;
