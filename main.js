@@ -198,26 +198,46 @@ let lenis;
       });
     });
 
-    // MOBILE: Subtle floating up/down in background to avoid text overlap on narrow screens
+    // MOBILE: Dynamic Vertical Parking Spaces
+    // Robot shrinks/fades behind text, then "lands" in the empty vertical gaps
     mm.add("(max-width: 900px)", () => {
-      // Start slightly scaled up but centered
-      gsap.set(robotWrap, { xPercent: 0, yPercent: 0, scale: 1.15, opacity: 0.5 });
+      // Start slightly scaled up but centered in Hero
+      gsap.set(robotWrap, { xPercent: 0, yPercent: 0, scale: 1.15, opacity: 0.9 });
 
+      // Fade out and shrink while scrolling through About text
       gsap.to(robotWrap, {
-        yPercent: 10, scale: 0.9, opacity: 0.2, ease: 'power1.inOut',
+        scale: 0.6, opacity: 0.15, ease: 'power1.inOut',
         scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'top center', scrub: 1.5 }
       });
+
+      // Land perfectly in the About parking space!
       gsap.to(robotWrap, {
-        yPercent: -5, scale: 1, opacity: 0.25, ease: 'power1.inOut',
-        scrollTrigger: { trigger: '#services', start: 'top bottom', end: 'top center', scrub: 1.5 }
+        scale: 0.95, opacity: 0.85, ease: 'power1.inOut',
+        scrollTrigger: { trigger: '#m-space-about', start: 'top bottom', end: 'bottom center', scrub: 1.5 }
       });
+
+      // Fade out for Services text
       gsap.to(robotWrap, {
-        yPercent: 15, scale: 0.8, opacity: 0.15, ease: 'power1.inOut',
-        scrollTrigger: { trigger: '#showcase', start: 'top bottom', end: 'top center', scrub: 1.5 }
+        scale: 0.6, opacity: 0.15, ease: 'power1.inOut',
+        scrollTrigger: { trigger: '#services', start: 'top center', end: 'center center', scrub: 1.5 }
       });
+
+      // Land perfectly in the Services parking space!
       gsap.to(robotWrap, {
-        opacity: 0.05, yPercent: 25, ease: 'power1.inOut',
-        scrollTrigger: { trigger: '#portfolio', start: 'top 50%', end: 'bottom bottom', scrub: 1.5 }
+        scale: 0.95, opacity: 0.85, ease: 'power1.inOut',
+        scrollTrigger: { trigger: '#m-space-services', start: 'top bottom', end: 'bottom center', scrub: 1.5 }
+      });
+
+      // Fade out for Showcase text
+      gsap.to(robotWrap, {
+        scale: 0.6, opacity: 0.15, ease: 'power1.inOut',
+        scrollTrigger: { trigger: '#showcase', start: 'top center', end: 'center center', scrub: 1.5 }
+      });
+
+      // Land perfectly in the Showcase parking space!
+      gsap.to(robotWrap, {
+        scale: 0.95, opacity: 0.85, ease: 'power1.inOut',
+        scrollTrigger: { trigger: '#m-space-showcase', start: 'top bottom', end: 'bottom center', scrub: 1.5 }
       });
     });
   }

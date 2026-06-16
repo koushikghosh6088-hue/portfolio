@@ -582,11 +582,14 @@ spline-viewer {
 }
 
 .spline-watermark-hider {
-  position: absolute; bottom: 0; right: 0;
-  width: 160px; height: 50px;
+  position: fixed; bottom: 15px; right: 15px;
+  width: 150px; height: 50px;
   background: var(--bg); /* Match the site background perfectly */
-  z-index: 99; pointer-events: none;
+  border-radius: 6px;
+  z-index: 9999; pointer-events: none;
 }
+
+.mobile-robot-space { display: none; }
 
 .loader-spinner {
   width: 40px; height: 40px; border-radius: 50%;
@@ -1910,8 +1913,8 @@ spline-viewer {
 @media (min-width: 901px) {
   /* Zig-Zag Layout: Alternate content left and right */
   .about-grid, .services-grid, .tab-panel-content, .stats-grid, .pricing-grid, .contact-grid {
-    max-width: 55%; 
-    grid-template-columns: 1fr !important; /* Stack columns so they fit in 55% */
+    max-width: 45%; 
+    grid-template-columns: 1fr !important; /* Stack columns so they fit in 45% */
   }
 
   /* Sections pushed to the RIGHT (Robot flies LEFT) */
@@ -1934,6 +1937,12 @@ spline-viewer {
 }
 
 @media (max-width: 900px) {
+  .mobile-robot-space {
+    display: block;
+    width: 100%;
+    height: 280px; /* Massive empty vertical block for robot to land */
+    margin: 2rem 0;
+  }
   .hero { padding-top: 6.5rem; text-align: center; overflow-x: hidden; justify-content: flex-end; padding-bottom: 2rem; }
   .hero-content { width: 100%; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 5; }
   .hero-heading { justify-content: center; }
