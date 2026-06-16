@@ -178,35 +178,70 @@ let lenis;
     scrollTrigger: { trigger: '.pricing-grid', start: 'top 88%' }
   });
 
-  // ── GLOBAL ROBOT SCROLL ANIMATIONS ──
-  // The robot starts on the right side in the hero section.
-  // As we scroll to 'About', we move it to the left and fade it slightly.
+  // ── DYNAMIC ROBOT SCROLL ANIMATIONS ──
+  // Instead of a static sticky background, the robot actively travels 
+  // to different parts of the screen as you scroll to different sections.
   const robotWrap = document.querySelector('.global-robot-wrap');
   if (robotWrap) {
-    const robotTl = gsap.timeline({
+    
+    // 1. Hero -> About: Robot flies to the left
+    gsap.to(robotWrap, {
+      xPercent: -45,
+      yPercent: 5,
+      scale: 0.85,
+      opacity: 0.7,
+      ease: 'power1.inOut',
       scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 1 // Smooth scrubbing
+        trigger: '#about',
+        start: 'top bottom',
+        end: 'top 20%',
+        scrub: 1.5
       }
     });
 
-    // Move to left for About section
-    robotTl.to(robotWrap, {
-      xPercent: -50, // Move to left
-      scale: 0.9,
-      opacity: 0.3, // Fade so text remains readable
-      ease: 'none'
-    }, 0);
+    // 2. About -> Services: Robot flies across to the right
+    gsap.to(robotWrap, {
+      xPercent: 15,
+      yPercent: 0,
+      scale: 1,
+      opacity: 0.85,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '#services',
+        start: 'top bottom',
+        end: 'top 20%',
+        scrub: 1.5
+      }
+    });
 
-    // Fade it out significantly towards the footer so it doesn't block interactions
-    robotTl.to(robotWrap, {
-      opacity: 0.05,
-      scale: 0.8,
-      yPercent: 20,
-      ease: 'none'
-    }, 0.5);
+    // 3. Services -> Demos: Robot centers and scales down
+    gsap.to(robotWrap, {
+      xPercent: -15,
+      yPercent: 10,
+      scale: 0.75,
+      opacity: 0.4,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '#showcase',
+        start: 'top bottom',
+        end: 'top 30%',
+        scrub: 1.5
+      }
+    });
+
+    // 4. Fade out gently for Portfolio/Contact so it doesn't distract
+    gsap.to(robotWrap, {
+      opacity: 0.03,
+      yPercent: 30,
+      scale: 0.6,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '#portfolio',
+        start: 'top 50%',
+        end: 'bottom bottom',
+        scrub: 1.5
+      }
+    });
   }
 
 })();

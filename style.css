@@ -178,33 +178,6 @@ input, select, textarea { font-family: inherit; }
 }
 
 /* ══════════════════════════════
-   CURSOR
-══════════════════════════════ */
-.cursor-dot {
-  position: fixed; z-index: 9998;
-  width: 7px; height: 7px;
-  background: var(--cyan);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%,-50%);
-  box-shadow: 0 0 12px var(--cyan), 0 0 24px rgba(0,212,255,0.4);
-  transition: transform 0.1s, width 0.2s, height 0.2s;
-}
-
-.cursor-ring {
-  position: fixed; z-index: 9997;
-  width: 34px; height: 34px;
-  border: 1.5px solid rgba(0,212,255,0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%,-50%);
-  transition: border-color 0.2s, width 0.3s, height 0.3s, background 0.3s;
-}
-
-.cursor-dot.cursor-hover { transform: translate(-50%,-50%) scale(0); }
-.cursor-ring.cursor-hover { width: 48px; height: 48px; background: rgba(0,212,255,0.08); border-color: var(--cyan); }
-
-/* ══════════════════════════════
    TYPOGRAPHY UTILITIES
 ══════════════════════════════ */
 .grad-text {
@@ -1946,8 +1919,6 @@ spline-viewer {
 
 @media (max-width: 600px) {
   /* Core Layout & Spacing */
-  body { cursor: auto; }
-  .cursor-dot, .cursor-ring { display: none; }
   .container { padding: 0 1.2rem; }
   .about-section, .services-section, .showcase-section, .contact-section, .cta-section { padding: 5rem 0; }
   .section-heading { font-size: clamp(1.8rem, 8vw, 2.5rem); }
