@@ -488,3 +488,17 @@ let lenis;
 
 // Signature
 console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d4ff;font-size:18px;font-weight:900;', 'color:rgba(255,255,255,0.5);');
+
+
+// Scroll Drone Logic
+window.addEventListener('scroll', () => {
+  const drone = document.getElementById('scroll-drone');
+  if (drone) {
+    const scrolled = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = max > 0 ? scrolled / max : 0;
+    // Bound between 2% and 98%
+    const boundedPercent = Math.max(0.02, Math.min(0.98, percent));
+    drone.style.top = `${boundedPercent * 100}%`;
+  }
+});
