@@ -235,8 +235,13 @@ let lenis;
 (function initChatDemo() {
   const msgs = document.querySelectorAll('#dc-messages .dc-msg');
   const typing = document.querySelector('.dc-typing');
+  let isVisible = false;
 
   function animateChat() {
+    if (!isVisible) {
+      setTimeout(animateChat, 2000);
+      return;
+    }
     msgs.forEach((m, i) => { if (i > 0) { m.classList.add('hidden'); } });
     if (typing) typing.style.display = 'none';
 
@@ -244,14 +249,14 @@ let lenis;
     for (let i = 1; i < msgs.length; i++) {
       const msg = msgs[i];
       if (msg.classList.contains('bot') && typing) {
-        setTimeout(() => { typing.style.display = 'flex'; }, delay);
+        setTimeout(() => { if(isVisible) typing.style.display = 'flex'; }, delay);
         delay += 1100;
         const d = delay;
-        setTimeout(() => { typing.style.display = 'none'; msg.classList.remove('hidden'); }, d);
+        setTimeout(() => { if(isVisible) { typing.style.display = 'none'; msg.classList.remove('hidden'); } }, d);
         delay += 700;
       } else {
         const d = delay;
-        setTimeout(() => { msg.classList.remove('hidden'); }, d);
+        setTimeout(() => { if(isVisible) msg.classList.remove('hidden'); }, d);
         delay += 600;
       }
     }
@@ -259,10 +264,13 @@ let lenis;
   }
 
   const io = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) { animateChat(); io.disconnect(); }
-  }, { threshold: 0.3 });
+    isVisible = entries[0].isIntersecting;
+  }, { threshold: 0.1 });
   const c = document.getElementById('demo-chat-ui');
-  if (c) io.observe(c);
+  if (c) {
+    io.observe(c);
+    animateChat();
+  }
 })();
 
 
@@ -271,21 +279,31 @@ let lenis;
 // ────────────────────────────────────────────────────
 (function initWADemo() {
   const msgs = document.querySelectorAll('#wa-messages .wa-msg');
+  let isVisible = false;
+
   function animate() {
+    if (!isVisible) {
+      setTimeout(animate, 2000);
+      return;
+    }
     msgs.forEach((m, i) => { if (i > 0) { m.classList.add('hidden'); m.style.display = 'none'; } });
     let delay = 700;
     for (let i = 1; i < msgs.length; i++) {
       const m = msgs[i]; const d = delay;
-      setTimeout(() => { m.style.display = ''; m.classList.remove('hidden'); }, d);
+      setTimeout(() => { if(isVisible) { m.style.display = ''; m.classList.remove('hidden'); } }, d);
       delay += 900 + Math.random() * 300;
     }
     setTimeout(animate, delay + 3200);
   }
+
   const io = new IntersectionObserver(es => {
-    if (es[0].isIntersecting) { animate(); io.disconnect(); }
-  }, { threshold: 0.3 });
+    isVisible = es[0].isIntersecting;
+  }, { threshold: 0.1 });
   const c = document.getElementById('demo-wa-ui');
-  if (c) io.observe(c);
+  if (c) {
+    io.observe(c);
+    animate();
+  }
 })();
 
 
@@ -490,15 +508,40 @@ let lenis;
 console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d4ff;font-size:18px;font-weight:900;', 'color:rgba(255,255,255,0.5);');
 
 
-// Scroll Drone Logic
-window.addEventListener('scroll', () => {
-  const drone = document.getElementById('scroll-drone');
-  if (drone) {
+// ────────────────────────────────────────────────────
+// 18. SCROLL TRAVELER (Rocket that follows scroll)
+// ────────────────────────────────────────────────────
+(function initScrollTraveler() {
+  const traveler = document.getElementById('scroll-traveler');
+  if (!traveler) return;
+
+  let ticking = false;
+  let lastScrollY = window.scrollY;
+
+  function updateTraveler() {
     const scrolled = window.scrollY;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const percent = max > 0 ? scrolled / max : 0;
-    // Bound between 2% and 98%
-    const boundedPercent = Math.max(0.02, Math.min(0.98, percent));
-    drone.style.top = `${boundedPercent * 100}%`;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const percent = Math.min(1, Math.max(0, scrolled / max));
+    // Map 0–1 scroll to 0%–100% of the track height
+    traveler.style.top = (percent * 100) + '%';
+    ticking = false;
   }
-});
+
+  // Use Lenis scroll events if available (smoother), else native scroll
+  if (typeof lenis !== 'undefined' && lenis) {
+    lenis.on('scroll', ({ scroll, limit }) => {
+      const percent = Math.min(1, Math.max(0, scroll / limit));
+      traveler.style.top = (percent * 100) + '%';
+    });
+  } else {
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateTraveler);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // Initialise position on load
+  updateTraveler();
+})();

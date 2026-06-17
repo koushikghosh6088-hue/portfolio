@@ -55,6 +55,18 @@
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
 
+  <!-- ═══ SCROLL TRAVELER ═══ -->
+  <div class="scroll-track-wrap" id="scroll-track-wrap" aria-hidden="true">
+    <div class="scroll-track-line"></div>
+    <div class="scroll-traveler" id="scroll-traveler">
+      <div class="traveler-glow"></div>
+      <div class="traveler-rocket">🚀</div>
+      <div class="traveler-trail"></div>
+    </div>
+    <div class="scroll-track-dot scroll-track-dot-top"></div>
+    <div class="scroll-track-dot scroll-track-dot-bottom"></div>
+  </div>
+
   <!-- ═══════════════════════════════════════
        NAVIGATION
   ════════════════════════════════════════ -->
@@ -347,85 +359,147 @@
           </div>
           <div class="svc-body">
             <div class="svc-tag">Custom Software Development</div>
-            <h3>Any Solution, <span class="grad-text">Tailored for You</span></h3>
-            <p>Have a unique idea or complex requirement? We architect and build bespoke software solutions from the ground up — designed exactly for your business needs.</p>
-            <ul class="svc-features">
-              <li>✦ Custom architecture design</li>
-              <li>✦ API integrations &amp; microservices</li>
-              <li>✦ Cloud-native &amp; scalable</li>
-              <li>✦ Dedicated development team</li>
-            </ul>
-            <a href="#contact" class="svc-cta">Build Custom →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
+            <h3>Any Solution,   <!-- ═══════════════════════════════════════
        3. ABOUT US SECTION
   ════════════════════════════════════════ -->
   <section id="about" class="about-section" aria-label="About Us">
     <div class="container">
+
       <div class="section-header" data-gsap="fadeUp">
         <span class="section-tag">Who We Are</span>
-        <h2 class="section-heading">About <span class="grad-text">Joint AI Labs</span></h2>
-        <p class="section-sub">A passionate team of AI engineers, designers, and business strategists helping businesses thrive in the digital era.</p>
+        <h2 class="section-heading">Meet the <span class="grad-text">Founders</span></h2>
+        <p class="section-sub">Two passionate builders on a mission to make AI accessible for every business in India and beyond.</p>
       </div>
 
-      <div class="about-grid">
-        <div class="about-text" data-gsap="fadeLeft">
-          <p class="about-intro">We are <strong>Joint AI Labs</strong> — an AI-first digital agency based in India, serving clients worldwide. We combine deep technical expertise with creative design to build products that actually move the needle for your business.</p>
-          <p>From a one-person startup to an enterprise brand, we've helped businesses across industries automate, scale, and grow using AI-powered technology.</p>
-          <div class="about-stats">
-            <div class="ab-stat">
-              <strong class="ab-num grad-text" data-target="50">0</strong>
-              <span>Projects Delivered</span>
+      <!-- Founders Row -->
+      <div class="founders-row">
+
+        <div class="founder-card" data-gsap="fadeLeft">
+          <div class="founder-img-wrap">
+            <img src="founder1.png" alt="Founder 1 – CEO & AI Architect" class="founder-img" loading="lazy" />
+            <div class="founder-img-glow"></div>
+            <div class="founder-badge">CEO &amp; AI Architect</div>
+          </div>
+          <div class="founder-info">
+            <h3 class="founder-name">Koushik Ghosh</h3>
+            <p class="founder-role grad-text">Co-Founder &amp; Chief AI Officer</p>
+            <p class="founder-bio">Koushik is an AI engineer and full-stack developer with a deep passion for building products that solve real business problems. He leads the technical vision at Joint AI Labs — from GPT-4 integrations and WhatsApp AI agents to custom ERP systems and mobile apps.</p>
+            <div class="founder-tags">
+              <span>🤖 AI Engineering</span>
+              <span>⚡ Full-Stack Dev</span>
+              <span>📊 System Architecture</span>
             </div>
-            <div class="ab-stat">
-              <strong class="ab-num grad-text" data-target="30">0</strong>
-              <span>Happy Clients</span>
-            </div>
-            <div class="ab-stat">
-              <strong class="ab-num grad-text" data-target="5">0</strong>
-              <span>Years Experience</span>
+            <div class="founder-socials">
+              <a href="mailto:jointailabs@gmail.com" class="founder-social-link" aria-label="Email">✉️ jointailabs@gmail.com</a>
+              <a href="tel:8017683428" class="founder-social-link" aria-label="Phone">📞 8017683428</a>
             </div>
           </div>
-          <a href="#contact" class="btn-primary" style="margin-top:2rem;display:inline-flex;align-items:center;gap:.5rem;">
-            <span>Work With Us</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </a>
         </div>
-        <div class="about-cards" data-gsap="fadeRight">
-          <div class="ab-card">
-            <div class="ab-card-icon">🚀</div>
-            <h4>Innovation First</h4>
-            <p>We stay ahead of the curve with the latest AI models, frameworks and design trends.</p>
+
+        <div class="founder-card founder-card-alt" data-gsap="fadeRight">
+          <div class="founder-img-wrap">
+            <img src="founder2.png" alt="Founder 2 – CTO & Product Lead" class="founder-img" loading="lazy" />
+            <div class="founder-img-glow founder-img-glow-purple"></div>
+            <div class="founder-badge founder-badge-purple">CTO &amp; Product Lead</div>
           </div>
-          <div class="ab-card">
-            <div class="ab-card-icon">🎯</div>
-            <h4>Results Driven</h4>
-            <p>Every solution we build is measured by the real business impact it creates for our clients.</p>
+          <div class="founder-info">
+            <h3 class="founder-name">Rajdeep Mondal</h3>
+            <p class="founder-role grad-text">Co-Founder &amp; Chief Technology Officer</p>
+            <p class="founder-bio">Rajdeep drives product strategy and technology roadmap at Joint AI Labs. With expertise in mobile development, cloud infrastructure, and business automation, he ensures every product we ship is fast, scalable, and delivers measurable ROI for our clients.</p>
+            <div class="founder-tags">
+              <span>📱 Mobile Apps</span>
+              <span>☁️ Cloud Infra</span>
+              <span>🚀 Product Strategy</span>
+            </div>
+            <div class="founder-socials">
+              <a href="mailto:jointailabs@gmail.com" class="founder-social-link" aria-label="Email">✉️ jointailabs@gmail.com</a>
+              <a href="tel:7003383676" class="founder-social-link" aria-label="Phone">📞 70033 83676</a>
+            </div>
           </div>
-          <div class="ab-card">
-            <div class="ab-card-icon">🤝</div>
-            <h4>Long-Term Partnership</h4>
-            <p>We're not just vendors — we're your dedicated tech partner, invested in your long-term success.</p>
+        </div>
+
+      </div>
+
+      <!-- Company Story -->
+      <div class="about-story" data-gsap="fadeUp">
+        <div class="story-text">
+          <h3>Our <span class="grad-text">Story</span></h3>
+          <p>Joint AI Labs was founded with one bold idea: <em>every business — no matter the size — deserves access to world-class AI technology.</em> What started as a two-person team building websites from a small apartment has grown into a full-service AI digital agency trusted by 30+ clients across India.</p>
+          <p>We've built WhatsApp AI agents that close ₹50L+ in deals, ERP systems managing 1000s of daily transactions, and AI chatbots handling thousands of customer queries — all powered by the latest in GPT-4, LangChain, and custom AI pipelines.</p>
+        </div>
+        <div class="about-stats">
+          <div class="ab-stat">
+            <strong class="ab-num grad-text" data-target="50">0</strong>
+            <span>+</span>
+            <small>Projects Delivered</small>
           </div>
-          <div class="ab-card">
-            <div class="ab-card-icon">⚡</div>
-            <h4>Fast Delivery</h4>
-            <p>Agile development means you get working products fast, with continuous improvements.</p>
+          <div class="ab-stat">
+            <strong class="ab-num grad-text" data-target="30">0</strong>
+            <span>+</span>
+            <small>Happy Clients</small>
+          </div>
+          <div class="ab-stat">
+            <strong class="ab-num grad-text" data-target="5">0</strong>
+            <span>+</span>
+            <small>Years Experience</small>
+          </div>
+          <div class="ab-stat">
+            <strong class="ab-num grad-text" data-target="98">0</strong>
+            <span>%</span>
+            <small>Client Satisfaction</small>
           </div>
         </div>
       </div>
+
+      <!-- Values Grid -->
+      <div class="about-values" data-gsap="fadeUp">
+        <div class="ab-value-card">
+          <div class="av-icon">🚀</div>
+          <h4>Innovation First</h4>
+          <p>We stay ahead of the curve with the latest AI models, frameworks and design trends — always building for tomorrow.</p>
+        </div>
+        <div class="ab-value-card">
+          <div class="av-icon">🎯</div>
+          <h4>Results Driven</h4>
+          <p>Every solution is measured by the real business impact it creates. No vanity metrics — just ROI that matters.</p>
+        </div>
+        <div class="ab-value-card">
+          <div class="av-icon">🤝</div>
+          <h4>Long-Term Partnership</h4>
+          <p>We're not just vendors. We're your dedicated tech partner, invested in your success for the long run.</p>
+        </div>
+        <div class="ab-value-card">
+          <div class="av-icon">⚡</div>
+          <h4>Fast Delivery</h4>
+          <p>Agile development means working products in weeks, not months. Speed without sacrificing quality.</p>
+        </div>
+        <div class="ab-value-card">
+          <div class="av-icon">🔒</div>
+          <h4>Trusted &amp; Secure</h4>
+          <p>All systems built with enterprise-grade security, data privacy compliance, and reliability at the core.</p>
+        </div>
+        <div class="ab-value-card">
+          <div class="av-icon">🌍</div>
+          <h4>Global Standards</h4>
+          <p>Indian roots, global standards. We build products that compete with the best tech companies in the world.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:3rem;">
+        <a href="#contact" class="btn-primary" style="display:inline-flex;align-items:center;gap:.6rem;font-size:1rem;">
+          <span>Start Working With Us</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+
     </div>
   </section>
+
 
   <!-- ═══════════════════════════════════════
        4. TECHNOLOGY SECTION
   ════════════════════════════════════════ -->
+
   <section id="technology" class="technology-section" aria-label="Technology">
     <div class="container">
       <div class="section-header" data-gsap="fadeUp">
