@@ -593,6 +593,26 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 (function loadSpline() {
   const robotWrap = document.getElementById('global-robot');
   if (robotWrap) {
-    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer><div class="spline-watermark-hider">⚡ Joint AI Engine</div>';
+    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer>';
+    
+    // Attempt to completely remove the logo from the shadow DOM
+    const checkInterval = setInterval(() => {
+      const viewer = document.querySelector('spline-viewer');
+      if (viewer && viewer.shadowRoot) {
+        // Inject custom CSS directly into Spline's Shadow DOM
+        const style = document.createElement('style');
+        style.textContent = '#logo, a[href*="spline.design"], .spline-watermark { display: none !important; opacity: 0 !important; pointer-events: none !important; }';
+        viewer.shadowRoot.appendChild(style);
+        
+        // Also try to physically remove the node
+        const logo = viewer.shadowRoot.querySelector('#logo');
+        if (logo) logo.remove();
+        
+        clearInterval(checkInterval);
+      }
+    }, 500);
+
+    // Stop checking after 15 seconds
+    setTimeout(() => clearInterval(checkInterval), 15000);
   }
 })();
