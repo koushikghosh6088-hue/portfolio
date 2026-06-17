@@ -814,7 +814,7 @@ spline-viewer {
 
 .dc-msg.bot { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.15); color: var(--text-2); align-self: flex-start; }
 .dc-msg.user { background: linear-gradient(135deg, var(--cyan), var(--blue)); color: var(--dark); align-self: flex-end; font-weight: 500; }
-.dc-msg.hidden { opacity: 0; position: absolute; pointer-events: none; }
+.dc-msg.hidden { display: none !important; }
 
 .dc-typing {
   display: none; align-items: center; gap: 4px; padding: 0.5rem 0.8rem;
@@ -873,7 +873,7 @@ spline-viewer {
 
 .wa-in { background: rgba(255,255,255,0.07); align-self: flex-start; border-radius: 0 8px 8px 8px; }
 .wa-out { background: #0d3621; border: 1px solid rgba(37,211,102,0.15); align-self: flex-end; border-radius: 8px 8px 0 8px; color: var(--text-2); }
-.wa-msg.hidden { opacity: 0; position: absolute; pointer-events: none; }
+.wa-msg.hidden { display: none !important; }
 
 .wa-btn-msg {
   margin-top: 0.4rem; padding: 0.3rem 0.6rem; background: rgba(37,211,102,0.15);
@@ -1858,13 +1858,7 @@ spline-viewer {
 @media (max-width: 900px) {
   .hero { padding-top: 0; text-align: center; overflow-x: hidden; justify-content: flex-start; min-height: 100vh; position: relative; }
   .global-robot-wrap { 
-    height: 100vh; top: 0; bottom: auto; 
-    align-items: flex-start; 
-    justify-content: center;
-    animation: none !important; 
-    opacity: 1 !important; 
-    transform: translateX(0) scale(1) !important; 
-    z-index: 0;
+    display: none !important; 
   }
   
   /* ── Mobile Bottom Nav ── */
@@ -1900,7 +1894,7 @@ spline-viewer {
     -webkit-backdrop-filter: none;
     border: none;
     border-radius: 0;
-    padding: 22vh 1.5rem 5rem; /* Text moved up to chest/waist so buttons fit on screen */
+    padding: 15vh 1rem 3rem; /* Adjusted for wider text on mobile */
     box-shadow: none;
   }
   .hero-glow {

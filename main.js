@@ -545,3 +545,56 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
   // Initialise position on load
   updateTraveler();
 })();
+
+// ────────────────────────────────────────────────────
+// 12. HERO TYPING TEXT
+// ────────────────────────────────────────────────────
+(function initHeroTyping() {
+  const dynamicTextElement = document.querySelector('.v-typing-text');
+  if (!dynamicTextElement) return;
+
+  const phrases = ["WE BUILD WEBSITES.", "WE BUILD MOBILE APPS.", "WE BUILD AI AGENTS.", "WE BUILD AUTOMATION."];
+  let phraseIndex = 0;
+  let letterIndex = 0;
+  let isDeleting = false;
+
+  function typeText() {
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (isDeleting) {
+      dynamicTextElement.innerText = currentPhrase.substring(0, letterIndex - 1) + '|';
+      letterIndex--;
+    } else {
+      dynamicTextElement.innerText = currentPhrase.substring(0, letterIndex + 1) + '|';
+      letterIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 40 : 80;
+
+    if (!isDeleting && letterIndex === currentPhrase.length) {
+      typeSpeed = 1500;
+      isDeleting = true;
+      dynamicTextElement.innerText = currentPhrase;
+    } else if (isDeleting && letterIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      typeSpeed = 400;
+    }
+
+    setTimeout(typeText, typeSpeed);
+  }
+
+  setTimeout(typeText, 1000);
+})();
+
+// ────────────────────────────────────────────────────
+// 13. CONDITIONAL SPLINE LOAD (PERFORMANCE OPTIMIZATION)
+// ────────────────────────────────────────────────────
+(function loadSplineOnDesktop() {
+  if (window.innerWidth > 900) {
+    const robotWrap = document.getElementById('global-robot');
+    if (robotWrap) {
+      robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer><div class="spline-watermark-hider"></div>';
+    }
+  }
+})();
