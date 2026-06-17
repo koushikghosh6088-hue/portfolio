@@ -588,13 +588,11 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 })();
 
 // ────────────────────────────────────────────────────
-// 13. CONDITIONAL SPLINE LOAD (PERFORMANCE OPTIMIZATION)
+// 13. SPLINE LOAD
 // ────────────────────────────────────────────────────
-(function loadSplineOnDesktop() {
-  if (window.innerWidth > 900) {
-    const robotWrap = document.getElementById('global-robot');
-    if (robotWrap) {
-      robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer><div class="spline-watermark-hider"></div>';
-    }
+(function loadSpline() {
+  const robotWrap = document.getElementById('global-robot');
+  if (robotWrap) {
+    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer><div class="spline-watermark-hider"></div>';
   }
 })();

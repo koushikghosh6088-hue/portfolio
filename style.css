@@ -1858,7 +1858,13 @@ spline-viewer {
 @media (max-width: 900px) {
   .hero { padding-top: 0; text-align: center; overflow-x: hidden; justify-content: flex-start; min-height: 100vh; position: relative; }
   .global-robot-wrap { 
-    display: none !important; 
+    height: 100vh; top: 0; bottom: auto; 
+    align-items: flex-start; 
+    justify-content: center;
+    animation: none !important; 
+    opacity: 1 !important; 
+    transform: translateX(0) scale(1) !important; 
+    z-index: 0;
   }
   
   /* ── Mobile Bottom Nav ── */
