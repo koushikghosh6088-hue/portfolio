@@ -198,226 +198,269 @@
   <!-- ═══════════════════════════════════════
        2. SERVICES SECTION
   ════════════════════════════════════════ -->
-  <section id="services" class="services-section" aria-label="Services">
+  
+  <section id="services" class="services-new-section" aria-label="Services">
     <div class="container">
-      <div class="section-header" data-gsap="fadeUp">
-        <span class="section-tag">What We Offer</span>
-        <h2 class="section-heading">Our <span class="grad-text">Services</span></h2>
-        <p class="section-sub">Intelligent solutions crafted for every stage of your digital journey</p>
+      
+      <!-- Section Header -->
+      <div class="s-header" data-gsap="fadeUp">
+        <span class="s-tag">WHAT WE OFFER</span>
+        <h2 class="s-heading">Our Services</h2>
+        <p class="s-sub">End-to-end digital solutions — from stunning websites to intelligent AI agents — everything your business needs to grow.</p>
       </div>
 
-      <div class="services-grid">
+      <!-- Industry Pill Strip (Marquee) -->
+      <div class="s-marquee-wrap">
+        <div class="s-marquee-label">Trusted by businesses in:</div>
+        <div class="s-marquee-track">
+          <!-- Duplicated for infinite loop -->
+          <div class="s-marquee-inner">
+            <span class="s-pill">🏠 Real Estate</span>
+            <span class="s-pill">🍽️ Restaurants</span>
+            <span class="s-pill">🏥 Healthcare</span>
+            <span class="s-pill">🏭 Manufacturing</span>
+            <span class="s-pill">🛒 E-Commerce</span>
+            <span class="s-pill">🚚 Logistics</span>
+            <span class="s-pill">🎓 Education</span>
+            <span class="s-pill">💰 Finance</span>
+            <!-- duplicate -->
+            <span class="s-pill">🏠 Real Estate</span>
+            <span class="s-pill">🍽️ Restaurants</span>
+            <span class="s-pill">🏥 Healthcare</span>
+            <span class="s-pill">🏭 Manufacturing</span>
+            <span class="s-pill">🛒 E-Commerce</span>
+            <span class="s-pill">🚚 Logistics</span>
+            <span class="s-pill">🎓 Education</span>
+            <span class="s-pill">💰 Finance</span>
+          </div>
+        </div>
+      </div>
 
-        <!-- Service 1: Website Design -->
-        <div class="svc-card" id="svc-web" data-delay="0">
-          <div class="svc-demo">
-            <div class="demo-browser">
-              <div class="db-header">
-                <div class="db-dots"><span class="dbd r"></span><span class="dbd y"></span><span class="dbd g"></span></div>
-                <div class="db-url">jointailabs.com</div>
+      <!-- Services Grid -->
+      <div class="s-grid">
+
+        <!-- CARD 1: Website Design -->
+        <div class="s-card" id="s-card-1">
+          <div class="s-card-top">
+            <div class="s-icon-badge">🌐</div>
+            <div class="s-label-pill p-blue">MOST POPULAR</div>
+          </div>
+          <h3 class="s-title">Website Design & Development</h3>
+          <p class="s-desc">Blazing-fast, SEO-optimized websites that convert visitors into customers. From landing pages to full web applications.</p>
+          <ul class="s-features">
+            <li><span class="s-check">✦</span> Responsive across all devices</li>
+            <li><span class="s-check">✦</span> SEO-optimized from day one</li>
+            <li><span class="s-check">✦</span> 3D & interactive UI/UX</li>
+            <li><span class="s-check">✦</span> Lightning-fast performance</li>
+          </ul>
+          <div class="s-ideal">Ideal for: Startups, Restaurants, Real Estate, Clinics</div>
+          
+          <!-- Mockup -->
+          <div class="s-mockup-container">
+            <div class="mock-browser">
+              <div class="mb-header">
+                <div class="mb-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+                <div class="mb-url">jointailabs.com</div>
               </div>
-              <div class="db-body">
-                <div class="db-nav-bar">
-                  <div class="db-nav-logo"></div>
-                  <div class="db-nav-links"><span></span><span></span><span></span></div>
-                </div>
-                <div class="db-hero-area">
-                  <div class="db-text-lines">
-                    <div class="db-line l1"></div>
-                    <div class="db-line l2"></div>
-                    <div class="db-line l3 short"></div>
-                  </div>
-                  <div class="db-hero-img"></div>
-                </div>
-                <div class="db-cards-row">
-                  <div class="db-mini-card"></div>
-                  <div class="db-mini-card"></div>
-                  <div class="db-mini-card"></div>
+              <div class="mb-body">
+                <div class="mb-nav"></div>
+                <div class="mb-hero"></div>
+                <div class="mb-cards"><div class="mbc"></div><div class="mbc"></div><div class="mbc"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="s-cta-btn">Get a Website →</a>
+        </div>
+
+        <!-- CARD 2: AI Chatbot -->
+        <div class="s-card" id="s-card-2">
+          <div class="s-card-top">
+            <div class="s-icon-badge">🤖</div>
+            <div class="s-label-pill p-purple">AI POWERED</div>
+          </div>
+          <h3 class="s-title">AI Chatbot Development</h3>
+          <p class="s-desc">Deploy intelligent GPT-4 powered chatbots that handle queries, qualify leads, and book appointments 24/7 without human intervention.</p>
+          <ul class="s-features">
+            <li><span class="s-check">✦</span> GPT-4 & custom AI models</li>
+            <li><span class="s-check">✦</span> Multi-language support</li>
+            <li><span class="s-check">✦</span> CRM & calendar integration</li>
+            <li><span class="s-check">✦</span> Trained on your business data</li>
+          </ul>
+          <div class="s-ideal">Ideal for: E-commerce, Healthcare, Education, SaaS</div>
+          
+          <!-- Mockup -->
+          <div class="s-mockup-container">
+            <div class="mock-chat">
+              <div class="mc-header">
+                <span>🤖 AI Assistant · Online</span>
+                <div class="mc-dot"></div>
+              </div>
+              <div class="mc-body">
+                <div class="mc-msg mc-user m1">I need pricing</div>
+                <div class="mc-msg mc-bot m2">Sure! Our plans start from ₹4,999.</div>
+                <div class="mc-msg mc-user m3">Can I get a demo?</div>
+                <div class="mc-typing m4"><span class="td"></span><span class="td"></span><span class="td"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="s-cta-btn">Deploy a Chatbot →</a>
+        </div>
+
+        <!-- CARD 3: WhatsApp AI Agent -->
+        <div class="s-card" id="s-card-3">
+          <div class="s-card-top">
+            <div class="s-icon-badge">💬</div>
+            <div class="s-label-pill p-green">HOT</div>
+          </div>
+          <h3 class="s-title">WhatsApp AI Agent</h3>
+          <p class="s-desc">Turn WhatsApp into your most powerful sales channel. Our AI agents qualify leads, nurture prospects, and close deals — automatically.</p>
+          <ul class="s-features">
+            <li><span class="s-check">✦</span> WhatsApp Business API</li>
+            <li><span class="s-check">✦</span> AI-powered conversations</li>
+            <li><span class="s-check">✦</span> Auto follow-ups & reminders</li>
+            <li><span class="s-check">✦</span> Lead scoring & qualification</li>
+          </ul>
+          <div class="s-ideal">Ideal for: Real Estate, Coaching, Retail, Service Businesses</div>
+          
+          <!-- Mockup -->
+          <div class="s-mockup-container">
+            <div class="mock-wa">
+              <div class="mw-header">
+                <span>Joint AI Bot 🤖</span>
+                <div class="mw-dot"></div>
+              </div>
+              <div class="mw-body">
+                <div class="mw-msg mw-user">Hi! Interested in your services<span class="mw-time">10:01</span></div>
+                <div class="mw-msg mw-bot">Welcome! Which service are you looking for? 🚀<span class="mw-time">10:01</span></div>
+                <div class="mw-msg mw-user">Tell me about AI chatbot<span class="mw-time">10:02</span></div>
+                <div class="mw-msg mw-bot mw-new">Our AI chatbots are powered by GPT-4 and can handle...<span class="mw-time">10:02</span></div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="s-cta-btn">Get WhatsApp AI →</a>
+        </div>
+
+        <!-- CARD 4: Mobile App -->
+        <div class="s-card" id="s-card-4">
+          <div class="s-card-top">
+            <div class="s-icon-badge">📱</div>
+          </div>
+          <h3 class="s-title">Mobile App Development</h3>
+          <p class="s-desc">Beautiful, high-performance mobile apps for iOS and Android. From concept to App Store — we handle everything end to end.</p>
+          <ul class="s-features">
+            <li><span class="s-check">✦</span> Flutter & React Native</li>
+            <li><span class="s-check">✦</span> iOS & Android deployment</li>
+            <li><span class="s-check">✦</span> Push notifications & offline mode</li>
+            <li><span class="s-check">✦</span> App Store optimization</li>
+          </ul>
+          <div class="s-ideal">Ideal for: Logistics, Food Delivery, Healthcare, Retail</div>
+          
+          <!-- Mockup -->
+          <div class="s-mockup-container">
+            <div class="mock-phone">
+              <div class="mp-frame">
+                <div class="mp-notch"></div>
+                <div class="mp-screen">
+                  <div class="mp-head">MyApp</div>
+                  <div class="mp-stat"><div class="mp-st-lab">Revenue</div><div class="mp-st-val v-rev" data-target="48500">0</div></div>
+                  <div class="mp-stat"><div class="mp-st-lab">Orders</div><div class="mp-st-val v-ord" data-target="124">0</div></div>
+                  <div class="mp-stat"><div class="mp-st-lab">Users</div><div class="mp-st-val v-usr" data-target="890">0</div></div>
+                  <div class="mp-nav"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="svc-body">
-            <div class="svc-tag">Website Design &amp; Development</div>
-            <h3>Modern, High-Performance <span class="grad-text">Websites</span></h3>
-            <p>We design and develop blazing-fast, SEO-optimized websites that convert visitors into customers. From landing pages to complex web applications.</p>
-            <ul class="svc-features">
-              <li>✦ Responsive across all devices</li>
-              <li>✦ SEO-optimized from day one</li>
-              <li>✦ 3D &amp; interactive UI/UX</li>
-              <li>✦ Lightning-fast performance</li>
-            </ul>
-            <a href="#contact" class="svc-cta">Get a Website →</a>
-          </div>
+
+          <a href="#contact" class="s-cta-btn">Build Your App →</a>
         </div>
 
-        <!-- Service 2: AI Chatbots -->
-        <div class="svc-card reverse" id="svc-chat" data-delay="1">
-          <div class="svc-demo">
-            <div class="demo-chat" id="demo-chat-ui">
-              <div class="dc-header">
-                <div class="dc-avatar">🤖</div>
-                <div class="dc-info">
-                  <strong>AI Assistant</strong>
-                  <span class="dc-online"><span class="online-dot"></span>Online · Powered by GPT-4</span>
-                </div>
+        <!-- CARD 5: Business Management Software -->
+        <div class="s-card" id="s-card-5">
+          <div class="s-card-top">
+            <div class="s-icon-badge">📊</div>
+            <div class="s-label-pill p-orange">ENTERPRISE</div>
+          </div>
+          <h3 class="s-title">Business Management Software</h3>
+          <p class="s-desc">Custom ERP, CRM, and management dashboards that give you full control over operations, inventory, sales, and team — in one place.</p>
+          <ul class="s-features">
+            <li><span class="s-check">✦</span> Custom ERP & CRM systems</li>
+            <li><span class="s-check">✦</span> Real-time analytics & reports</li>
+            <li><span class="s-check">✦</span> Inventory & HR management</li>
+            <li><span class="s-check">✦</span> Role-based access control</li>
+          </ul>
+          <div class="s-ideal">Ideal for: Manufacturing, Retail Chains, Hospitals, Logistics</div>
+          
+          <!-- Mockup -->
+          <div class="s-mockup-container">
+            <div class="mock-dash">
+              <div class="md-header"><span>📊 Business Dashboard</span><span>Sep 2026</span></div>
+              <div class="md-kpis">
+                <div class="md-kpi"><span>Revenue</span><strong class="c-g">₹4.8L ↑</strong></div>
+                <div class="md-kpi"><span>Leads</span><strong class="c-c">1,247 ↑</strong></div>
+                <div class="md-kpi"><span>Conversions</span><strong class="c-p">68% ↑</strong></div>
               </div>
-              <div class="dc-messages" id="dc-messages">
-                <div class="dc-msg bot">👋 Hi! How can I help you today?</div>
-                <div class="dc-msg user">I want to know your pricing</div>
-                <div class="dc-typing"><span></span><span></span><span></span></div>
-                <div class="dc-msg bot hidden">Great! Our plans start from ₹4,999/mo 🚀</div>
-                <div class="dc-msg user hidden">Can I get a demo?</div>
-                <div class="dc-msg bot hidden">Absolutely! Book a free consultation now 📅</div>
+              <div class="md-chart">
+                <div class="md-bar" style="--h: 40%"></div>
+                <div class="md-bar" style="--h: 60%"></div>
+                <div class="md-bar" style="--h: 50%"></div>
+                <div class="md-bar" style="--h: 80%"></div>
+                <div class="md-bar" style="--h: 70%"></div>
+                <div class="md-bar" style="--h: 95%"></div>
               </div>
-              <div class="dc-input-row">
-                <div class="dc-input">Type your message...</div>
-                <button class="dc-send">➤</button>
-              </div>
+              <div class="md-label">Monthly Revenue</div>
             </div>
           </div>
-          <div class="svc-body">
-            <div class="svc-tag">AI Chatbots</div>
-            <h3>Smart Chatbots for <span class="grad-text">24/7 Engagement</span></h3>
-            <p>Deploy intelligent AI chatbots that handle queries, qualify leads, and book appointments — all without human intervention, around the clock.</p>
-            <ul class="svc-features">
-              <li>✦ GPT-4 &amp; custom AI models</li>
-              <li>✦ Multi-language support</li>
-              <li>✦ CRM &amp; calendar integration</li>
-              <li>✦ Trained on your business data</li>
-            </ul>
-            <a href="#contact" class="svc-cta">Deploy a Chatbot →</a>
-          </div>
+
+          <a href="#contact" class="s-cta-btn">Build Your System →</a>
         </div>
 
-        <!-- Service 3: Business Management -->
-        <div class="svc-card" id="svc-biz" data-delay="2">
-          <div class="svc-demo">
-            <div class="demo-dashboard" id="demo-dash">
-              <div class="dash-header">
-                <span class="dash-title">📊 Business Dashboard</span>
-                <span class="dash-date">Jun 2026</span>
-              </div>
-              <div class="dash-metrics">
-                <div class="dash-metric">
-                  <span class="dm-label">Revenue</span>
-                  <strong class="dm-val green">₹4.8L</strong>
-                  <span class="dm-change">↑ 23%</span>
-                </div>
-                <div class="dash-metric">
-                  <span class="dm-label">Leads</span>
-                  <strong class="dm-val cyan">1,247</strong>
-                  <span class="dm-change">↑ 41%</span>
-                </div>
-                <div class="dash-metric">
-                  <span class="dm-label">Conversions</span>
-                  <strong class="dm-val purple">68%</strong>
-                  <span class="dm-change">↑ 12%</span>
-                </div>
-              </div>
-              <div class="dash-chart">
-                <div class="chart-bars-wrap">
-                  <div class="chart-bar-item"><div class="cb" style="--h:45%"><div class="cb-glow"></div></div><span>Jan</span></div>
-                  <div class="chart-bar-item"><div class="cb" style="--h:62%"><div class="cb-glow"></div></div><span>Feb</span></div>
-                  <div class="chart-bar-item"><div class="cb" style="--h:55%"><div class="cb-glow"></div></div><span>Mar</span></div>
-                  <div class="chart-bar-item"><div class="cb" style="--h:78%"><div class="cb-glow"></div></div><span>Apr</span></div>
-                  <div class="chart-bar-item"><div class="cb" style="--h:70%"><div class="cb-glow"></div></div><span>May</span></div>
-                  <div class="chart-bar-item featured-bar"><div class="cb" style="--h:92%"><div class="cb-glow"></div></div><span>Jun</span></div>
-                </div>
-              </div>
+        <!-- CARD 6: Custom AI Solutions -->
+        <div class="s-card" id="s-card-6">
+          <div class="s-card-top">
+            <div class="s-icon-badge">⚡</div>
+            <div class="s-label-pill p-purple">CUSTOM</div>
+          </div>
+          <h3 class="s-title">Custom AI Solutions & Automation</h3>
+          <p class="s-desc">Have a unique requirement? We architect and build bespoke AI pipelines, automation workflows, and software solutions tailored exactly to your business.</p>
+          <ul class="s-features">
+            <li><span class="s-check">✦</span> n8n & LangChain automation</li>
+            <li><span class="s-check">✦</span> Custom AI agent systems</li>
+            <li><span class="s-check">✦</span> API integrations & microservices</li>
+            <li><span class="s-check">✦</span> Cloud-native & scalable</li>
+          </ul>
+          <div class="s-ideal">Ideal for: Enterprises, SaaS Products, Fintech, Healthcare Tech</div>
+          
+          <!-- Mockup -->
+          <div class="s-mockup-container">
+            <div class="mock-pipe">
+              <div class="mpl-node n1">📥<br>Lead</div>
+              <div class="mpl-line l1"><div class="mpl-dot"></div></div>
+              <div class="mpl-node n2">🤖<br>AI Qualify</div>
+              <div class="mpl-line l2"><div class="mpl-dot"></div></div>
+              <div class="mpl-node n3">📅<br>Auto Book</div>
+              <div class="mpl-line l3"><div class="mpl-dot"></div></div>
+              <div class="mpl-node n4">💰<br>Close Deal</div>
             </div>
           </div>
-          <div class="svc-body">
-            <div class="svc-tag">Business Management Software</div>
-            <h3>Manage &amp; Grow Your <span class="grad-text">Business</span></h3>
-            <p>Custom ERP, CRM, and management dashboards that give you full visibility and control over your operations, inventory, sales, and team — in one place.</p>
-            <ul class="svc-features">
-              <li>✦ Custom ERP &amp; CRM systems</li>
-              <li>✦ Real-time analytics &amp; reports</li>
-              <li>✦ Inventory &amp; HR management</li>
-              <li>✦ Role-based access control</li>
-            </ul>
-            <a href="#contact" class="svc-cta">Build Your System →</a>
-          </div>
+
+          <a href="#contact" class="s-cta-btn">Build Custom →</a>
         </div>
 
-        <!-- Service 4: Mobile Apps -->
-        <div class="svc-card reverse" id="svc-mobile" data-delay="3">
-          <div class="svc-demo">
-            <div class="demo-phone">
-              <div class="dp-frame">
-                <div class="dp-notch"></div>
-                <div class="dp-screen">
-                  <div class="dp-app-header">
-                    <span>MyApp</span>
-                    <span class="dp-bell">🔔</span>
-                  </div>
-                  <div class="dp-greeting">Good Morning, Koushik 👋</div>
-                  <div class="dp-cards-scroll" id="dp-scroll">
-                    <div class="dp-card blue-card"><div class="dpc-icon">💰</div><div class="dpc-info"><strong>Revenue</strong><span>₹1.2L today</span></div></div>
-                    <div class="dp-card green-card"><div class="dpc-icon">📦</div><div class="dpc-info"><strong>Orders</strong><span>48 new</span></div></div>
-                    <div class="dp-card purple-card"><div class="dpc-icon">👥</div><div class="dpc-info"><strong>Users</strong><span>+120 today</span></div></div>
-                  </div>
-                  <div class="dp-nav-bar">
-                    <span class="dp-nav active">🏠</span>
-                    <span class="dp-nav">📊</span>
-                    <span class="dp-nav">💬</span>
-                    <span class="dp-nav">⚙️</span>
-                  </div>
-                </div>
-                <div class="dp-home-bar"></div>
-              </div>
-            </div>
-          </div>
-          <div class="svc-body">
-            <div class="svc-tag">Mobile App Development</div>
-            <h3>Native &amp; Cross-Platform <span class="grad-text">Mobile Apps</span></h3>
-            <p>We build beautiful, high-performance mobile apps for iOS and Android that your customers will love — from concept to App Store, end to end.</p>
-            <ul class="svc-features">
-              <li>✦ React Native &amp; Flutter</li>
-              <li>✦ iOS &amp; Android deployment</li>
-              <li>✦ Push notifications &amp; offline mode</li>
-              <li>✦ App Store optimization</li>
-            </ul>
-            <a href="#contact" class="svc-cta">Build Your App →</a>
-          </div>
-        </div>
+      </div> <!-- End Grid -->
 
-        <!-- Service 5: Custom Solutions -->
-        <div class="svc-card" id="svc-custom" data-delay="4">
-          <div class="svc-demo">
-            <div class="demo-terminal" id="demo-terminal">
-              <div class="term-header">
-                <div class="db-dots"><span class="dbd r"></span><span class="dbd y"></span><span class="dbd g"></span></div>
-                <span class="term-title">joint-ai-labs ~ terminal</span>
-              </div>
-              <div class="term-body" id="term-body">
-                <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">initializing AI engine...</span></div>
-                <div class="term-line success"><span class="term-prompt">✓</span> AI models loaded successfully</div>
-                <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">deploying custom solution...</span></div>
-                <div class="term-line info"><span class="term-prompt">→</span> Building your vision...</div>
-                <div class="term-line success"><span class="term-prompt">✓</span> 47 modules compiled</div>
-                <div class="term-line success"><span class="term-prompt">✓</span> APIs connected &amp; tested</div>
-                <div class="term-line success"><span class="term-prompt">✓</span> Deployed to production 🚀</div>
-                <div class="term-line highlight"><span class="term-prompt">→</span> Solution is LIVE!</div>
-                <div class="term-cursor-line"><span class="term-prompt">$</span> <span class="term-cursor-blink">▊</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="svc-body">
-            <div class="svc-tag">Custom Software Development</div>
-            <h3>Any Solution, <span class="grad-text">Tailored for You</span></h3>
-            <p>Have a unique idea or complex requirement? We architect and build bespoke software solutions from the ground up — designed exactly for your business needs.</p>
-            <ul class="svc-features">
-              <li>✦ Custom architecture design</li>
-              <li>✦ API integrations & microservices</li>
-              <li>✦ Cloud-native & scalable</li>
-              <li>✦ Dedicated development team</li>
-            </ul>
-            <a href="#contact" class="svc-cta">Build Custom →</a>
-          </div>
+      <!-- Bottom CTA Strip -->
+      <div class="s-bottom-cta">
+        <div class="s-cta-left">
+          <h3>Not sure which service you need?</h3>
+          <p>Book a free 30-minute strategy call — we'll analyze your business and recommend exactly what will give you the best ROI.</p>
         </div>
-
+        <div class="s-cta-right">
+          <a href="#contact" class="s-btn-primary">📅 Book Free Call</a>
+          <a href="https://wa.me/918017683428" class="s-btn-wa">💬 WhatsApp Us</a>
+        </div>
       </div>
 
     </div>

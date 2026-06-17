@@ -229,83 +229,70 @@ let lenis;
 // ────────────────────────────────────────────────────
 
 
-// ────────────────────────────────────────────────────
-// 9. CHATBOT DEMO ANIMATION (Service section)
-// ────────────────────────────────────────────────────
-(function initChatDemo() {
-  const msgs = document.querySelectorAll('#dc-messages .dc-msg');
-  const typing = document.querySelector('.dc-typing');
-  let isVisible = false;
 
-  function animateChat() {
-    if (!isVisible) {
-      setTimeout(animateChat, 2000);
-      return;
-    }
-    msgs.forEach((m, i) => { if (i > 0) { m.classList.add('hidden'); } });
-    if (typing) typing.style.display = 'none';
+// ────────────────────────────────────────────────────
+// NEW SERVICES ANIMATIONS
+// ────────────────────────────────────────────────────
+(function initNewServices() {
+  const cards = document.querySelectorAll('.s-card');
+  const cta = document.querySelector('.s-bottom-cta');
+  const dashBars = document.querySelectorAll('.mock-dash');
+  const phoneVals = document.querySelectorAll('.mp-st-val');
 
-    let delay = 500;
-    for (let i = 1; i < msgs.length; i++) {
-      const msg = msgs[i];
-      if (msg.classList.contains('bot') && typing) {
-        setTimeout(() => { if(isVisible) typing.style.display = 'flex'; }, delay);
-        delay += 1100;
-        const d = delay;
-        setTimeout(() => { if(isVisible) { typing.style.display = 'none'; msg.classList.remove('hidden'); } }, d);
-        delay += 700;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target.classList.contains('s-card')) {
+          const delay = Array.from(cards).indexOf(entry.target) * 100;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          observer.unobserve(entry.target);
+        }
+        if (entry.target.classList.contains('s-bottom-cta')) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+        if (entry.target.classList.contains('mock-dash')) {
+          setTimeout(() => entry.target.classList.add('animate'), 300);
+          observer.unobserve(entry.target);
+        }
+        if (entry.target.classList.contains('mp-st-val')) {
+          animateValue(entry.target);
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(c => observer.observe(c));
+  if(cta) observer.observe(cta);
+  dashBars.forEach(d => observer.observe(d));
+  phoneVals.forEach(v => observer.observe(v));
+
+  function animateValue(obj) {
+    const target = parseInt(obj.getAttribute('data-target'));
+    const duration = 2000;
+    const start = Date.now();
+    
+    function step() {
+      const p = Math.min((Date.now() - start) / duration, 1);
+      const val = Math.floor(p * target);
+      if (target > 1000) {
+        // Format as Indian currency style or standard thousands (e.g. 48500 -> 48.5K or 48,500)
+        obj.textContent = target >= 10000 ? '₹' + (val / 1000).toFixed(1) + 'K' : val;
       } else {
-        const d = delay;
-        setTimeout(() => { if(isVisible) msg.classList.remove('hidden'); }, d);
-        delay += 600;
+        obj.textContent = val + (obj.classList.contains('v-ord') ? '' : '+');
+      }
+      if (p < 1) requestAnimationFrame(step);
+      else {
+        // Final format
+        if (target === 48500) obj.textContent = '₹48.5K';
+        if (target === 124) obj.textContent = '124';
+        if (target === 890) obj.textContent = '890+';
       }
     }
-    setTimeout(animateChat, delay + 3000);
-  }
-
-  const io = new IntersectionObserver(entries => {
-    isVisible = entries[0].isIntersecting;
-  }, { threshold: 0.1 });
-  const c = document.getElementById('demo-chat-ui');
-  if (c) {
-    io.observe(c);
-    animateChat();
+    requestAnimationFrame(step);
   }
 })();
-
-
-// ────────────────────────────────────────────────────
-// 10. WHATSAPP DEMO ANIMATION
-// ────────────────────────────────────────────────────
-(function initWADemo() {
-  const msgs = document.querySelectorAll('#wa-messages .wa-msg');
-  let isVisible = false;
-
-  function animate() {
-    if (!isVisible) {
-      setTimeout(animate, 2000);
-      return;
-    }
-    msgs.forEach((m, i) => { if (i > 0) { m.classList.add('hidden'); m.style.display = 'none'; } });
-    let delay = 700;
-    for (let i = 1; i < msgs.length; i++) {
-      const m = msgs[i]; const d = delay;
-      setTimeout(() => { if(isVisible) { m.style.display = ''; m.classList.remove('hidden'); } }, d);
-      delay += 900 + Math.random() * 300;
-    }
-    setTimeout(animate, delay + 3200);
-  }
-
-  const io = new IntersectionObserver(es => {
-    isVisible = es[0].isIntersecting;
-  }, { threshold: 0.1 });
-  const c = document.getElementById('demo-wa-ui');
-  if (c) {
-    io.observe(c);
-    animate();
-  }
-})();
-
 
 // ────────────────────────────────────────────────────
 // 11. SHOWCASE TABS
