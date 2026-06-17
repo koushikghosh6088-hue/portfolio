@@ -593,6 +593,6 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 (function loadSpline() {
   const robotWrap = document.getElementById('global-robot');
   if (robotWrap) {
-    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer><div class="spline-watermark-hider"></div>';
+    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer><div class="spline-watermark-hider">⚡ Joint AI Engine</div>';
   }
 })();
