@@ -3124,6 +3124,8 @@ html.lenis { height: auto; }
     transform: scale(0.75) !important; /* Scale down for mobile */
     padding: 10px 14px;
     animation: none !important; /* Disable hover animation on mobile for stability */
+    opacity: 1 !important; /* Fix opacity since animation is disabled */
+    z-index: 5 !important;
   }
   .card-1 {
     top: 10px !important;
