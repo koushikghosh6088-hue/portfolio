@@ -3121,22 +3121,27 @@ html.lenis { height: auto; }
   }
   .h-card {
     display: flex !important;
-    transform: scale(0.75) !important; /* Scale down for mobile */
-    padding: 10px 14px;
-    animation: none !important; /* Disable hover animation on mobile for stability */
-    opacity: 1 !important; /* Fix opacity since animation is disabled */
+    transform: scale(0.8) !important;
+    padding: 8px 12px !important;
+    animation: none !important;
+    opacity: 1 !important;
     z-index: 5 !important;
+    min-width: 0 !important;
+    white-space: nowrap;
+  }
+  .h-card .card-desc, .h-card .card-meta {
+    display: none !important; /* Hide extra text to make them small badges */
   }
   .card-1 {
-    top: 10px !important;
-    left: 0 !important;
+    top: -10px !important;
+    left: 5px !important;
   }
   .card-2 {
-    top: 60px !important;
-    right: 0 !important;
+    top: -10px !important;
+    right: 5px !important;
   }
   .card-3 {
-    display: none !important; /* Keep the third one hidden to avoid clutter */
+    display: none !important;
   }
   .hero {
     padding: 90px 5% 40px;
