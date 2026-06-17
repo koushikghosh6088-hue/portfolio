@@ -3110,31 +3110,37 @@ html.lenis { height: auto; }
   .hero-visual-right {
     height: 400px;
     margin-top: 0;
-    margin-bottom: -20px;
+    margin-bottom: -160px; /* Pulls text up to the robot's waist */
+    z-index: 1;
+    pointer-events: none; /* Let clicks pass through robot container where it overlaps text */
   }
   .global-robot-wrap {
     height: 100%;
     transform: scale(1.1) translateY(10px);
+    pointer-events: auto; /* Re-enable pointer events for Spline */
   }
   .h-card {
     display: none !important; /* Hide floating cards on mobile */
   }
   .hero {
-    padding: 100px 5% 40px;
+    padding: 90px 5% 40px;
   }
   .hero-content-left {
     align-items: center;
     text-align: center;
     padding: 0 10px;
+    position: relative;
+    z-index: 10; /* Ensure text and buttons sit above the robot background */
   }
   .h-badge {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     font-size: 0.7rem;
     padding: 6px 16px;
   }
   .h-heading {
     font-size: clamp(28px, 9vw, 42px);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.15;
   }
   .h-rotator-wrap {
     height: clamp(34px, 10vw, 48px);
@@ -3143,7 +3149,7 @@ html.lenis { height: auto; }
     width: 100%;
   }
   .h-rotator-text {
-    position: relative; /* Change to relative so it centers properly */
+    position: relative;
   }
   .h-sub {
     font-size: 15px;
@@ -3151,13 +3157,15 @@ html.lenis { height: auto; }
   }
   .h-ctas {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center; /* Center horizontally */
     width: 100%;
     margin-bottom: 2.5rem;
+    gap: 1rem;
   }
   .h-btn-primary, .h-btn-secondary {
     text-align: center;
-    width: 100%;
+    width: 90%;
+    max-width: 320px; /* Prevent touching screen edges */
     padding: 14px 20px;
     font-size: 0.95rem;
   }
@@ -3173,3 +3181,4 @@ html.lenis { height: auto; }
     gap: 0.6rem;
   }
 }
+
