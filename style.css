@@ -3120,7 +3120,21 @@ html.lenis { height: auto; }
     pointer-events: auto; /* Re-enable pointer events for Spline */
   }
   .h-card {
-    display: none !important; /* Hide floating cards on mobile */
+    display: flex !important;
+    transform: scale(0.75) !important; /* Scale down for mobile */
+    padding: 10px 14px;
+    animation: none !important; /* Disable hover animation on mobile for stability */
+  }
+  .card-1 {
+    top: 10px !important;
+    left: 0 !important;
+  }
+  .card-2 {
+    top: 60px !important;
+    right: 0 !important;
+  }
+  .card-3 {
+    display: none !important; /* Keep the third one hidden to avoid clutter */
   }
   .hero {
     padding: 90px 5% 40px;
