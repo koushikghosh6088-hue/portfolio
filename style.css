@@ -3164,10 +3164,11 @@ html.lenis { height: auto; }
   }
   .h-btn-primary, .h-btn-secondary {
     text-align: center;
-    width: 90%;
-    max-width: 320px; /* Prevent touching screen edges */
+    width: auto;
+    min-width: 260px;
     padding: 14px 20px;
     font-size: 0.95rem;
+    box-sizing: border-box;
   }
   .h-trust {
     max-width: 100%;
