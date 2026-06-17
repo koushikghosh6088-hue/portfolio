@@ -2091,7 +2091,8 @@ spline-viewer {
   font-family: var(--font-body);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .v-pill {
@@ -2169,7 +2170,7 @@ spline-viewer {
 }
 
 .v-ctas {
-  display: flex; flex-direction: column; align-items: center; gap: 1.5rem; width: 100%; max-width: 350px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; width: 100%; max-width: 350px;
 }
 
 .v-btn-primary {
@@ -2232,6 +2233,8 @@ spline-viewer {
 }
 @media (max-width: 900px) {
   .v-chat-widget { bottom: 90px; } /* Above mobile nav */
+  .vedastra-style { align-items: center; text-align: center; }
+  .v-ctas { align-items: center; }
 }
 
 
