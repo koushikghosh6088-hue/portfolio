@@ -568,10 +568,10 @@ spline-viewer {
 
 
 .spline-watermark-hider {
-  position: absolute; bottom: 15px; right: 15px;
-  width: 150px; height: 50px;
-  background: var(--bg); /* Match the site background perfectly */
-  border-radius: 6px;
+  position: absolute; bottom: 10px; right: 10px;
+  width: 160px; height: 55px;
+  background: var(--dark); /* Match the site background perfectly */
+  border-radius: 8px;
   z-index: 9999; pointer-events: none;
 }
 
