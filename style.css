@@ -3131,6 +3131,9 @@ html.lenis { height: auto; }
     padding: 0 10px;
     position: relative;
     z-index: 10; /* Ensure text and buttons sit above the robot background */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .h-badge {
     margin-bottom: 1.2rem;
@@ -3138,11 +3141,15 @@ html.lenis { height: auto; }
     padding: 6px 16px;
   }
   .h-heading {
-    font-size: clamp(22px, 7.5vw, 36px);
+    font-size: clamp(20px, 7vw, 32px);
     margin-bottom: 0.8rem;
-    line-height: 1.2;
-    word-wrap: break-word;
+    line-height: 1.25;
+    word-break: break-word;
+    white-space: normal !important;
     max-width: 100%;
+  }
+  .h-heading div, .h-heading span {
+    white-space: normal !important;
   }
   .h-rotator-wrap {
     height: clamp(34px, 10vw, 48px);
@@ -3152,10 +3159,18 @@ html.lenis { height: auto; }
   }
   .h-rotator-text {
     position: relative;
+    white-space: nowrap !important; /* Keep rotating text on one line */
   }
   .h-sub {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.6;
     margin-bottom: 2rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 5px;
+    word-break: break-word;
+    white-space: normal !important;
   }
   .h-ctas {
     flex-direction: column;
