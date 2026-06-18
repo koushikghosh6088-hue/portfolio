@@ -5894,3 +5894,29 @@ html, body {
   background-color: #030712 !important;
   background: #030712 !important;
 }
+
+/* Global Hero Background Container */
+.global-hero-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Ensure these elements behave nicely in the fixed container */
+.global-hero-bg .hero-orbs, 
+.global-hero-bg .hero-grid-lines, 
+.global-hero-bg #hero-particles {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Make sure the hero section content sits above the new global bg */
+.hero-container {
+  position: relative;
+  z-index: 1;
+}
