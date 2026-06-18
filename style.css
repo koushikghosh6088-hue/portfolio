@@ -414,7 +414,7 @@ body.subpage { padding-top: 8rem; }
   justify-content: center;
   padding: 80px 5% 40px;
   overflow: hidden;
-  background-color: var(--dark);
+  background-color: transparent !important;
 }
 
 /* ── Background Elements ── */
@@ -5884,7 +5884,7 @@ h1, h2, h3, h4, h5, h6 {
 .data-line { display: none !important; }
 
 /* Force transparency on all main sections so site-bg shows through */
-.o-section, .services-new-section, .about-section, .technology-section, #portfolio {
+.o-section, .services-new-section, .about-section, .technology-section, #portfolio, .hero {
   background: transparent !important;
   background-color: transparent !important;
 }
