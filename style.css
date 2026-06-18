@@ -3699,16 +3699,17 @@ html.lenis { height: auto; }
 
 /* 6. Pipeline Mockup */
 .mock-pipe.advanced {
-  width: 95%; height: 60%;
-  display: flex; align-items: center; justify-content: space-between; z-index: 1;
-}
+    width: 95%; height: 60%;
+    display: flex; align-items: center; justify-content: space-between; z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
 .mpl-node {
   width: 45px; height: 45px; border-radius: 12px; background: rgba(20,20,30,0.9);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   position: relative; border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 2; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.s-card:hover .mpl-node { transform: translateY(-8px); border-color: rgba(255,255,255,0.4); box-shadow: 0 15px 30px rgba(0,0,0,0.5);}
+.s-card:hover .mock-pipe.advanced { transform: translateY(-5px) scale(1.03); }
 .n-icon { font-size: 16px; z-index: 2;}
 .n-label { position: absolute; top: 52px; font-size: 9px; color: rgba(255,255,255,0.8); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,0,0,0.5);}
 .n-pulse { position: absolute; width: 100%; height: 100%; border-radius: 12px; border: 2px solid; opacity: 0; z-index: 1; }
@@ -5193,3 +5194,5 @@ html.lenis { height: auto; }
 .mock-browser.redesigned { min-width: 0; }
 .mock-chat.advanced { min-width: 0; }
 .mock-wa.advanced { min-width: 0; }
+.mpl-node { flex-shrink: 0; }
+
