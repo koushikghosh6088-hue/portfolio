@@ -3616,88 +3616,50 @@ html.lenis { height: auto; }
   95%, 100% { opacity: 0; transform: translateY(-10px); }
 }
 
-/* 4. Phone Mockup - Sleek Glassmorphism */
-.mock-phone-glass {
-  width: 120px; height: 230px;
-  background: rgba(20,20,25,0.6);
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 0 4px #000, inset 0 0 0 5px rgba(255,255,255,0.15);
+/* 4. Phone Mockup - Realistic iPhone frame with scrolling feed */
+.mock-iphone {
+  width: 120px; height: 240px;
+  background: #000;
+  border: 6px solid #222;
+  border-radius: 30px;
   position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 0 2px #444;
   overflow: hidden;
   z-index: 2;
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease, border-color 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease;
   transform: translateY(0);
 }
-.s-card:hover .mock-phone-glass { transform: translateY(-10px) scale(1.03); box-shadow: 0 25px 50px rgba(123,47,255,0.2), inset 0 0 0 4px #000, inset 0 0 0 5px rgba(123,47,255,0.3); border-color: rgba(123,47,255,0.5);}
+.s-card:hover .mock-iphone { box-shadow: 0 30px 50px rgba(0,212,255,0.4); border-color: #333;}
 
-.mpg-glare {
-  position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
-  transform: skewX(-20deg);
-  animation: glareSweep 5s infinite;
-  z-index: 10; pointer-events: none;
+.mi-island {
+  position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+  width: 35px; height: 10px; background: #000; border-radius: 10px; z-index: 10;
 }
-@keyframes glareSweep { 0%, 20% { left: -100%; } 40%, 100% { left: 200%; } }
-
-.mpg-notch { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 40px; height: 12px; background: #000; border-radius: 6px; z-index: 5; box-shadow: inset 0 -1px 2px rgba(255,255,255,0.1);}
-.mpg-screen { width: 100%; height: 100%; padding: 26px 10px 10px; display: flex; flex-direction: column; gap: 14px; position: relative; z-index: 1;}
-
-.mpg-header { display: flex; align-items: center; gap: 6px; animation: slideDownIn 1s ease-out forwards; opacity: 0;}
-.mpg-avatar { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #00d4ff, #7b2fff); box-shadow: 0 0 10px rgba(0,212,255,0.4);}
-.mpg-info { display: flex; flex-direction: column; gap: 3px; flex-grow: 1;}
-.mpg-name { width: 80%; height: 4px; background: rgba(255,255,255,0.8); border-radius: 2px;}
-.mpg-sub { width: 50%; height: 3px; background: rgba(255,255,255,0.3); border-radius: 2px;}
-.mpg-icon { width: 14px; height: 14px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); display: flex; justify-content: center; align-items: center;}
-.mpg-icon::after { content: ""; width: 4px; height: 4px; background: rgba(255,255,255,0.6); border-radius: 50%;}
-
-.mpg-chart-wrap { position: relative; display: flex; justify-content: center; align-items: center; margin: 5px 0; animation: scaleUpIn 1s ease-out 0.3s forwards; opacity: 0; transform: scale(0.8);}
-.mpg-ring { width: 75px; height: 75px; filter: drop-shadow(0 0 10px rgba(123,47,255,0.6));}
-.ring-bg { fill: none; stroke: rgba(255,255,255,0.05); stroke-width: 3;}
-.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; stroke: url(#ringGrad); animation: ringDraw 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards; stroke-dasharray: 0, 100;}
-@keyframes ringDraw { to { stroke-dasharray: 75, 100; } }
-.mpg-chart-text { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 2px;}
-.mpg-lbl { font-size: 6px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px;}
-.mpg-val { font-size: 11px; font-weight: 800; color: white;}
-
-.mpg-transactions { display: flex; flex-direction: column; gap: 8px;}
-.mpg-tx { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 8px; opacity: 0; animation: slideRightIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; border: 1px solid rgba(255,255,255,0.02);}
-.mpg-tx:nth-child(1) { animation-delay: 0.8s; }
-.mpg-tx:nth-child(2) { animation-delay: 1.0s; }
-.mpg-tx:nth-child(3) { animation-delay: 1.2s; }
-.tx-icon { width: 14px; height: 14px; border-radius: 4px; display: flex; justify-content: center; align-items: center;}
-.c-green { background: rgba(0,255,136,0.2); border: 1px solid rgba(0,255,136,0.5); box-shadow: 0 0 5px rgba(0,255,136,0.3);}
-.c-purple { background: rgba(123,47,255,0.2); border: 1px solid rgba(123,47,255,0.5); box-shadow: 0 0 5px rgba(123,47,255,0.3);}
-.c-orange { background: rgba(255,170,0,0.2); border: 1px solid rgba(255,170,0,0.5); box-shadow: 0 0 5px rgba(255,170,0,0.3);}
-.tx-line { height: 4px; background: rgba(255,255,255,0.4); border-radius: 2px; flex-grow: 1;}
-.w-short { max-width: 40%; } .w-mid { max-width: 60%; }
-.tx-amt { width: 15px; height: 4px; background: rgba(255,255,255,0.8); border-radius: 2px;}
-
-.mpg-float-card {
-  position: absolute;
-  bottom: 10px; left: -15px; width: 140px;
-  background: rgba(30,30,40,0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0,212,255,0.3);
-  border-radius: 12px;
-  padding: 8px 10px;
-  display: flex; align-items: center; gap: 8px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-  z-index: 20;
-  opacity: 0;
-  animation: floatCardSlideIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.8s forwards, floatCardBob 4s ease-in-out infinite 2.8s;
+.mi-screen {
+  background: #f4f5f7; width: 100%; height: 100%; display: flex; flex-direction: column; overflow: hidden; position: relative; border-radius: 24px;
 }
-.fc-icon { font-size: 16px; text-shadow: 0 0 10px rgba(0,212,255,0.8);}
-.fc-col { display: flex; flex-direction: column; gap: 2px;}
-.fc-t1 { font-size: 9px; font-weight: 700; color: white;}
-.fc-t2 { font-size: 7px; color: #00d4ff; font-weight: 600;}
+.mi-header { background: white; padding: 22px 10px 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 5;}
+.mi-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;}
+.mi-icon { width: 12px; height: 12px; border-radius: 3px; background: linear-gradient(135deg, var(--cyan), var(--purple));}
+.mi-title { font-size: 10px; font-weight: 800; color: #111;}
+.mi-profile { width: 14px; height: 14px; border-radius: 50%; background: #ccc;}
+.mi-search { width: 100%; height: 16px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; padding: 0 6px; font-size: 6px; color: #888;}
 
-@keyframes slideDownIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes scaleUpIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-@keyframes slideRightIn { from { opacity: 0; transform: translateX(-15px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes floatCardSlideIn { from { opacity: 0; transform: translateY(20px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes floatCardBob { 0%, 100% { margin-top: 0; } 50% { margin-top: -8px; } }
+.mi-scroll {
+  padding: 10px; display: flex; flex-direction: column; gap: 10px;
+  animation: appScroll 8s infinite linear;
+}
+@keyframes appScroll { 0% { transform: translateY(0); } 100% { transform: translateY(-160px); } }
+
+.mi-card { background: white; border-radius: 8px; padding: 6px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05);}
+.mi-img { width: 100%; height: 40px; border-radius: 4px; background: #eee;}
+.img1 { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+.img2 { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+.img3 { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
+.mi-txt-wrap { display: flex; flex-direction: column; gap: 3px;}
+.mi-t1 { width: 70%; height: 4px; background: #ddd; border-radius: 2px;}
+.mi-t2 { width: 40%; height: 3px; background: #eee; border-radius: 2px;}
+.mi-btn { width: 100%; height: 12px; background: var(--purple); border-radius: 4px; align-self: flex-end;}
 
 /* 5. Dashboard Mockup */
 .mock-dash.advanced {

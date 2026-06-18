@@ -211,53 +211,26 @@ const newHTML = `
           
           <!-- Mockup -->
           <div class="s-mockup-container">
-            <div class="mock-phone-glass">
-              <div class="mpg-glare"></div>
-              <div class="mpg-notch"></div>
-              <div class="mpg-screen">
-                <div class="mpg-header">
-                  <div class="mpg-avatar"></div>
-                  <div class="mpg-info"><div class="mpg-name"></div><div class="mpg-sub"></div></div>
-                  <div class="mpg-icon"></div>
-                </div>
-                
-                <div class="mpg-chart-wrap">
-                  <div class="mpg-ring">
-                     <svg viewBox="0 0 36 36">
-                       <defs>
-                         <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                           <stop offset="0%" stop-color="#00d4ff" />
-                           <stop offset="100%" stop-color="#7b2fff" />
-                         </linearGradient>
-                       </defs>
-                       <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                       <path class="ring-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                     </svg>
+            <div class="mock-iphone">
+              <div class="mi-island"></div>
+              <div class="mi-screen">
+                <div class="mi-header">
+                  <div class="mi-nav">
+                    <span class="mi-icon"></span>
+                    <div class="mi-title">Discover Apps</div>
+                    <div class="mi-profile"></div>
                   </div>
-                  <div class="mpg-chart-text">
-                    <span class="mpg-lbl">Revenue</span>
-                    <span class="mpg-val">₹4.8L</span>
-                  </div>
+                  <div class="mi-search">Search...</div>
                 </div>
-
-                <div class="mpg-transactions">
-                  <div class="mpg-tx"><div class="tx-icon c-green"></div><div class="tx-line"></div><div class="tx-amt"></div></div>
-                  <div class="mpg-tx"><div class="tx-icon c-purple"></div><div class="tx-line w-short"></div><div class="tx-amt"></div></div>
-                  <div class="mpg-tx"><div class="tx-icon c-orange"></div><div class="tx-line w-mid"></div><div class="tx-amt"></div></div>
-                </div>
-                
-                <!-- Floating Glass Card -->
-                <div class="mpg-float-card">
-                  <div class="fc-icon">🚀</div>
-                  <div class="fc-col">
-                    <div class="fc-t1">App Deployed</div>
-                    <div class="fc-t2">iOS & Android</div>
-                  </div>
+                <div class="mi-scroll">
+                  <div class="mi-card"><div class="mi-img img1"></div><div class="mi-txt-wrap"><div class="mi-t1"></div><div class="mi-t2"></div></div><div class="mi-btn"></div></div>
+                  <div class="mi-card"><div class="mi-img img2"></div><div class="mi-txt-wrap"><div class="mi-t1"></div><div class="mi-t2"></div></div><div class="mi-btn"></div></div>
+                  <div class="mi-card"><div class="mi-img img3"></div><div class="mi-txt-wrap"><div class="mi-t1"></div><div class="mi-t2"></div></div><div class="mi-btn"></div></div>
+                  <div class="mi-card"><div class="mi-img img1"></div><div class="mi-txt-wrap"><div class="mi-t1"></div><div class="mi-t2"></div></div><div class="mi-btn"></div></div>
                 </div>
               </div>
             </div>
-            <div class="mock-glow-orb orb-purple"></div>
-            <div class="mock-glow-orb orb-cyan" style="top:auto;bottom:-30px;left:auto;right:-30px;transform:scale(0.8)"></div>
+            <div class="mock-glow-orb orb-blue"></div>
           </div>
 
           <a href="#contact" class="s-cta-btn">Build Your App →</a>
@@ -379,8 +352,8 @@ const newHTML = `
     <script>
       // Run immediately if DOM is ready, or wait for DOMContentLoaded
       const initParallax = () => {
-        document.querySelectorAll('.s-card').forEach(card => {
-          const target = card.querySelector('.mock-phone-glass, .mock-browser, .mock-chat, .mock-wa, .mock-phone, .mock-dash, .mock-pipe');
+        document.querySelectorAll('#s-card-4').forEach(card => {
+          const target = card.querySelector('.mock-iphone');
           if (!target) return;
           
           card.addEventListener('mouseenter', () => {
