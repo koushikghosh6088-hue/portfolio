@@ -3616,91 +3616,88 @@ html.lenis { height: auto; }
   95%, 100% { opacity: 0; transform: translateY(-10px); }
 }
 
-/* 4. Phone Mockup & 3D Environment (Redesigned out-of-bounds 3D) */
-.mock-3d-wrap { perspective: 1200px; transform-style: preserve-3d; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; position: relative;}
-.mock-phone-sys {
+/* 4. Phone Mockup - Sleek Glassmorphism */
+.mock-phone-glass {
+  width: 120px; height: 230px;
+  background: rgba(20,20,25,0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 0 4px #000, inset 0 0 0 5px rgba(255,255,255,0.15);
   position: relative;
-  transform-style: preserve-3d;
-  animation: phoneFloat3D 8s ease-in-out infinite;
+  overflow: hidden;
   z-index: 2;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease, border-color 0.5s ease;
+  transform: translateY(0);
 }
-.s-card:hover .mock-phone-sys { animation-play-state: paused; transform: rotateX(15deg) rotateY(20deg) scale(1.1); }
-@keyframes phoneFloat3D {
-  0%, 100% { transform: rotateX(25deg) rotateY(-25deg) rotateZ(5deg); }
-  50% { transform: rotateX(15deg) rotateY(-10deg) rotateZ(0deg) translateY(-10px); }
+.s-card:hover .mock-phone-glass { transform: translateY(-10px) scale(1.03); box-shadow: 0 25px 50px rgba(123,47,255,0.2), inset 0 0 0 4px #000, inset 0 0 0 5px rgba(123,47,255,0.3); border-color: rgba(123,47,255,0.5);}
+
+.mpg-glare {
+  position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+  transform: skewX(-20deg);
+  animation: glareSweep 5s infinite;
+  z-index: 10; pointer-events: none;
 }
+@keyframes glareSweep { 0%, 20% { left: -100%; } 40%, 100% { left: 200%; } }
 
-.mock-phone.redesigned {
-  width: 115px; height: 210px;
-  background: #000;
-  border: 4px solid #222;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: -15px 25px 40px rgba(0,0,0,0.6), inset 0 0 15px rgba(255,255,255,0.1);
-  transform-style: preserve-3d;
-  transition: box-shadow 0.6s ease;
-}
-.mp-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 45px; height: 12px; background: #000; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; z-index: 10; border: 1px solid rgba(255,255,255,0.1); border-top: none;}
-.mp-screen { background: #0b0c10; height: 100%; display: flex; flex-direction: column; padding: 14px 8px; gap: 8px; overflow: hidden; position: relative; border-radius: 14px;}
-.mp-app-header { display: flex; justify-content: space-between; align-items: center; }
-.mp-h-logo { width: 16px; height: 16px; background: linear-gradient(135deg, var(--cyan), var(--purple)); border-radius: 4px;}
-.mp-h-profile { width: 16px; height: 16px; background: rgba(255,255,255,0.2); border-radius: 50%;}
+.mpg-notch { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 40px; height: 12px; background: #000; border-radius: 6px; z-index: 5; box-shadow: inset 0 -1px 2px rgba(255,255,255,0.1);}
+.mpg-screen { width: 100%; height: 100%; padding: 26px 10px 10px; display: flex; flex-direction: column; gap: 14px; position: relative; z-index: 1;}
 
-.mp-card-stack { position: relative; height: 80px; margin-top: 5px;}
-.mp-stack-card { position: absolute; width: 100%; height: 60px; border-radius: 8px; padding: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
-.c1 { background: linear-gradient(135deg, #1f1c2c, #928DAB); top: 0; z-index: 3; border: 1px solid rgba(255,255,255,0.2); animation: c1Anim 4s infinite alternate;}
-.c2 { background: linear-gradient(135deg, #232526, #414345); top: -8px; transform: scale(0.9); z-index: 2; opacity: 0.8; animation: c2Anim 4s infinite alternate;}
-.c3 { background: linear-gradient(135deg, #0f2027, #203a43); top: -16px; transform: scale(0.8); z-index: 1; opacity: 0.6; animation: c3Anim 4s infinite alternate;}
-@keyframes c1Anim { 0% { top: 0; } 100% { top: 5px; } }
-@keyframes c2Anim { 0% { top: -8px; } 100% { top: -2px; } }
-@keyframes c3Anim { 0% { top: -16px; } 100% { top: -9px; } }
-.mp-c-title { font-size: 7px; color: rgba(255,255,255,0.6); margin-bottom: 2px;}
-.mp-c-val { font-size: 14px; font-weight: 800; color: white;}
+.mpg-header { display: flex; align-items: center; gap: 6px; animation: slideDownIn 1s ease-out forwards; opacity: 0;}
+.mpg-avatar { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #00d4ff, #7b2fff); box-shadow: 0 0 10px rgba(0,212,255,0.4);}
+.mpg-info { display: flex; flex-direction: column; gap: 3px; flex-grow: 1;}
+.mpg-name { width: 80%; height: 4px; background: rgba(255,255,255,0.8); border-radius: 2px;}
+.mpg-sub { width: 50%; height: 3px; background: rgba(255,255,255,0.3); border-radius: 2px;}
+.mpg-icon { width: 14px; height: 14px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); display: flex; justify-content: center; align-items: center;}
+.mpg-icon::after { content: ""; width: 4px; height: 4px; background: rgba(255,255,255,0.6); border-radius: 50%;}
 
-.mp-bottom-cards { display: flex; gap: 6px; margin-top: auto;}
-.mp-bc { flex: 1; background: rgba(255,255,255,0.05); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; gap: 4px; border: 1px solid rgba(255,255,255,0.02);}
-.mp-bc-icon { width: 12px; height: 12px; border-radius: 3px;}
-.c-cyan { background: var(--cyan); box-shadow: 0 0 5px var(--cyan);}
-.c-purple { background: var(--purple); box-shadow: 0 0 5px var(--purple);}
-.mp-bc-line { width: 100%; height: 2px; background: rgba(255,255,255,0.2); border-radius: 1px;}
+.mpg-chart-wrap { position: relative; display: flex; justify-content: center; align-items: center; margin: 5px 0; animation: scaleUpIn 1s ease-out 0.3s forwards; opacity: 0; transform: scale(0.8);}
+.mpg-ring { width: 75px; height: 75px; filter: drop-shadow(0 0 10px rgba(123,47,255,0.6));}
+.ring-bg { fill: none; stroke: rgba(255,255,255,0.05); stroke-width: 3;}
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; stroke: url(#ringGrad); animation: ringDraw 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards; stroke-dasharray: 0, 100;}
+@keyframes ringDraw { to { stroke-dasharray: 75, 100; } }
+.mpg-chart-text { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 2px;}
+.mpg-lbl { font-size: 6px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px;}
+.mpg-val { font-size: 11px; font-weight: 800; color: white;}
 
-/* 3D layers projecting out of the phone */
-.mp-3d-layer {
+.mpg-transactions { display: flex; flex-direction: column; gap: 8px;}
+.mpg-tx { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 8px; opacity: 0; animation: slideRightIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; border: 1px solid rgba(255,255,255,0.02);}
+.mpg-tx:nth-child(1) { animation-delay: 0.8s; }
+.mpg-tx:nth-child(2) { animation-delay: 1.0s; }
+.mpg-tx:nth-child(3) { animation-delay: 1.2s; }
+.tx-icon { width: 14px; height: 14px; border-radius: 4px; display: flex; justify-content: center; align-items: center;}
+.c-green { background: rgba(0,255,136,0.2); border: 1px solid rgba(0,255,136,0.5); box-shadow: 0 0 5px rgba(0,255,136,0.3);}
+.c-purple { background: rgba(123,47,255,0.2); border: 1px solid rgba(123,47,255,0.5); box-shadow: 0 0 5px rgba(123,47,255,0.3);}
+.c-orange { background: rgba(255,170,0,0.2); border: 1px solid rgba(255,170,0,0.5); box-shadow: 0 0 5px rgba(255,170,0,0.3);}
+.tx-line { height: 4px; background: rgba(255,255,255,0.4); border-radius: 2px; flex-grow: 1;}
+.w-short { max-width: 40%; } .w-mid { max-width: 60%; }
+.tx-amt { width: 15px; height: 4px; background: rgba(255,255,255,0.8); border-radius: 2px;}
+
+.mpg-float-card {
   position: absolute;
-  background: rgba(15,15,20,0.85);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 8px;
-  padding: 6px 10px;
-  display: flex; align-items: center; gap: 6px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  color: white; font-size: 8px; font-weight: 600;
-  white-space: nowrap;
-  transform-style: preserve-3d;
+  bottom: 10px; left: -15px; width: 140px;
+  background: rgba(30,30,40,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,212,255,0.3);
+  border-radius: 12px;
+  padding: 8px 10px;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+  z-index: 20;
+  opacity: 0;
+  animation: floatCardSlideIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.8s forwards, floatCardBob 4s ease-in-out infinite 2.8s;
 }
-.l1 {
-  top: 25%; right: -30px;
-  transform: translateZ(50px);
-  animation: floatLayer1 4s ease-in-out infinite;
-  border-color: rgba(255,170,0,0.4);
-  box-shadow: 0 5px 15px rgba(255,170,0,0.15);
-}
-.l2 {
-  bottom: 25%; left: -40px;
-  transform: translateZ(70px);
-  animation: floatLayer2 5s ease-in-out infinite alternate;
-  border-color: rgba(0,255,136,0.4);
-  box-shadow: 0 5px 15px rgba(0,255,136,0.15);
-}
-.l-icon { font-size: 10px; }
-@keyframes floatLayer1 {
-  0%, 100% { transform: translateZ(50px) translateY(0); }
-  50% { transform: translateZ(50px) translateY(-10px); }
-}
-@keyframes floatLayer2 {
-  0%, 100% { transform: translateZ(70px) translateY(0); }
-  50% { transform: translateZ(70px) translateY(-15px); }
-}
+.fc-icon { font-size: 16px; text-shadow: 0 0 10px rgba(0,212,255,0.8);}
+.fc-col { display: flex; flex-direction: column; gap: 2px;}
+.fc-t1 { font-size: 9px; font-weight: 700; color: white;}
+.fc-t2 { font-size: 7px; color: #00d4ff; font-weight: 600;}
+
+@keyframes slideDownIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleUpIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideRightIn { from { opacity: 0; transform: translateX(-15px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes floatCardSlideIn { from { opacity: 0; transform: translateY(20px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes floatCardBob { 0%, 100% { margin-top: 0; } 50% { margin-top: -8px; } }
 
 /* 5. Dashboard Mockup */
 .mock-dash.advanced {

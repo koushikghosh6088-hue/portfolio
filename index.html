@@ -201,6 +201,7 @@
   
   
   
+  
   <section id="services" class="services-new-section" aria-label="Services">
     <div class="container">
       
@@ -388,42 +389,54 @@
           <div class="s-ideal">Ideal for: Logistics, Food Delivery, Healthcare, Retail</div>
           
           <!-- Mockup -->
-          <div class="s-mockup-container mock-3d-wrap">
-            <div class="mock-phone-sys">
-              <div class="mock-phone advanced redesigned">
-                <div class="mp-frame">
-                  <div class="mp-notch"></div>
-                  <div class="mp-screen">
-                    <div class="mp-app-header">
-                      <div class="mp-h-logo"></div>
-                      <div class="mp-h-profile"></div>
-                    </div>
-                    <div class="mp-card-stack">
-                      <div class="mp-stack-card c1">
-                        <div class="mp-c-title">Balance</div>
-                        <div class="mp-c-val">₹1,45,000</div>
-                      </div>
-                      <div class="mp-stack-card c2"></div>
-                      <div class="mp-stack-card c3"></div>
-                    </div>
-                    <div class="mp-bottom-cards">
-                       <div class="mp-bc"><div class="mp-bc-icon c-cyan"></div><div class="mp-bc-line"></div></div>
-                       <div class="mp-bc"><div class="mp-bc-icon c-purple"></div><div class="mp-bc-line"></div></div>
-                    </div>
+          <div class="s-mockup-container">
+            <div class="mock-phone-glass">
+              <div class="mpg-glare"></div>
+              <div class="mpg-notch"></div>
+              <div class="mpg-screen">
+                <div class="mpg-header">
+                  <div class="mpg-avatar"></div>
+                  <div class="mpg-info"><div class="mpg-name"></div><div class="mpg-sub"></div></div>
+                  <div class="mpg-icon"></div>
+                </div>
+                
+                <div class="mpg-chart-wrap">
+                  <div class="mpg-ring">
+                     <svg viewBox="0 0 36 36">
+                       <defs>
+                         <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                           <stop offset="0%" stop-color="#00d4ff" />
+                           <stop offset="100%" stop-color="#7b2fff" />
+                         </linearGradient>
+                       </defs>
+                       <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                       <path class="ring-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                     </svg>
+                  </div>
+                  <div class="mpg-chart-text">
+                    <span class="mpg-lbl">Revenue</span>
+                    <span class="mpg-val">₹4.8L</span>
                   </div>
                 </div>
-                <!-- 3D floating layers projecting from the phone -->
-                <div class="mp-3d-layer l1">
-                  <div class="l-icon">🔔</div>
-                  <div class="l-text">New Order #482</div>
+
+                <div class="mpg-transactions">
+                  <div class="mpg-tx"><div class="tx-icon c-green"></div><div class="tx-line"></div><div class="tx-amt"></div></div>
+                  <div class="mpg-tx"><div class="tx-icon c-purple"></div><div class="tx-line w-short"></div><div class="tx-amt"></div></div>
+                  <div class="mpg-tx"><div class="tx-icon c-orange"></div><div class="tx-line w-mid"></div><div class="tx-amt"></div></div>
                 </div>
-                <div class="mp-3d-layer l2">
-                  <div class="l-icon">✅</div>
-                  <div class="l-text">Payment Success</div>
+                
+                <!-- Floating Glass Card -->
+                <div class="mpg-float-card">
+                  <div class="fc-icon">🚀</div>
+                  <div class="fc-col">
+                    <div class="fc-t1">App Deployed</div>
+                    <div class="fc-t2">iOS & Android</div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="mock-glow-orb orb-blue"></div>
+            <div class="mock-glow-orb orb-purple"></div>
+            <div class="mock-glow-orb orb-cyan" style="top:auto;bottom:-30px;left:auto;right:-30px;transform:scale(0.8)"></div>
           </div>
 
           <a href="#contact" class="s-cta-btn">Build Your App →</a>
