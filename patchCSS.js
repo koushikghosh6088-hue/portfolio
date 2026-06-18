@@ -329,12 +329,12 @@ const newMockupCSS = `/* =========================================
 .md-bars { display: flex; width: 100%; height: 100%; align-items: flex-end; gap: 8px; z-index: 2; }
 .md-bar { flex: 1; height: 100%; display: flex; align-items: flex-end; }
 .md-bar-inner { width: 100%; background: linear-gradient(to top, rgba(255,170,0,0.2), #ffaa00); border-radius: 4px 4px 0 0; animation: barGrow 3s ease infinite alternate; box-shadow: 0 0 15px rgba(255,170,0,0.3); border-top: 2px solid white; transition: height 0.3s;}
-.b1 .md-bar-inner { height: 40%; animation-delay: 0s; }
-.b2 .md-bar-inner { height: 65%; animation-delay: 0.2s; }
-.b3 .md-bar-inner { height: 50%; animation-delay: 0.4s; }
-.b4 .md-bar-inner { height: 85%; animation-delay: 0.6s; }
-.b5 .md-bar-inner { height: 70%; animation-delay: 0.8s; }
-.b6 .md-bar-inner { height: 95%; animation-delay: 1.0s; }
+.mb-b1 .md-bar-inner { height: 40%; animation-delay: 0s; }
+.mb-b2 .md-bar-inner { height: 65%; animation-delay: 0.2s; }
+.mb-b3 .md-bar-inner { height: 50%; animation-delay: 0.4s; }
+.mb-b4 .md-bar-inner { height: 85%; animation-delay: 0.6s; }
+.mb-b5 .md-bar-inner { height: 70%; animation-delay: 0.8s; }
+.mb-b6 .md-bar-inner { height: 95%; animation-delay: 1.0s; }
 @keyframes barGrow { 0% { height: 10%; } }
 
 /* 6. Pipeline Mockup */
