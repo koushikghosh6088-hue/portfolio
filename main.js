@@ -958,3 +958,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const portBtns = document.querySelectorAll('.p-port-btn');
+  const portPanels = document.querySelectorAll('.p-port-panel');
+
+  if(portBtns.length > 0 && portPanels.length > 0) {
+    portBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-port');
+        
+        portBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        portPanels.forEach(p => {
+          if(p.id === 'port-panel-' + target) {
+            p.classList.add('active');
+          } else {
+            p.classList.remove('active');
+          }
+        });
+      });
+    });
+  }
+});
