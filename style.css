@@ -7177,3 +7177,45 @@ html, body {
   border-color: rgba(37, 211, 102, 0.8) !important;
   box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 0 60px rgba(37, 211, 102, 0.2) !important;
 }
+
+/* =========================================================
+   PORTFOLIO SLIDER ARROWS
+   ========================================================= */
+.p-port-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(15, 20, 35, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.6);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+.p-port-arrow:hover {
+  background: rgba(139, 92, 246, 0.8);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+.p-port-arrow.prev { left: 10px; }
+.p-port-arrow.next { right: 10px; }
+
+@media (max-width: 900px) {
+  .p-port-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    top: 40%; /* Slightly higher on mobile to align with mockup */
+  }
+  .p-port-arrow.prev { left: 5px; }
+  .p-port-arrow.next { right: 5px; }
+}
