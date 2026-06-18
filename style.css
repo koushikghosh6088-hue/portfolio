@@ -5818,3 +5818,66 @@ h1, h2, h3, h4, h5, h6 {
 .p-bot-left { background: #1F2937; color: white; padding: 12px 16px; border-radius: 16px 16px 16px 0; align-self: flex-start; max-width: 85%; font-size: 13px; }
 .p-bot-right { background: #3b82f6; color: white; padding: 12px 16px; border-radius: 16px 16px 0 16px; align-self: flex-end; max-width: 85%; font-size: 13px; }
 
+
+
+/* ULTRA SAFE MOBILE OVERRIDES */
+@media (max-width: 900px) {
+  #portfolio {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .o-cs-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  .o-cs-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  .o-cs-left {
+    display: block !important;
+    width: 100% !important;
+    flex: none !important;
+    padding: 20px !important;
+  }
+  .o-cs-right {
+    display: block !important;
+    width: 100% !important;
+    flex: none !important;
+    padding: 20px !important;
+    background: #080B14 !important;
+    overflow: hidden !important;
+  }
+  .p-mock-browser, .p-mock-wa, .p-mock-mobile, .p-mock-bot {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    transform: scale(0.9) !important;
+    transform-origin: top center !important;
+  }
+}
+
+
+/* ULTIMATE MOBILE HIDE FIX */
+.o-cs-card.hide {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+@media (max-width: 900px) {
+  .o-cs-card.hide {
+    display: none !important;
+  }
+}
