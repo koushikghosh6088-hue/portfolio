@@ -3689,9 +3689,9 @@ html.lenis { height: auto; }
 .md-bars { display: flex; width: 100%; height: 100%; align-items: flex-end; gap: 8px; z-index: 2; }
 .md-bar { flex: 1; height: 100%; display: flex; align-items: flex-end; }
 .md-bar-inner { width: 100%; background: linear-gradient(to top, rgba(255,170,0,0.2), #ffaa00); border-radius: 4px 4px 0 0; animation: barGrow 3s ease infinite alternate; box-shadow: 0 0 15px rgba(255,170,0,0.3); border-top: 2px solid white; transition: height 0.3s;}
-.b1 .md-bar-inner { height: 40%; animation-delay: 0s; }
-.b2 .md-bar-inner { height: 65%; animation-delay: 0.2s; }
-.b3 .md-bar-inner { height: 50%; animation-delay: 0.4s; }
+.mb-b1 .md-bar-inner { height: 40%; animation-delay: 0s; }
+.mb-b2 .md-bar-inner { height: 65%; animation-delay: 0.2s; }
+.mb-b3 .md-bar-inner { height: 50%; animation-delay: 0.4s; }
 .b4 .md-bar-inner { height: 85%; animation-delay: 0.6s; }
 .b5 .md-bar-inner { height: 70%; animation-delay: 0.8s; }
 .b6 .md-bar-inner { height: 95%; animation-delay: 1.0s; }
@@ -3713,9 +3713,9 @@ html.lenis { height: auto; }
 .n-icon { font-size: 16px; z-index: 2;}
 .n-label { position: absolute; top: 52px; font-size: 9px; color: rgba(255,255,255,0.8); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,0,0,0.5);}
 .n-pulse { position: absolute; width: 100%; height: 100%; border-radius: 12px; border: 2px solid; opacity: 0; z-index: 1; }
-.n1 .n-pulse { border-color: var(--cyan); animation: nodePulse 2s infinite 0s; }
-.n2 .n-pulse { border-color: var(--purple); animation: nodePulse 2s infinite 0.6s; }
-.n3 .n-pulse { border-color: #00ff88; animation: nodePulse 2s infinite 1.2s; }
+.mn-1 .n-pulse { border-color: var(--cyan); animation: nodePulse 2s infinite 0s; }
+.mn-2 .n-pulse { border-color: var(--purple); animation: nodePulse 2s infinite 0.6s; }
+.mn-3 .n-pulse { border-color: #00ff88; animation: nodePulse 2s infinite 1.2s; }
 @keyframes nodePulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
 .mpl-line { flex-grow: 1; height: 3px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; margin: 0 4px; border-radius: 2px; box-shadow: inset 0 0 2px rgba(0,0,0,0.5);}
 .mpl-packet { position: absolute; top: 0; left: -20px; width: 30px; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent); box-shadow: 0 0 15px white; border-radius: 50%;}
@@ -5195,4 +5195,5 @@ html.lenis { height: auto; }
 .mock-chat.advanced { min-width: 0; }
 .mock-wa.advanced { min-width: 0; }
 .mpl-node { flex-shrink: 0; }
+
 
