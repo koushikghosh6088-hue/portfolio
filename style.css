@@ -5327,3 +5327,5 @@ html.lenis { height: auto; }
 .n8n-name { font-size: 12px; font-weight: 600; color: white; }
 @keyframes floatNode { to { transform: translateY(-4px); } }
 .n8n-packet { filter: drop-shadow(0 0 5px var(--cyan)); }
+
+@keyframes scrollCards { 0% { transform: translateY(0); } 100% { transform: translateY(-50px); } }

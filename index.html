@@ -299,9 +299,9 @@
           <div class="s-ideal">Ideal for: E-commerce, Healthcare, Education, SaaS</div>
           
           <!-- Mockup -->
-          <div class="s-mockup-container tech-trigger-chat">
+          <div class="s-mockup-container tech-trigger-chat" style="min-height: 520px;">
 
-            <div style="zoom: 0.75; width: 100%; display: flex; justify-content: center;">
+            <div style="min-height: 520px; align-items: center; width: 100%; display: flex; justify-content: center;">
               <div class="cb-mock" style="margin: 0; flex-shrink: 0;">
                 <div class="cb-head">
                   <div class="cb-info"><strong>🤖 JointBot AI</strong><span><span class="cb-dot"></span>Online · Powered by GPT-4</span></div>
@@ -346,9 +346,9 @@
           <div class="s-ideal">Ideal for: Real Estate, Coaching, Retail, Service Businesses</div>
           
           <!-- Mockup -->
-          <div class="s-mockup-container tech-trigger-wa">
+          <div class="s-mockup-container tech-trigger-wa" style="min-height: 520px;">
 
-            <div style="zoom: 0.75; width: 100%; display: flex; justify-content: center;">
+            <div style="min-height: 520px; align-items: center; width: 100%; display: flex; justify-content: center;">
               <div class="wa-mock" style="margin: 0; flex-shrink: 0;">
                 <div class="wa-head">
                   <span class="wa-back">←</span>
@@ -396,28 +396,30 @@
           <!-- Mockup -->
           <div class="s-mockup-container">
             
-<div class="mock-fintech">
-  <div class="mf-head">
-    <div class="mf-avatar"></div>
-    <div class="mf-greeting">Hello, <span>Koushik</span></div>
-    <div class="mf-bell">🔔</div>
-  </div>
-  <div class="mf-balance">
-    <div class="mf-bal-label">Total Balance</div>
-    <div class="mf-bal-amount">$124,500.00</div>
-    <div class="mf-shimmer"></div>
-  </div>
-  <div class="mf-pills">
-    <div class="mf-pill">Send</div>
-    <div class="mf-pill">Receive</div>
-    <div class="mf-pill">Pay</div>
-  </div>
-  <div class="mf-transactions">
-    <div class="mf-txn" style="--delay: 0.1s"><div class="mf-txn-icon"></div><div class="mf-txn-info"><div class="mf-txn-title">Stripe</div><div class="mf-txn-date">Today</div></div><div class="mf-txn-amt green">+$4,200</div></div>
-    <div class="mf-txn" style="--delay: 0.3s"><div class="mf-txn-icon"></div><div class="mf-txn-info"><div class="mf-txn-title">AWS</div><div class="mf-txn-date">Yesterday</div></div><div class="mf-txn-amt red">-$1,400</div></div>
-    <div class="mf-txn" style="--delay: 0.5s"><div class="mf-txn-icon"></div><div class="mf-txn-info"><div class="mf-txn-title">Apple</div><div class="mf-txn-date">Mar 12</div></div><div class="mf-txn-amt red">-$2,100</div></div>
+
+<div class="mock-iphone">
+  <div class="mi-notch"></div>
+  <div class="mi-screen">
+    <div class="mi-scroll" style="animation: scrollCards 8s infinite alternate ease-in-out;">
+      <div class="mi-card">
+        <div class="mi-card-img"></div>
+        <div class="mi-card-title"></div>
+        <div class="mi-card-sub"></div>
+      </div>
+      <div class="mi-card">
+        <div class="mi-card-img"></div>
+        <div class="mi-card-title"></div>
+        <div class="mi-card-sub"></div>
+      </div>
+      <div class="mi-card">
+        <div class="mi-card-img"></div>
+        <div class="mi-card-title"></div>
+        <div class="mi-card-sub"></div>
+      </div>
+    </div>
   </div>
 </div>
+
 
             <div class="mock-glow-orb orb-blue"></div>
           </div>
@@ -443,8 +445,44 @@
           
           <!-- Mockup -->
           <div class="s-mockup-container">
-            <div class="mock-dash advanced" style="overflow: hidden; padding: 0; position: relative;">
-            <img src="dashboard_mockup.png" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; animation: slowZoomAnim 10s infinite alternate ease-in-out;">
+            
+<div class="mock-saas">
+  <div class="ms-sidebar">
+    <div class="ms-logo"></div>
+    <div class="ms-nav-item active"></div>
+    <div class="ms-nav-item"></div>
+    <div class="ms-nav-item"></div>
+  </div>
+  <div class="ms-main">
+    <div class="ms-topbar"><div class="ms-search"></div></div>
+    <div class="ms-cards">
+      <div class="ms-card"><div class="ms-card-val">$84K</div><div class="ms-card-lbl">Revenue</div></div>
+      <div class="ms-card"><div class="ms-card-val">12.4K</div><div class="ms-card-lbl">Users</div></div>
+    </div>
+    <div class="ms-chart-area">
+       <!-- SVG line chart -->
+       <svg viewBox="0 0 100 50" preserveAspectRatio="none" class="ms-svg-chart">
+         <path class="ms-line" d="M0,40 Q10,30 20,35 T40,20 T60,25 T80,10 T100,15" fill="none" stroke="var(--cyan)" stroke-width="2"/>
+         <path class="ms-area" d="M0,40 Q10,30 20,35 T40,20 T60,25 T80,10 T100,15 L100,50 L0,50 Z" fill="url(#grad)" opacity="0.2"/>
+         <defs>
+           <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+             <stop offset="0%" stop-color="var(--cyan)"/>
+             <stop offset="100%" stop-color="transparent"/>
+           </linearGradient>
+         </defs>
+       </svg>
+       <!-- Bar charts -->
+       <div class="ms-bars">
+         <div class="ms-bar"><div class="ms-bar-inner" style="height: 40%; --delay: 0.1s;"></div></div>
+         <div class="ms-bar"><div class="ms-bar-inner" style="height: 70%; --delay: 0.2s;"></div></div>
+         <div class="ms-bar"><div class="ms-bar-inner" style="height: 50%; --delay: 0.3s;"></div></div>
+         <div class="ms-bar"><div class="ms-bar-inner" style="height: 90%; --delay: 0.4s;"></div></div>
+         <div class="ms-bar"><div class="ms-bar-inner" style="height: 60%; --delay: 0.5s;"></div></div>
+       </div>
+    </div>
+  </div>
+</div>
+
             <div class="mock-glow-orb orb-orange"></div>
           </div>
 
@@ -469,8 +507,36 @@
           
           <!-- Mockup -->
           <div class="s-mockup-container">
-            <div class="mock-pipe advanced" style="overflow: hidden; padding: 0; position: relative; display: flex; justify-content: center; align-items: center;">
-            <img src="ai_pipeline_mockup.png" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; animation: slowZoomAnim 12s infinite alternate ease-in-out;">
+            
+<div class="mock-n8n">
+  <svg class="n8n-lines" viewBox="0 0 400 300">
+     <path id="path1" d="M 80 150 C 120 150, 140 100, 180 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+     <path id="path2" d="M 280 100 C 320 100, 320 150, 360 150" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+     <path id="path3" d="M 80 150 C 140 150, 140 220, 200 220" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+     <circle r="3" fill="var(--cyan)" class="n8n-packet">
+       <animateMotion dur="2s" repeatCount="indefinite" path="M 80 150 C 120 150, 140 100, 180 100"/>
+     </circle>
+     <circle r="3" fill="var(--purple)" class="n8n-packet">
+       <animateMotion dur="2s" repeatCount="indefinite" path="M 280 100 C 320 100, 320 150, 360 150"/>
+     </circle>
+     <circle r="3" fill="var(--cyan)" class="n8n-packet" begin="1s">
+       <animateMotion dur="2s" repeatCount="indefinite" path="M 80 150 C 140 150, 140 220, 200 220"/>
+     </circle>
+  </svg>
+  <div class="n8n-node" style="top: 130px; left: 20px;">
+     <div class="n8n-icon" style="background: #ff6b6b;">⚡</div><div class="n8n-name">Webhook</div>
+  </div>
+  <div class="n8n-node" style="top: 80px; left: 180px;">
+     <div class="n8n-icon" style="background: #10a37f;">🤖</div><div class="n8n-name">OpenAI</div>
+  </div>
+  <div class="n8n-node" style="top: 130px; left: 360px;">
+     <div class="n8n-icon" style="background: #336791;">🐘</div><div class="n8n-name">Postgres</div>
+  </div>
+  <div class="n8n-node" style="top: 200px; left: 200px;">
+     <div class="n8n-icon" style="background: #e01e5a;">#️⃣</div><div class="n8n-name">Slack</div>
+  </div>
+</div>
+
             <div class="mock-glow-orb orb-purple" style="animation: floatAnim 4s infinite ease-in-out;"></div>
             <div class="mock-glow-orb orb-cyan" style="animation: floatAnim 6s infinite ease-in-out reverse;"></div>
             <div class="mock-glow-orb orb-multi"></div>
