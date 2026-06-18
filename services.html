@@ -113,6 +113,8 @@
   
   
   
+  
+  
   <section id="services" class="services-new-section" aria-label="Services">
     <div class="container">
       
@@ -458,12 +460,54 @@
           <p>Book a free 30-minute strategy call — we'll analyze your business and recommend exactly what will give you the best ROI.</p>
         </div>
         <div class="s-cta-right">
-          <a href="#contact" class="s-btn-primary">📅 Book Free Call</a>
+          <a href="#contact" class="s-btn-primary">📞 Book Free Call</a>
           <a href="https://wa.me/918017683428" class="s-btn-wa">💬 WhatsApp Us</a>
         </div>
       </div>
 
     </div>
+
+    <!-- 3D Parallax Hover Script for all Mockups -->
+    <script>
+      // Run immediately if DOM is ready, or wait for DOMContentLoaded
+      const initParallax = () => {
+        document.querySelectorAll('.s-card').forEach(card => {
+          const target = card.querySelector('.mock-phone-glass, .mock-browser, .mock-chat, .mock-wa, .mock-phone, .mock-dash, .mock-pipe');
+          if (!target) return;
+          
+          card.addEventListener('mouseenter', () => {
+            target.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease';
+          });
+          
+          const handleMove = e => {
+            const rect = card.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
+            
+            const xRot = ((y / rect.height) - 0.5) * -30;
+            const yRot = ((x / rect.width) - 0.5) * 30;
+            
+            target.style.transform = 'perspective(1000px) rotateX(' + xRot + 'deg) rotateY(' + yRot + 'deg) scale(1.05) translateY(-10px)';
+          };
+          
+          card.addEventListener('mousemove', handleMove);
+          card.addEventListener('touchmove', handleMove, {passive: true});
+          
+          card.addEventListener('mouseleave', () => {
+            target.style.transition = 'transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease, border-color 0.6s ease';
+            target.style.transform = '';
+          });
+        });
+      };
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initParallax);
+      } else {
+        initParallax();
+      }
+    </script>
   </section>
 </main>
 <!-- ═══════════════════════════════════════
