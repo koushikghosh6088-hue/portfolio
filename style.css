@@ -3312,14 +3312,14 @@ html.lenis { height: auto; }
 
 /* Services Grid */
 .s-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  padding: 0 20px;
-  margin-bottom: 4rem;
-}
-@media (max-width: 1199px) { .s-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 768px) { .s-grid { grid-template-columns: 1fr; } }
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    padding: 0 20px;
+    margin-bottom: 4rem;
+  }
+@media (max-width: 1199px) { .s-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 768px) { .s-grid { grid-template-columns: minmax(0, 1fr); padding: 0; } }
 
 /* Cards */
 .s-card {
@@ -5183,3 +5183,13 @@ html.lenis { height: auto; }
   .cy-info-section { grid-template-columns: 1fr; padding: 20px;}
   .cy-what-we-do { padding-right: 0; margin-bottom: 30px;}
 }
+
+/* OVERFLOW PROTECTIONS FOR SERVICES GRID */
+.s-card { min-width: 0; overflow: hidden; }
+.s-mockup-container { min-width: 0; }
+.mc-msg { min-width: 0; }
+.mc-bot-text { min-width: 0; word-break: break-word; }
+.mb-url { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mock-browser.redesigned { min-width: 0; }
+.mock-chat.advanced { min-width: 0; }
+.mock-wa.advanced { min-width: 0; }
