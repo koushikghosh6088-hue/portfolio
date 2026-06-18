@@ -887,8 +887,8 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 document.addEventListener('DOMContentLoaded', () => {
 
   // 1. Industries Sticky Showcase Logic
-  const indBtns = document.querySelectorAll('.p-ind-btn');
-  const indPanels = document.querySelectorAll('.p-ind-panel');
+  const indBtns = document.querySelectorAll('#industries .p-ind-btn');
+  const indPanels = document.querySelectorAll('#industries .p-ind-panel');
 
   if(indBtns.length > 0 && indPanels.length > 0) {
     indBtns.forEach(btn => {
