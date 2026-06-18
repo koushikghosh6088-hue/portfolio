@@ -871,97 +871,110 @@
         <p class="tech-sub">We use the most advanced AI technologies and frameworks to build solutions that outperform the competition.</p>
       </div>
 
-      <!-- PART 1: TECH STACK GRID -->
-      <div class="tech-grid-container">
-        <p class="tech-grid-label fade-up-elem">Technologies We Work With</p>
-        <div class="tech-grid">
-          <!-- AI & LLM -->
-          <div class="t-badge t-fade">
-            <div class="tb-icon">⚡</div><div class="tb-name">GPT-4</div><div class="tb-cat">LLM</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🧠</div><div class="tb-name">Gemini</div><div class="tb-cat">LLM</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🔗</div><div class="tb-name">LangChain</div><div class="tb-cat">AI Framework</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🤗</div><div class="tb-name">Hugging Face</div><div class="tb-cat">AI Models</div>
-          </div>
-          
-          <!-- Automation -->
-          <div class="t-badge t-fade">
-            <div class="tb-icon">⚙️</div><div class="tb-name">n8n</div><div class="tb-cat">Automation</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🔄</div><div class="tb-name">Make.com</div><div class="tb-cat">Automation</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">⚡</div><div class="tb-name">Zapier</div><div class="tb-cat">Automation</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🤖</div><div class="tb-name">AutoGen</div><div class="tb-cat">AI Agents</div>
-          </div>
+      <!-- PART 1: TECH BENTO ENGINE -->
+        <div class="tech-bento-container fade-up-elem">
+          <div class="tb-grid">
+            
+            <!-- 1. The Brain (AI & LLMs) -->
+            <div class="tb-card tb-brain">
+              <div class="tb-bg-glow orb-purple"></div>
+              <div class="tb-header">
+                <span class="tb-icon">🧠</span>
+                <h3 class="tb-title">The Brain: AI Models</h3>
+              </div>
+              <div class="tb-visual">
+                <div class="ai-node-network">
+                  <div class="ai-node n-center">AI</div>
+                  <div class="ai-node n-1"></div>
+                  <div class="ai-node n-2"></div>
+                  <div class="ai-node n-3"></div>
+                  <svg class="ai-lines" viewBox="0 0 100 100"><path d="M50 50 L20 20 M50 50 L80 30 M50 50 L50 80" stroke="rgba(123,47,255,0.6)" stroke-width="2" stroke-dasharray="4"/></svg>
+                </div>
+              </div>
+              <div class="tb-tags">
+                <span class="t-pill">GPT-4o</span>
+                <span class="t-pill">Claude 3.5</span>
+                <span class="t-pill">Gemini 1.5</span>
+                <span class="t-pill">LangChain</span>
+              </div>
+            </div>
 
-          <!-- Frontend -->
-          <div class="t-badge t-fade">
-            <div class="tb-icon">⚛️</div><div class="tb-name">React</div><div class="tb-cat">Frontend</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🌐</div><div class="tb-name">Next.js</div><div class="tb-cat">Frontend</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🎨</div><div class="tb-name">Tailwind CSS</div><div class="tb-cat">Styling</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">📱</div><div class="tb-name">Flutter</div><div class="tb-cat">Mobile</div>
-          </div>
+            <!-- 2. The Muscle (Automation) -->
+            <div class="tb-card tb-muscle">
+              <div class="tb-bg-glow orb-cyan"></div>
+              <div class="tb-header">
+                <span class="tb-icon">⚡</span>
+                <h3 class="tb-title">The Muscle: Automation</h3>
+              </div>
+              <div class="tb-visual">
+                <div class="auto-gears">
+                  <div class="gear g-main">⚙️</div>
+                  <div class="gear g-sub">⚙️</div>
+                  <div class="lightning">⚡</div>
+                </div>
+              </div>
+              <div class="tb-tags">
+                <span class="t-pill">n8n</span>
+                <span class="t-pill">Make</span>
+                <span class="t-pill">Zapier</span>
+                <span class="t-pill">AutoGen</span>
+              </div>
+            </div>
 
-          <!-- Backend -->
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🟢</div><div class="tb-name">Node.js</div><div class="tb-cat">Backend</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🐍</div><div class="tb-name">Python</div><div class="tb-cat">Backend</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🚀</div><div class="tb-name">FastAPI</div><div class="tb-cat">Backend</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">☁️</div><div class="tb-name">Firebase</div><div class="tb-cat">Backend</div>
-          </div>
+            <!-- 3. The Foundation (Cloud & DB) -->
+            <div class="tb-card tb-foundation">
+              <div class="tb-bg-glow orb-orange"></div>
+              <div class="tb-header">
+                <span class="tb-icon">🗄️</span>
+                <h3 class="tb-title">The Foundation: Cloud</h3>
+              </div>
+              <div class="tb-visual">
+                <div class="server-stack">
+                  <div class="server-rack"><div class="sr-light"></div></div>
+                  <div class="server-rack"><div class="sr-light"></div></div>
+                  <div class="server-rack"><div class="sr-light"></div></div>
+                  <div class="data-flow"></div>
+                </div>
+              </div>
+              <div class="tb-tags">
+                <span class="t-pill">AWS</span>
+                <span class="t-pill">Supabase</span>
+                <span class="t-pill">Node.js</span>
+                <span class="t-pill">PostgreSQL</span>
+              </div>
+            </div>
 
-          <!-- Database & Cloud -->
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🗄️</div><div class="tb-name">Supabase</div><div class="tb-cat">Database</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🍃</div><div class="tb-name">MongoDB</div><div class="tb-cat">Database</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">☁️</div><div class="tb-name">AWS</div><div class="tb-cat">Cloud</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🔵</div><div class="tb-name">Google Cloud</div><div class="tb-cat">Cloud</div>
-          </div>
+            <!-- 4. The Interface (Frontend & Mobile) -->
+            <div class="tb-card tb-interface">
+              <div class="tb-bg-glow orb-blue"></div>
+              <div class="tb-header">
+                <span class="tb-icon">✨</span>
+                <h3 class="tb-title">The Interface: Apps</h3>
+              </div>
+              <div class="tb-visual">
+                <div class="ui-mock">
+                  <div class="um-head">
+                     <span class="um-dot"></span><span class="um-dot"></span><span class="um-dot"></span>
+                  </div>
+                  <div class="um-body">
+                    <div class="um-box"></div>
+                    <div class="um-line"></div>
+                    <div class="um-line short"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tb-tags">
+                <span class="t-pill">React</span>
+                <span class="t-pill">Next.js</span>
+                <span class="t-pill">Tailwind</span>
+                <span class="t-pill">Flutter</span>
+              </div>
+            </div>
 
-          <!-- Integrations -->
-          <div class="t-badge t-fade">
-            <div class="tb-icon">💬</div><div class="tb-name">WhatsApp API</div><div class="tb-cat">Integration</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">📧</div><div class="tb-name">Twilio</div><div class="tb-cat">Integration</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">💳</div><div class="tb-name">Razorpay</div><div class="tb-cat">Payment</div>
-          </div>
-          <div class="t-badge t-fade">
-            <div class="tb-icon">🗺️</div><div class="tb-name">Google Maps</div><div class="tb-cat">Integration</div>
           </div>
         </div>
-      </div>
 
-      <!-- PART 2: THREE SHOWCASES -->
+        <!-- PART 2: THREE SHOWCASES -->
       
       <!-- SHOWCASE 1: WhatsApp AI Agent -->
       <div class="t-showcase-row tech-trigger-wa">
