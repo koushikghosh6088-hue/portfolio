@@ -3389,7 +3389,7 @@ html.lenis { height: auto; }
 .s-ideal { font-size: 12px; color: rgba(0,212,255,0.7); margin-bottom: 1.5rem; font-style: italic; }
 
 .s-mockup-container {
-  height: 200px;
+  height: 280px;
   background: rgba(0,0,0,0.3);
   border-radius: 12px;
   margin-bottom: 1.5rem;
@@ -3401,10 +3401,14 @@ html.lenis { height: auto; }
   border: 1px solid rgba(255,255,255,0.05);
 }
 
+.s-mockup-container:hover .hover-zoom { transform: scale(1.05) !important; opacity: 1 !important; }
+
 .s-mockup-container.tech-trigger-chat,
 .s-mockup-container.tech-trigger-wa {
-  height: 310px;
+  height: 480px;
 }
+
+
 
 .s-cta-btn {
   display: block;
