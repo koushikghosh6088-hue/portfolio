@@ -4407,14 +4407,66 @@ html.lenis { height: auto; }
 .c-input-grp input:focus, .c-input-grp select:focus, .c-input-grp textarea:focus { border-color: var(--cyan); }
 .c-input-grp select option { background: #111; }
 
-.new-footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 40px 0; margin-top: 40px; }
-.foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding: 0 20px; }
-.foot-logo { font-size: 20px; font-weight: 800; color: white; }
-.foot-links { display: flex; gap: 24px; flex-wrap: wrap;}
-.foot-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s; }
-.foot-links a:hover { color: white; }
-.foot-copy { color: rgba(255,255,255,0.4); font-size: 13px; }
-@media (max-width: 600px) { .foot-inner { flex-direction: column; text-align: center; justify-content: center; } }
+/* Premium Footer Design */
+.new-footer { 
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  border-top: 1px solid rgba(255,255,255,0.05); 
+  padding: 60px 0 40px; 
+  margin-top: 60px; 
+  position: relative;
+  overflow: hidden;
+}
+.new-footer::before {
+  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 50%; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.5), transparent);
+}
+.foot-inner { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  flex-wrap: wrap; 
+  gap: 30px; 
+  padding: 0 40px; 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.foot-logo { 
+  font-size: 24px; 
+  font-weight: 900; 
+  background: linear-gradient(to right, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+.foot-links { 
+  display: flex; 
+  gap: 32px; 
+  flex-wrap: wrap;
+  background: rgba(255,255,255,0.03);
+  padding: 12px 32px;
+  border-radius: 40px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.foot-links a { 
+  color: rgba(255,255,255,0.7); 
+  text-decoration: none; 
+  font-size: 14px; 
+  font-weight: 500;
+  transition: all 0.3s; 
+}
+.foot-links a:hover { 
+  color: var(--cyan); 
+  text-shadow: 0 0 10px rgba(0,212,255,0.5);
+}
+.foot-copy { 
+  color: rgba(255,255,255,0.4); 
+  font-size: 14px; 
+}
+
+@media (max-width: 900px) {
+  .foot-inner { flex-direction: column; text-align: center; justify-content: center; padding: 0 20px;}
+  .foot-links { padding: 12px 20px; gap: 20px;}
+}
 
 /* ════════════════════════════════════════════════════════════
    REDESIGN: BENTO GRID VALUES
