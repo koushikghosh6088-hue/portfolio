@@ -5125,7 +5125,7 @@ html.lenis { height: auto; }
 
 .cy-founders-flex { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;}
 
-.cy-id-card { position: relative; width: 350px; background: rgba(5,10,20,0.9); border: 1px solid rgba(0,212,255,0.2); border-radius: 15px; overflow: hidden; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);}
+.cy-id-card { position: relative; width: 100%; max-width: 350px; background: rgba(5,10,20,0.9); border: 1px solid rgba(0,212,255,0.2); border-radius: 15px; overflow: hidden; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);}
 .cy-scanner-line { position: absolute; left: 0; top: -10px; width: 100%; height: 2px; background: var(--cyan); box-shadow: 0 0 15px var(--cyan), 0 0 30px var(--cyan); opacity: 0.8; z-index: 10; animation: scanUpDn 3s ease-in-out infinite;}
 .delay-scan { animation-delay: 1.5s; }
 
