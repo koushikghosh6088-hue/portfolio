@@ -3401,6 +3401,11 @@ html.lenis { height: auto; }
   border: 1px solid rgba(255,255,255,0.05);
 }
 
+.s-mockup-container.tech-trigger-chat,
+.s-mockup-container.tech-trigger-wa {
+  height: 310px;
+}
+
 .s-cta-btn {
   display: block;
   text-align: center;

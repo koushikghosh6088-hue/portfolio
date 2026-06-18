@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const cbMockNew = `
-            <div style="transform: scale(0.55); transform-origin: center; width: 100%; display: flex; justify-content: center;">
+            <div style="transform: scale(0.7); transform-origin: center; width: 100%; display: flex; justify-content: center;">
               <div class="cb-mock" style="margin: 0; flex-shrink: 0;">
                 <div class="cb-head">
                   <div class="cb-info"><strong>🤖 JointBot AI</strong><span><span class="cb-dot"></span>Online · Powered by GPT-4</span></div>
@@ -25,7 +25,7 @@ const cbMockNew = `
             </div>`;
 
 const waMockNew = `
-            <div style="transform: scale(0.55); transform-origin: center; width: 100%; display: flex; justify-content: center;">
+            <div style="transform: scale(0.7); transform-origin: center; width: 100%; display: flex; justify-content: center;">
               <div class="wa-mock" style="margin: 0; flex-shrink: 0;">
                 <div class="wa-head">
                   <span class="wa-back">←</span>
