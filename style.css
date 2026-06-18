@@ -4878,3 +4878,10 @@ html.lenis { height: auto; }
   .ab-globe-container { top: -20px; right: -20px; width: 140px; height: 140px;}
 }
 
+
+/* Hide mobile bottom nav on desktop */
+@media (min-width: 901px) {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}
