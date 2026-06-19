@@ -1148,5 +1148,101 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+// ────────────────────────────────────────────────────
+// 15. CONTACT FORM & INTERACTIVE CHIPS LOGIC
+// ────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const chips = document.querySelectorAll('.form-chip');
+  const serviceInput = document.getElementById('selected-service-input');
+  
+  if (chips.length > 0 && serviceInput) {
+    const selectedServices = new Set();
+    
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const val = chip.getAttribute('data-value');
+        if (selectedServices.has(val)) {
+          selectedServices.delete(val);
+          chip.classList.remove('active');
+        } else {
+          selectedServices.add(val);
+          chip.classList.add('active');
+        }
+        
+        // Update hidden input
+        serviceInput.value = Array.from(selectedServices).join(',');
+        
+        // Remove validation warning if at least one selected
+        if (selectedServices.size > 0) {
+          serviceInput.setCustomValidity('');
+        }
+      });
+    });
+  }
+});
 
+// Global functions for Form Submission (called from onsubmit in HTML)
+function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  const nameVal = document.getElementById('form-name').value.trim();
+  const phoneVal = document.getElementById('form-phone').value.trim();
+  const serviceInput = document.getElementById('selected-service-input');
+  const messageVal = document.getElementById('form-message').value.trim();
+  
+  // Custom validation check for chips
+  if (!serviceInput.value) {
+    serviceInput.setCustomValidity('Please select at least one service.');
+    serviceInput.reportValidity();
+    
+    // Shake chips container to draw attention
+    const chipsContainer = document.querySelector('.form-chips');
+    if (chipsContainer) {
+      chipsContainer.style.animation = 'none';
+      setTimeout(() => {
+        chipsContainer.style.animation = 'shakeChips 0.5s ease-in-out';
+      }, 10);
+    }
+    return;
+  }
+  
+  // Add keyframe for shaking chips if not already present
+  if (!document.getElementById('shake-chips-keyframes')) {
+    const style = document.createElement('style');
+    style.id = 'shake-chips-keyframes';
+    style.innerHTML = '\n      @keyframes shakeChips {\n        0%, 100% { transform: translateX(0); }\n        20%, 60% { transform: translateX(-6px); }\n        40%, 80% { transform: translateX(6px); }\n      }\n    ';
+    document.head.appendChild(style);
+  }
 
+  // Display visual success toast
+  const toast = document.getElementById('form-success-toast');
+  if (toast) {
+    toast.classList.add('active');
+  }
+  
+  console.log('Form Submitted successfully:', {
+    name: nameVal,
+    phone: phoneVal,
+    services: serviceInput.value,
+    message: messageVal
+  });
+}
+
+function closeSuccessToast() {
+  const toast = document.getElementById('form-success-toast');
+  const form = document.getElementById('contact-form');
+  
+  if (toast) {
+    toast.classList.remove('active');
+  }
+  
+  if (form) {
+    form.reset();
+    // Reset active states of service chips
+    document.querySelectorAll('.form-chip').forEach(chip => {
+      chip.classList.remove('active');
+    });
+    const serviceInput = document.getElementById('selected-service-input');
+    if (serviceInput) serviceInput.value = '';
+  }
+}
