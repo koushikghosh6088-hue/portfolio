@@ -60,11 +60,18 @@ let lenis;
   if (!dot || !ring || window.innerWidth < 768) return;
 
   // Hardware-accelerated cursor snap (zero layout thrashing)
+  let cX = window.innerWidth/2, cY = window.innerHeight/2;
+  let rafC = false;
   document.addEventListener('mousemove', e => {
-    const x = e.clientX;
-    const y = e.clientY;
-    dot.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`;
-    ring.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`;
+    cX = e.clientX; cY = e.clientY;
+    if (!rafC) {
+      requestAnimationFrame(() => {
+        if(dot) dot.style.transform = `translate3d(calc(${cX}px - 50%), calc(${cY}px - 50%), 0)`;
+        if(ring) ring.style.transform = `translate3d(calc(${cX}px - 50%), calc(${cY}px - 50%), 0)`;
+        rafC = false;
+      });
+      rafC = true;
+    }
   }, { passive: true });
 })();
 
@@ -75,8 +82,15 @@ let lenis;
 (function initNav() {
   const navbar = document.getElementById('navbar');
 
+  let rafS = false;
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    if(!rafS) {
+      requestAnimationFrame(() => {
+        if(navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
+        rafS = false;
+      });
+      rafS = true;
+    }
   }, { passive: true });
 
   // Active section highlight for both Desktop Nav and Mobile Bottom Nav

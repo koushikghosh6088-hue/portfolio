@@ -2360,7 +2360,7 @@ spline-viewer { width: 100%; height: 100%; }
 .about-orb {
   position: absolute; top: -10%; right: -10%; width: 500px; height: 500px;
   background: radial-gradient(circle, rgba(122, 66, 255, 0.15) 0%, transparent 70%);
-  border-radius: 50%; filter: blur(50px); z-index: -1;
+  border-radius: 50%; /* perf-opt: removed heavy blur */ z-index: -1;
   animation: floatOrb 10s ease-in-out infinite alternate;
 }
 .enhanced-about .pg-card {
@@ -3432,7 +3432,7 @@ html.lenis { height: auto; }
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  filter: blur(60px);
+  /* perf-opt: removed heavy blur */
   z-index: 0;
   opacity: 0.6;
   animation: orbFloat 6s ease-in-out infinite;
@@ -3993,7 +3993,7 @@ html.lenis { height: auto; }
   box-shadow: 0 24px 80px rgba(139, 92, 246,0.08);
   transform: translateY(-8px);
 }
-.a-f-glow { position: absolute; width: 240px; height: 240px; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; filter: blur(80px); z-index: -1; pointer-events: none;}
+.a-f-glow { position: absolute; width: 240px; height: 240px; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; /* perf-opt: removed heavy blur */ z-index: -1; pointer-events: none;}
 .a-f-glow.cyan { background: rgba(139, 92, 246,0.05); }
 .a-f-glow.purple { background: rgba(123,47,255,0.05); }
 
@@ -4503,7 +4503,7 @@ html.lenis { height: auto; }
 
 .bc-bg-glow {
   position: absolute; width: 200px; height: 200px; top: -50px; right: -50px;
-  border-radius: 50%; filter: blur(60px); z-index: 0; opacity: 0.5; transition: all 0.4s ease;
+  border-radius: 50%; /* perf-opt: removed heavy blur */ z-index: 0; opacity: 0.5; transition: all 0.4s ease;
 }
 .bento-card:hover .bc-bg-glow { opacity: 0.8; transform: scale(1.2); }
 
@@ -4712,7 +4712,7 @@ html.lenis { height: auto; }
 .tb-title { font-size: 1.2rem; font-weight: 700; color: white; m-0}
 .tb-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; z-index: 2;}
 .t-pill { background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; color: #ccc; border: 1px solid rgba(255,255,255,0.05);}
-.tb-bg-glow { position: absolute; width: 150px; height: 150px; filter: blur(60px); opacity: 0.3; z-index: 0; top: -50px; left: -50px; border-radius: 50%; pointer-events: none;}
+.tb-bg-glow { position: absolute; width: 150px; height: 150px; /* perf-opt: removed heavy blur */ opacity: 0.3; z-index: 0; top: -50px; left: -50px; border-radius: 50%; pointer-events: none;}
 .tb-card:hover .tb-bg-glow { opacity: 0.6; transform: scale(1.2); transition: all 0.5s ease;}
 
 /* =========================================================================
@@ -4820,7 +4820,7 @@ html.lenis { height: auto; }
 }
 .ab-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.15);}
 
-.ab-card-bg { position: absolute; width: 200px; height: 200px; filter: blur(80px); opacity: 0.2; z-index: 0; pointer-events: none;}
+.ab-card-bg { position: absolute; width: 200px; height: 200px; /* perf-opt: removed heavy blur */ opacity: 0.2; z-index: 0; pointer-events: none;}
 .ab-card:hover .ab-card-bg { opacity: 0.4; transform: scale(1.2); transition: all 0.5s ease;}
 .z1 { z-index: 1; position: relative;}
 .h-100 { height: 100%;}
@@ -4931,7 +4931,7 @@ html.lenis { height: auto; }
 .green .p-particle { background: var(--green); box-shadow: 0 0 15px var(--green);}
 
 .pipe-engine { position: relative; width: 140px; height: 140px; display: flex; justify-content: center; align-items: center;}
-.e-glow { position: absolute; width: 100%; height: 100%; background: var(--cyan); filter: blur(40px); opacity: 0.3; animation: pulseEngine 3s infinite alternate;}
+.e-glow { position: absolute; width: 100%; height: 100%; background: var(--cyan); /* perf-opt: removed heavy blur */ opacity: 0.3; animation: pulseEngine 3s infinite alternate;}
 .e-core { width: 100px; height: 100px; background: rgba(0,0,0,0.8); border: 2px solid var(--cyan); border-radius: 50%; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 2; box-shadow: inset 0 0 20px rgba(139, 92, 246,0.5);}
 .e-text { color: white; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;}
 .e-ring { position: absolute; border: 1px dashed rgba(139, 92, 246,0.5); border-radius: 50%; width: 100%; height: 100%; top: -1px; left: -1px; animation: spinRing 10s linear infinite;}
@@ -6733,7 +6733,7 @@ html, body {
   top: -100px; right: -100px;
   width: 450px; height: 450px;
   border-radius: 50%;
-  filter: blur(100px);
+  /* perf-opt: removed heavy blur */
   opacity: 0.35;
   pointer-events: none;
   z-index: 0;
@@ -6920,7 +6920,7 @@ html, body {
   content: '';
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
+  /* perf-opt: removed heavy blur */
   z-index: 0;
   pointer-events: none;
   opacity: 0.6;
@@ -7346,7 +7346,7 @@ html, body {
   top: -100px; right: -100px;
   width: 450px; height: 450px;
   border-radius: 50%;
-  filter: blur(100px);
+  /* perf-opt: removed heavy blur */
   opacity: 0.35;
   pointer-events: none;
   z-index: 0;
@@ -7654,7 +7654,7 @@ html, body {
   top: -100px; right: -100px;
   width: 400px; height: 400px;
   border-radius: 50%;
-  filter: blur(100px);
+  /* perf-opt: removed heavy blur */
   opacity: 0.25;
   pointer-events: none;
   z-index: -1;
@@ -7811,7 +7811,7 @@ html, body {
   background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 60%);
   z-index: -1;
   pointer-events: none;
-  filter: blur(40px);
+  /* perf-opt: removed heavy blur */
 }
 
 .hero-head {
