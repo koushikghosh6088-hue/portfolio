@@ -574,6 +574,18 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
   const maxParticles = 600;
   const mouse = { x: 0, y: 0, targetX: 0, targetY: 0, active: false };
   
+  let scrollSpeed = 0;
+  let lastScrollY = window.scrollY;
+  
+  // Track scroll speed for warp speed Z-acceleration
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const diff = Math.abs(currentScrollY - lastScrollY);
+    scrollSpeed += diff * 0.16; // Add delta to speed
+    lastScrollY = currentScrollY;
+    if (scrollSpeed > 40) scrollSpeed = 40; // Clamp max speed boost
+  }, { passive: true });
+
   // Track mouse and touch coordinates
   window.addEventListener('mousemove', e => {
     mouse.targetX = e.clientX;
@@ -631,8 +643,9 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
       this.orbitSpeed = (Math.random() - 0.5) * 0.006;
     }
     
-    update(originX, originY) {
-      this.z -= this.speed;
+    update(originX, originY, speedBoost) {
+      // Z-depth decreases faster during scroll (warp speed!)
+      this.z -= (this.speed + speedBoost);
       
       if (this.z <= 0) {
         this.reset(false);
@@ -685,8 +698,12 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
   resize();
   
   function animate() {
-    // Semi-transparent background overlay creates speed/motion trails
-    ctx.fillStyle = 'rgba(3, 7, 18, 0.2)';
+    // Gradually decay scroll speed back to cruising speed
+    scrollSpeed *= 0.92;
+    
+    // Stretch speed trails by reducing background overlay opacity during scrolling
+    const trailAlpha = Math.max(0.06, 0.2 - (scrollSpeed / 40) * 0.14);
+    ctx.fillStyle = 'rgba(3, 7, 18, ' + trailAlpha + ')';
     ctx.fillRect(0, 0, width, height);
     
     // Smooth camera target transition
@@ -703,7 +720,7 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
     const originY = height / 2 + (mouse.y - height / 2) * 0.35;
     
     for (let i = 0; i < maxParticles; i++) {
-      particles[i].update(originX, originY);
+      particles[i].update(originX, originY, scrollSpeed);
       particles[i].draw();
     }
     
@@ -711,6 +728,28 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
   }
   
   requestAnimationFrame(animate);
+})();
+
+// --- Scroll-Linked 3D Section Reveals ---
+(function initWarpScroll() {
+  const sections = document.querySelectorAll('.reveal-warp');
+  if (sections.length === 0) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        // Remove active class when leaving viewport to allow re-animation on scroll back
+        entry.target.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.08, // Trigger as soon as 8% of the section is visible
+    rootMargin: "0px 0px -100px 0px"
+  });
+  
+  sections.forEach(sec => observer.observe(sec));
 })();
 
 // --- Text Rotator ---
