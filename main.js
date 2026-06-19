@@ -669,7 +669,7 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
         return;
       }
       
-      const size = Math.max(1, (1 - this.z / 1000) * 4.5);
+      const size = Math.max(1.5, (1 - this.z / 1000) * 6.5);
       const alpha = Math.max(0, Math.min(1, (1 - this.z / 1000) * 0.85));
       
       ctx.fillStyle = `rgba(${this.color}, ${alpha})`;
