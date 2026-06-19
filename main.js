@@ -563,125 +563,243 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 // ────────────────────────────────────────────────────
 
 
-// --- Particle Canvas (Premium Interactive Neural Core) ---
-(function initPremiumParticles() {
+// --- Particle Canvas (Interactive Holographic Neural Mesh) ---
+(function initHolographicMesh() {
   const canvas = document.getElementById('hero-particles');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   
   let width, height;
-  let particles = [];
+  let nodes = [];
+  const mouse = { x: null, y: null, targetX: null, targetY: null, active: false, radius: 260 };
+  let frame = 0;
   
-  // The interactive energy source (mouse/touch)
-  const mouse = { x: null, y: null, radius: 250 };
-  
-  // Support both mouse and touch for mobile interactability
-  window.addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+  // Track mouse coordinates
+  window.addEventListener('mousemove', e => {
+    mouse.targetX = e.clientX;
+    mouse.targetY = e.clientY;
+    mouse.active = true;
   });
-  window.addEventListener('touchmove', (e) => {
-    if(e.touches.length > 0) {
-      mouse.x = e.touches[0].clientX;
-      mouse.y = e.touches[0].clientY;
+  
+  window.addEventListener('mouseout', () => {
+    mouse.active = false;
+  });
+  
+  window.addEventListener('touchmove', e => {
+    if (e.touches.length > 0) {
+      mouse.targetX = e.touches[0].clientX;
+      mouse.targetY = e.touches[0].clientY;
+      mouse.active = true;
     }
   }, { passive: true });
   
-  window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
-  window.addEventListener('touchend', () => { mouse.x = null; mouse.y = null; });
-
+  window.addEventListener('touchend', () => {
+    mouse.active = false;
+  });
+  
   function resize() {
     width = canvas.width = window.innerWidth;
-    height = canvas.height = document.querySelector('.hero').offsetHeight || window.innerHeight;
+    const hero = document.querySelector('.hero');
+    height = canvas.height = hero ? hero.offsetHeight : window.innerHeight;
+    initGrid();
   }
   
   window.addEventListener('resize', resize);
-  resize();
-
-  class QuantumParticle {
-    constructor() {
-      this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.baseSize = Math.random() * 2 + 0.5;
-      this.size = this.baseSize;
-      this.speedX = (Math.random() - 0.5) * 0.8;
-      this.speedY = (Math.random() - 0.5) * 0.8;
-      // Assign either Cyan or Purple color randomly
-      this.color = Math.random() > 0.5 ? 'rgba(0, 212, 255,' : 'rgba(168, 85, 247,';
+  
+  class Node {
+    constructor(gx, gy, x, y) {
+      this.gx = gx; // grid coordinates
+      this.gy = gy;
+      this.ox = x;  // original coordinates
+      this.oy = y;
+      this.x = x;   // current coordinates
+      this.y = y;
+      this.vx = 0;
+      this.vy = 0;
+      this.driftAngle = Math.random() * Math.PI * 2;
+      this.driftSpeed = 0.008 + Math.random() * 0.008;
+      this.driftRadius = 12 + Math.random() * 12;
+      
+      this.brightness = 0.12;
+      this.color = '139, 92, 246'; // Purple base
     }
     
     update() {
-      // Bounce off walls
-      if (this.x > width || this.x < 0) this.speedX = -this.speedX;
-      if (this.y > height || this.y < 0) this.speedY = -this.speedY;
+      // 1. Natural slow organic drift
+      this.driftAngle += this.driftSpeed;
+      const targetDriftX = this.ox + Math.cos(this.driftAngle) * this.driftRadius;
+      const targetDriftY = this.oy + Math.sin(this.driftAngle) * this.driftRadius;
       
-      this.x += this.speedX;
-      this.y += this.speedY;
+      let tx = targetDriftX;
+      let ty = targetDriftY;
       
-      // O(n) Interaction: ONLY check distance to the mouse, not other particles! Extremely fast!
-      if (mouse.x != null) {
+      // 2. Mouse magnetic attraction & neon activation
+      if (mouse.active && mouse.x !== null) {
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        const dist = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < mouse.radius) {
-          // Particles gently gravitate towards the user's touch
-          const force = (mouse.radius - distance) / mouse.radius;
-          this.x += (dx / distance) * force * 1.5;
-          this.y += (dy / distance) * force * 1.5;
+        if (dist < mouse.radius) {
+          const force = (mouse.radius - dist) / mouse.radius;
+          const pull = force * 0.32;
+          tx = this.x + dx * pull;
+          ty = this.y + dy * pull;
           
-          // Draw a stunning energy link connecting the user's touch to the particle
-          ctx.beginPath();
-          ctx.strokeStyle = this.color + (force * 0.4) + ')'; // Glow fades out smoothly
-          ctx.lineWidth = force * 2;
-          ctx.moveTo(this.x, this.y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.stroke();
-          
-          // Make particle glow bigger when near touch
-          this.size = this.baseSize + (force * 3);
+          this.brightness = 0.12 + force * 0.68;
+          // Interpolate color from Purple (139, 92, 246) to Cyan (0, 212, 255)
+          const r = Math.round(139 * (1 - force));
+          const g = Math.round(92 * (1 - force) + 212 * force);
+          const b = Math.round(246 * (1 - force) + 255 * force);
+          this.color = `${r}, ${g}, ${b}`;
         } else {
-          this.size = this.baseSize;
+          this.brightness += (0.12 - this.brightness) * 0.08;
+          this.color = '139, 92, 246';
         }
       } else {
-        this.size = this.baseSize;
+        this.brightness += (0.12 - this.brightness) * 0.08;
+        this.color = '139, 92, 246';
       }
+      
+      // Smooth dampening
+      this.x += (tx - this.x) * 0.08;
+      this.y += (ty - this.y) * 0.08;
     }
     
     draw() {
-      ctx.fillStyle = this.color + '0.6)';
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${this.color}, ${this.brightness})`;
+      ctx.shadowBlur = this.brightness > 0.25 ? 10 : 0;
+      ctx.shadowColor = `rgb(${this.color})`;
       ctx.fill();
+      ctx.shadowBlur = 0;
     }
   }
-
-  function init() {
-    particles = [];
-    // Adjust amount based on screen size to guarantee 0 lag
-    const amount = width < 768 ? 60 : 120;
-    for (let i = 0; i < amount; i++) {
-      particles.push(new QuantumParticle());
+  
+  function initGrid() {
+    nodes = [];
+    // Spacing based on resolution (highly optimized count)
+    const cols = Math.max(8, Math.floor(width / 110));
+    const rows = Math.max(6, Math.floor(height / 100));
+    const cellW = width / (cols - 1);
+    const cellH = height / (rows - 1);
+    
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        // Subtle jitter to make it look organic rather than grid-locked
+        const jitterX = (Math.random() - 0.5) * (cellW * 0.25);
+        const jitterY = (Math.random() - 0.5) * (cellH * 0.25);
+        
+        const x = c * cellW + jitterX;
+        const y = r * cellH + jitterY;
+        
+        nodes.push(new Node(c, r, x, y));
+      }
     }
   }
-
+  
+  function drawConnections() {
+    ctx.lineWidth = 1;
+    
+    for (let i = 0; i < nodes.length; i++) {
+      const n1 = nodes[i];
+      
+      for (let j = i + 1; j < nodes.length; j++) {
+        const n2 = nodes[j];
+        
+        const colDiff = Math.abs(n1.gx - n2.gx);
+        const rowDiff = Math.abs(n1.gy - n2.gy);
+        
+        // Connect only directly adjacent neighbors in the grid index
+        if ((colDiff <= 1 && rowDiff <= 1) && (colDiff + rowDiff > 0)) {
+          const dx = n2.x - n1.x;
+          const dy = n2.y - n1.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < 180) {
+            const avgBrightness = (n1.brightness + n2.brightness) / 2;
+            
+            // Draw background structural grid line
+            ctx.beginPath();
+            ctx.moveTo(n1.x, n1.y);
+            ctx.lineTo(n2.x, n2.y);
+            ctx.strokeStyle = `rgba(139, 92, 246, ${avgBrightness * 0.12})`;
+            ctx.stroke();
+            
+            // If active (near cursor), draw animated data packet flows
+            if (avgBrightness > 0.22) {
+              const alpha = (avgBrightness - 0.22) / 0.78;
+              
+              ctx.beginPath();
+              ctx.moveTo(n1.x, n1.y);
+              ctx.lineTo(n2.x, n2.y);
+              ctx.strokeStyle = `rgba(0, 212, 255, ${alpha * 0.35})`;
+              ctx.setLineDash([4, 15]);
+              ctx.lineDashOffset = -frame * 0.45; // Animates moving packets
+              ctx.stroke();
+              ctx.setLineDash([]); // Reset dash pattern
+            }
+          }
+        }
+      }
+      
+      // Draw direct laser connections to mouse cursor
+      if (mouse.active && mouse.x !== null) {
+        const dx = mouse.x - n1.x;
+        const dy = mouse.y - n1.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < mouse.radius) {
+          const alpha = (1 - dist / mouse.radius) * 0.35;
+          ctx.beginPath();
+          ctx.moveTo(n1.x, n1.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(0, 212, 255, ${alpha})`;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+          ctx.lineWidth = 1;
+        }
+      }
+    }
+  }
+  
   function animate() {
     ctx.clearRect(0, 0, width, height);
     
-    // Add premium blending mode for glowing overlaps
-    ctx.globalCompositeOperation = 'lighter';
+    // Smooth cursor follow interpolation
+    if (mouse.active && mouse.targetX !== null) {
+      if (mouse.x === null) {
+        mouse.x = mouse.targetX;
+        mouse.y = mouse.targetY;
+      } else {
+        mouse.x += (mouse.targetX - mouse.x) * 0.15;
+        mouse.y += (mouse.targetY - mouse.y) * 0.15;
+      }
+    } else {
+      mouse.x = null;
+      mouse.y = null;
+    }
     
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update();
-      particles[i].draw();
+    frame++;
+    
+    for (let i = 0; i < nodes.length; i++) {
+      nodes[i].update();
+    }
+    
+    drawConnections();
+    
+    for (let i = 0; i < nodes.length; i++) {
+      nodes[i].draw();
     }
     
     requestAnimationFrame(animate);
   }
-
-  init();
-  animate();
+  
+  resize();
+  requestAnimationFrame(animate);
 })();
+
+
 // --- Text Rotator ---
 (function initTextRotator() {
   const rotatorText = document.getElementById('h-rotator');
@@ -1078,323 +1196,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// --- Floating Interactive Robot Bubbles ---
-(function initRobotBubbles() {
-  const container = document.getElementById('robot-bubbles-container');
-  if (!container) return;
-
-  const techs = [
-    { icon: '🤖', label: 'ChatGPT', size: 82, color: 'cyan' },
-    { icon: '✨', label: 'Gemini', size: 78, color: 'purple' },
-    { icon: '⚡', label: 'n8n', size: 72, color: 'orange' },
-    { icon: '📱', label: 'Mobile App', size: 76, color: 'purple' },
-  ];
-
-  const colorMap = {
-    cyan:   { border: 'rgba(0,212,255,0.4)',  shadow: 'rgba(0,212,255,0.2)',  text: '#00d4ff', glow: '#00d4ff' },
-    purple: { border: 'rgba(168,85,247,0.4)', shadow: 'rgba(168,85,247,0.2)', text: '#a855f7', glow: '#a855f7' },
-    orange: { border: 'rgba(255,100,50,0.4)',  shadow: 'rgba(255,100,50,0.2)',  text: '#ff6432', glow: '#ff6432' },
-  };
-
-  const bubbles = [];
-  let draggedBubble = null;
-  let dragOffset = { x: 0, y: 0 };
-  let lastMouse = { x: 0, y: 0, time: 0 };
-  let currentMouse = { x: 0, y: 0, active: false };
-
-  // Track coordinates relative to the bubbles container
-  container.addEventListener('mousemove', e => {
-    const rect = container.getBoundingClientRect();
-    currentMouse.x = e.clientX - rect.left;
-    currentMouse.y = e.clientY - rect.top;
-    currentMouse.active = true;
-  });
-  container.addEventListener('mouseleave', () => {
-    currentMouse.active = false;
-  });
-  
-  container.addEventListener('touchmove', e => {
-    if (e.touches.length > 0) {
-      const rect = container.getBoundingClientRect();
-      currentMouse.x = e.touches[0].clientX - rect.left;
-      currentMouse.y = e.touches[0].clientY - rect.top;
-      currentMouse.active = true;
-    }
-  }, { passive: true });
-  container.addEventListener('touchend', () => {
-    currentMouse.active = false;
-  });
-
-  const getW = () => container.offsetWidth || 350;
-  const getH = () => container.offsetHeight || 500;
-
-  class Bubble {
-    constructor(tech, index) {
-      this.tech = tech;
-      this.el = document.createElement('div');
-      this.el.className = 'tech-bubble';
-      
-      const c = colorMap[tech.color];
-      this.r = tech.size / 2;
-      this.mass = this.r * this.r;
-
-      this.el.style.cssText = 'position:absolute;left:0;top:0;width:' + tech.size + 'px;height:' + tech.size + 'px;pointer-events:none;z-index:10;will-change:transform;';
-      
-      const inner = document.createElement('div');
-      inner.className = 'bubble-inner';
-      inner.style.cssText = 'pointer-events:auto;border:1px solid ' + c.border + ';' +
-        'box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.1), inset 0 -2px 10px rgba(0,0,0,0.5), 0 0 10px ' + c.shadow + ';' +
-        '--glow-color:' + c.glow + ';';
-      
-      inner.innerHTML = '<span class="tb-icon">' + tech.icon + '</span><span class="tb-label" style="color:' + c.text + '">' + tech.label + '</span>';
-      this.el.appendChild(inner);
-      container.appendChild(this.el);
-
-      this.innerEl = inner;
-
-      // Spaced layout based on container size
-      const w = getW();
-      const h = getH();
-      if (index === 0) { this.x = w * 0.25; this.y = h * 0.25; }
-      else if (index === 1) { this.x = w * 0.75; this.y = h * 0.25; }
-      else if (index === 2) { this.x = w * 0.25; this.y = h * 0.75; }
-      else { this.x = w * 0.75; this.y = h * 0.75; }
-
-      this.vx = (Math.random() - 0.5) * 0.6;
-      this.vy = (Math.random() - 0.5) * 0.6;
-      
-      this.isDragging = false;
-
-      const startDrag = (clientX, clientY) => {
-        draggedBubble = this;
-        this.isDragging = true;
-        this.innerEl.classList.add('dragging');
-        
-        const rect = container.getBoundingClientRect();
-        const mouseX = clientX - rect.left;
-        const mouseY = clientY - rect.top;
-        
-        dragOffset.x = mouseX - this.x;
-        dragOffset.y = mouseY - this.y;
-        
-        lastMouse.x = mouseX;
-        lastMouse.y = mouseY;
-        lastMouse.time = performance.now();
-        
-        this.vx = 0;
-        this.vy = 0;
-      };
-
-      inner.addEventListener('mousedown', e => {
-        e.preventDefault();
-        startDrag(e.clientX, e.clientY);
-      });
-
-      inner.addEventListener('touchstart', e => {
-        if (e.touches.length > 0) {
-          startDrag(e.touches[0].clientX, e.touches[0].clientY);
-        }
-      }, { passive: false });
-    }
-
-    update() {
-      if (this.isDragging) return;
-
-      this.vx *= 0.985;
-      this.vy *= 0.985;
-
-      const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-      if (speed < 0.15) {
-        const angle = Math.random() * Math.PI * 2;
-        this.vx = Math.cos(angle) * 0.25;
-        this.vy = Math.sin(angle) * 0.25;
-      }
-
-      // Repelled from mouse inside container
-      if (currentMouse.active && !draggedBubble) {
-        const dx = this.x - currentMouse.x;
-        const dy = this.y - currentMouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const repelRadius = 120;
-        if (dist < repelRadius && dist > 0) {
-          const force = (repelRadius - dist) / repelRadius;
-          this.vx += (dx / dist) * force * 0.12;
-          this.vy += (dy / dist) * force * 0.12;
-        }
-      }
-
-      const maxSpeed = 10;
-      const curSpeed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-      if (curSpeed > maxSpeed) {
-        this.vx = (this.vx / curSpeed) * maxSpeed;
-        this.vy = (this.vy / curSpeed) * maxSpeed;
-      }
-
-      this.x += this.vx;
-      this.y += this.vy;
-
-      // Bounce boundaries
-      const w = getW();
-      const h = getH();
-      const buffer = 1;
-
-      if (this.x - this.r < 0) {
-        this.x = this.r + buffer;
-        this.vx = Math.abs(this.vx) * 0.8;
-      } else if (this.x + this.r > w) {
-        this.x = w - this.r - buffer;
-        this.vx = -Math.abs(this.vx) * 0.8;
-      }
-
-      if (this.y - this.r < 0) {
-        this.y = this.r + buffer;
-        this.vy = Math.abs(this.vy) * 0.8;
-      } else if (this.y + this.r > h) {
-        this.y = h - this.r - buffer;
-        this.vy = -Math.abs(this.vy) * 0.8;
-      }
-    }
-
-    draw() {
-      const tx = this.x - this.r;
-      const ty = this.y - this.r;
-      this.el.style.transform = 'translate3d(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px,0)';
-    }
-  }
-
-  // Create bubbles
-  techs.forEach((tech, i) => {
-    bubbles.push(new Bubble(tech, i));
-  });
-
-  const onDragMove = (clientX, clientY) => {
-    if (!draggedBubble) return;
-    
-    const rect = container.getBoundingClientRect();
-    const mouseX = clientX - rect.left;
-    const mouseY = clientY - rect.top;
-    
-    draggedBubble.x = mouseX - dragOffset.x;
-    draggedBubble.y = mouseY - dragOffset.y;
-    
-    const w = getW();
-    const h = getH();
-    draggedBubble.x = Math.max(draggedBubble.r, Math.min(draggedBubble.x, w - draggedBubble.r));
-    draggedBubble.y = Math.max(draggedBubble.r, Math.min(draggedBubble.y, h - draggedBubble.r));
-
-    const now = performance.now();
-    const dt = now - lastMouse.time;
-    if (dt > 10) {
-      const dx = mouseX - lastMouse.x;
-      const dy = mouseY - lastMouse.y;
-      const scale = 16;
-      draggedBubble.vx = (dx / dt) * scale;
-      draggedBubble.vy = (dy / dt) * scale;
-      
-      lastMouse.x = mouseX;
-      lastMouse.y = mouseY;
-      lastMouse.time = now;
-    }
-  };
-
-  const onDragEnd = () => {
-    if (!draggedBubble) return;
-    draggedBubble.innerEl.classList.remove('dragging');
-    draggedBubble.isDragging = false;
-    draggedBubble = null;
-  };
-
-  window.addEventListener('mousemove', e => {
-    if (draggedBubble) onDragMove(e.clientX, e.clientY);
-  });
-
-  window.addEventListener('mouseup', onDragEnd);
-
-  window.addEventListener('touchmove', e => {
-    if (draggedBubble && e.touches.length > 0) {
-      e.preventDefault();
-      onDragMove(e.touches[0].clientX, e.touches[0].clientY);
-    }
-  }, { passive: false });
-
-  window.addEventListener('touchend', onDragEnd);
-
-  // Elastic physics collisions between bubbles
-  function resolveCollisions() {
-    for (let i = 0; i < bubbles.length; i++) {
-      const b1 = bubbles[i];
-      for (let j = i + 1; j < bubbles.length; j++) {
-        const b2 = bubbles[j];
-        
-        const dx = b2.x - b1.x;
-        const dy = b2.y - b1.y;
-        const distSq = dx * dx + dy * dy;
-        const rSum = b1.r + b2.r;
-        
-        if (distSq < rSum * rSum) {
-          const dist = Math.sqrt(distSq);
-          if (dist === 0) continue;
-          
-          const overlap = rSum - dist;
-          const nx = dx / dist;
-          const ny = dy / dist;
-          
-          if (b1.isDragging) {
-            b2.x += nx * overlap;
-            b2.y += ny * overlap;
-          } else if (b2.isDragging) {
-            b1.x -= nx * overlap;
-            b1.y -= ny * overlap;
-          } else {
-            const push = overlap / 2;
-            b1.x -= nx * push;
-            b1.y -= ny * push;
-            b2.x += nx * push;
-            b2.y += ny * push;
-          }
-          
-          const rvx = b2.vx - b1.vx;
-          const rvy = b2.vy - b1.vy;
-          const velAlongNormal = rvx * nx + rvy * ny;
-          
-          if (velAlongNormal < 0) {
-            const restitution = 0.85;
-            const impulse = -(1 + restitution) * velAlongNormal / (1 / b1.mass + 1 / b2.mass);
-            
-            if (!b1.isDragging) {
-              b1.vx -= (impulse / b1.mass) * nx;
-              b1.vy -= (impulse / b1.mass) * ny;
-            }
-            if (!b2.isDragging) {
-              b2.vx += (impulse / b2.mass) * nx;
-              b2.vy += (impulse / b2.mass) * ny;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  function loop() {
-    resolveCollisions();
-    bubbles.forEach(b => {
-      b.update();
-      b.draw();
-    });
-    requestAnimationFrame(loop);
-  }
-
-  // Delay loop initialization slightly to ensure offsetWidth / offsetHeight are resolved
-  setTimeout(() => {
-    requestAnimationFrame(loop);
-  }, 100);
-
-  window.addEventListener('resize', () => {
-    const w = getW();
-    const h = getH();
-    bubbles.forEach(b => {
-      b.x = Math.max(b.r, Math.min(b.x, w - b.r));
-      b.y = Math.max(b.r, Math.min(b.y, h - b.r));
-    });
-  });
-})();
