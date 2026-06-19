@@ -657,137 +657,265 @@
   <section class="o-section" id="industries">
     <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
       <span class="o-eyebrow">BUILT FOR YOUR INDUSTRY</span>
-      <h2 class="o-headline" style="margin-bottom: 60px;">We Speak Your Business Language</h2>
+      <h2 class="o-headline" style="margin-bottom: 40px;">We Speak Your Business Language</h2>
       
-      <div class="p-ind-wrap">
-        <!-- Left Menu -->
-        <div class="p-ind-menu">
-          <button class="p-ind-btn active" data-ind="real-estate">
-            <span class="ind-icon">🏢</span> Real Estate & Builders
-          </button>
-          <button class="p-ind-btn" data-ind="restaurants">
-            <span class="ind-icon">🍽️</span> Restaurants & Food Chains
-          </button>
-          <button class="p-ind-btn" data-ind="clinics">
-            <span class="ind-icon">🏥</span> Clinics & Hospitals
-          </button>
-          <button class="p-ind-btn" data-ind="ecommerce">
-            <span class="ind-icon">🛍️</span> E-commerce & Retail
-          </button>
-          <button class="p-ind-btn" data-ind="manufacturing">
-            <span class="ind-icon">🏭</span> Manufacturing & Logistics
-          </button>
+      <!-- Tab Bar -->
+      <div class="ind-tab-bar">
+        <button class="ind-tab active" data-ind="real-estate">
+          <span class="ind-tab-icon">🏢</span>
+          <span class="ind-tab-label">Real Estate</span>
+        </button>
+        <button class="ind-tab" data-ind="restaurants">
+          <span class="ind-tab-icon">🍽️</span>
+          <span class="ind-tab-label">Restaurants</span>
+        </button>
+        <button class="ind-tab" data-ind="clinics">
+          <span class="ind-tab-icon">🏥</span>
+          <span class="ind-tab-label">Clinics</span>
+        </button>
+        <button class="ind-tab" data-ind="ecommerce">
+          <span class="ind-tab-icon">🛍️</span>
+          <span class="ind-tab-label">E-commerce</span>
+        </button>
+        <button class="ind-tab" data-ind="manufacturing">
+          <span class="ind-tab-icon">🏭</span>
+          <span class="ind-tab-label">Manufacturing</span>
+        </button>
+      </div>
+
+      <!-- Panels -->
+      <div class="ind-panels-wrap">
+
+        <!-- Real Estate Panel -->
+        <div class="ind-panel active" id="panel-real-estate">
+          <div class="ind-panel-glow ind-glow-purple"></div>
+          <div class="ind-panel-left">
+            <div class="ind-panel-badge" style="background:linear-gradient(135deg,#8B5CF6,#6d28d9);">🏢 Real Estate & Builders</div>
+            <h3 class="ind-panel-title">Stop Losing <span class="ind-highlight-purple">Hot Leads</span></h3>
+            <p class="ind-panel-desc">We automate your entire sales funnel so you can focus on closing deals, not chasing prospects.</p>
+            <div class="ind-metric-row">
+              <div class="ind-metric" style="--mc:#8B5CF6;">
+                <div class="ind-metric-num">3×</div>
+                <div class="ind-metric-lbl">More Leads Converted</div>
+              </div>
+              <div class="ind-metric" style="--mc:#25D366;">
+                <div class="ind-metric-num">24/7</div>
+                <div class="ind-metric-lbl">AI Lead Follow-up</div>
+              </div>
+              <div class="ind-metric" style="--mc:#38bdf8;">
+                <div class="ind-metric-num">0</div>
+                <div class="ind-metric-lbl">Manual Calls Needed</div>
+              </div>
+            </div>
+            <ul class="ind-feat-list">
+              <li><span class="ind-check">✦</span> Premium Real Estate Websites &amp; Mobile Apps</li>
+              <li><span class="ind-check">✦</span> WhatsApp AI Lead Qualification Agent</li>
+              <li><span class="ind-check">✦</span> Automated Site Visit Scheduling</li>
+              <li><span class="ind-check">✦</span> CRM Integration &amp; Sync</li>
+            </ul>
+          </div>
+          <div class="ind-panel-right">
+            <div class="ind-visual ind-visual-realestate">
+              <div class="ind-v-card" style="--vc-top:0%;--vc-delay:0s;border-color:rgba(139,92,246,0.5);">
+                <div class="ind-v-card-label" style="color:#a78bfa;">🤖 AI Lead Assigned</div>
+                <div class="ind-v-card-val">Ravi Sharma → 3BHK Flats</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:36%;--vc-delay:0.3s;border-color:rgba(37,211,102,0.5);">
+                <div class="ind-v-card-label" style="color:#25D366;">📅 Site Visit Booked</div>
+                <div class="ind-v-card-val">Sunday 11AM — Confirmed ✅</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:72%;--vc-delay:0.6s;border-color:rgba(56,189,248,0.5);">
+                <div class="ind-v-card-label" style="color:#38bdf8;">💰 Deal Closed</div>
+                <div class="ind-v-card-val">₹85L — Auto-Updated in CRM</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Right Showcase -->
-        <div class="p-ind-showcase">
-          <!-- Real Estate Panel -->
-          <div class="p-ind-panel active" id="panel-real-estate">
-            <div class="p-panel-graphic graphic-real-estate">
-              <div class="graphic-element g-re-1"></div>
-              <div class="graphic-element g-re-2"></div>
-              <div class="graphic-element g-re-3"></div>
+        <!-- Restaurants Panel -->
+        <div class="ind-panel" id="panel-restaurants">
+          <div class="ind-panel-glow ind-glow-orange"></div>
+          <div class="ind-panel-left">
+            <div class="ind-panel-badge" style="background:linear-gradient(135deg,#f97316,#ea580c);">🍽️ Restaurants &amp; Food Chains</div>
+            <h3 class="ind-panel-title">Own Your <span class="ind-highlight-orange">Orders Directly</span></h3>
+            <p class="ind-panel-desc">Stop paying 30% commissions to aggregators. Build your own ordering channel and keep all profits.</p>
+            <div class="ind-metric-row">
+              <div class="ind-metric" style="--mc:#f97316;">
+                <div class="ind-metric-num">45%</div>
+                <div class="ind-metric-lbl">More Direct Orders</div>
+              </div>
+              <div class="ind-metric" style="--mc:#fbbf24;">
+                <div class="ind-metric-num">0%</div>
+                <div class="ind-metric-lbl">Aggregator Commission</div>
+              </div>
+              <div class="ind-metric" style="--mc:#25D366;">
+                <div class="ind-metric-num">2×</div>
+                <div class="ind-metric-lbl">Repeat Customers</div>
+              </div>
             </div>
-            <div class="p-panel-content">
-              <h3>Real Estate & Builders</h3>
-              <p>Stop losing hot leads. We automate your entire sales funnel so you can focus on closing deals.</p>
-              <div class="p-deliverables">
-                <h4>What We Build For You:</h4>
-                <ul>
-                  <li><span class="d-check">✔</span> Premium Real Estate Websites & Mobile Apps</li>
-                  <li><span class="d-check">✔</span> WhatsApp AI Lead Qualification Agent</li>
-                  <li><span class="d-check">✔</span> Automated Site Visit Scheduling</li>
-                  <li><span class="d-check">✔</span> CRM Integration & Sync</li>
-                </ul>
+            <ul class="ind-feat-list">
+              <li><span class="ind-check" style="color:#f97316;">✦</span> Custom Online Ordering Web App</li>
+              <li><span class="ind-check" style="color:#f97316;">✦</span> WhatsApp Ordering &amp; Support Bot</li>
+              <li><span class="ind-check" style="color:#f97316;">✦</span> Kitchen Display System (KDS)</li>
+              <li><span class="ind-check" style="color:#f97316;">✦</span> Unified Inventory Dashboard</li>
+            </ul>
+          </div>
+          <div class="ind-panel-right">
+            <div class="ind-visual" style="background:radial-gradient(circle at 60% 40%, rgba(249,115,22,0.25) 0%, transparent 70%);">
+              <div class="ind-v-card" style="--vc-top:0%;--vc-delay:0s;border-color:rgba(249,115,22,0.5);">
+                <div class="ind-v-card-label" style="color:#fb923c;">🛒 New Order Received</div>
+                <div class="ind-v-card-val">Paneer Butter Masala ×2 — ₹480</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:36%;--vc-delay:0.3s;border-color:rgba(251,191,36,0.5);">
+                <div class="ind-v-card-label" style="color:#fbbf24;">💳 UPI Payment</div>
+                <div class="ind-v-card-val">Paid Instantly — No Commission!</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:72%;--vc-delay:0.6s;border-color:rgba(37,211,102,0.5);">
+                <div class="ind-v-card-label" style="color:#25D366;">🏪 Kitchen Notified</div>
+                <div class="ind-v-card-val">ETA: 20 mins — Table 4</div>
               </div>
             </div>
           </div>
-
-          <!-- Restaurants Panel -->
-          <div class="p-ind-panel" id="panel-restaurants">
-            <div class="p-panel-graphic graphic-restaurants">
-              <div class="graphic-element g-food-1"></div>
-              <div class="graphic-element g-food-2"></div>
-            </div>
-            <div class="p-panel-content">
-              <h3>Restaurants & Food Chains</h3>
-              <p>Stop paying massive commissions to delivery apps. Own your customer data and automate operations.</p>
-              <div class="p-deliverables">
-                <h4>What We Build For You:</h4>
-                <ul>
-                  <li><span class="d-check">✔</span> Custom Online Ordering Web App</li>
-                  <li><span class="d-check">✔</span> WhatsApp Ordering & Support Bot</li>
-                  <li><span class="d-check">✔</span> Kitchen Display System (KDS)</li>
-                  <li><span class="d-check">✔</span> Unified Inventory Dashboard</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Clinics Panel -->
-          <div class="p-ind-panel" id="panel-clinics">
-            <div class="p-panel-graphic graphic-clinics">
-              <div class="graphic-element g-health-1"></div>
-              <div class="graphic-element g-health-2"></div>
-            </div>
-            <div class="p-panel-content">
-              <h3>Clinics & Hospitals</h3>
-              <p>Eliminate no-shows and free up your staff. Let AI handle the heavy lifting of scheduling and follow-ups.</p>
-              <div class="p-deliverables">
-                <h4>What We Build For You:</h4>
-                <ul>
-                  <li><span class="d-check">✔</span> Automated Appointment Booking System</li>
-                  <li><span class="d-check">✔</span> WhatsApp Reminders & Rescheduling</li>
-                  <li><span class="d-check">✔</span> Patient Follow-up AI</li>
-                  <li><span class="d-check">✔</span> Secure Patient Records Portal</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Ecommerce Panel -->
-          <div class="p-ind-panel" id="panel-ecommerce">
-            <div class="p-panel-graphic graphic-ecommerce">
-              <div class="graphic-element g-ecom-1"></div>
-              <div class="graphic-element g-ecom-2"></div>
-            </div>
-            <div class="p-panel-content">
-              <h3>E-commerce & Retail</h3>
-              <p>Provide instant, 24/7 support and scale your sales without hiring a massive support team.</p>
-              <div class="p-deliverables">
-                <h4>What We Build For You:</h4>
-                <ul>
-                  <li><span class="d-check">✔</span> Custom Scalable E-commerce Websites</li>
-                  <li><span class="d-check">✔</span> AI Bot Trained on Your Product Catalog</li>
-                  <li><span class="d-check">✔</span> Instant WhatsApp Order Tracking</li>
-                  <li><span class="d-check">✔</span> Automated Abandoned Cart Recovery</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Manufacturing Panel -->
-          <div class="p-ind-panel" id="panel-manufacturing">
-            <div class="p-panel-graphic graphic-manufacturing">
-              <div class="graphic-element g-mfg-1"></div>
-              <div class="graphic-element g-mfg-2"></div>
-            </div>
-            <div class="p-panel-content">
-              <h3>Manufacturing & Logistics</h3>
-              <p>Replace scattered Excel sheets and chaotic WhatsApp groups with a single source of truth.</p>
-              <div class="p-deliverables">
-                <h4>What We Build For You:</h4>
-                <ul>
-                  <li><span class="d-check">✔</span> Custom Business ERP Dashboard</li>
-                  <li><span class="d-check">✔</span> Live Inventory & Dispatch Tracking</li>
-                  <li><span class="d-check">✔</span> Automated HR & Attendance Systems</li>
-                  <li><span class="d-check">✔</span> Vendor & Supplier Portal</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
         </div>
+
+        <!-- Clinics Panel -->
+        <div class="ind-panel" id="panel-clinics">
+          <div class="ind-panel-glow ind-glow-cyan"></div>
+          <div class="ind-panel-left">
+            <div class="ind-panel-badge" style="background:linear-gradient(135deg,#06b6d4,#0284c7);">🏥 Clinics &amp; Hospitals</div>
+            <h3 class="ind-panel-title">Eliminate <span class="ind-highlight-cyan">No-Shows</span> Forever</h3>
+            <p class="ind-panel-desc">Let AI handle the heavy lifting of scheduling, reminders, and follow-ups so your staff focuses on care.</p>
+            <div class="ind-metric-row">
+              <div class="ind-metric" style="--mc:#06b6d4;">
+                <div class="ind-metric-num">0</div>
+                <div class="ind-metric-lbl">No-shows in 3 Months</div>
+              </div>
+              <div class="ind-metric" style="--mc:#38bdf8;">
+                <div class="ind-metric-num">80%</div>
+                <div class="ind-metric-lbl">Less Admin Work</div>
+              </div>
+              <div class="ind-metric" style="--mc:#a78bfa;">
+                <div class="ind-metric-num">24/7</div>
+                <div class="ind-metric-lbl">Appointment Booking</div>
+              </div>
+            </div>
+            <ul class="ind-feat-list">
+              <li><span class="ind-check" style="color:#06b6d4;">✦</span> Automated Appointment Booking System</li>
+              <li><span class="ind-check" style="color:#06b6d4;">✦</span> WhatsApp Reminders &amp; Rescheduling</li>
+              <li><span class="ind-check" style="color:#06b6d4;">✦</span> Patient Follow-up AI</li>
+              <li><span class="ind-check" style="color:#06b6d4;">✦</span> Secure Patient Records Portal</li>
+            </ul>
+          </div>
+          <div class="ind-panel-right">
+            <div class="ind-visual" style="background:radial-gradient(circle at 60% 40%, rgba(6,182,212,0.25) 0%, transparent 70%);">
+              <div class="ind-v-card" style="--vc-top:0%;--vc-delay:0s;border-color:rgba(6,182,212,0.5);">
+                <div class="ind-v-card-label" style="color:#22d3ee;">🤖 AI Reminder Sent</div>
+                <div class="ind-v-card-val">Hi Rahul! Root Canal at 10:30 AM ✅</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:36%;--vc-delay:0.3s;border-color:rgba(167,139,250,0.5);">
+                <div class="ind-v-card-label" style="color:#a78bfa;">🔄 Rescheduled</div>
+                <div class="ind-v-card-val">Friday 4PM — 1-Click Only</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:72%;--vc-delay:0.6s;border-color:rgba(37,211,102,0.5);">
+                <div class="ind-v-card-label" style="color:#25D366;">📋 Record Updated</div>
+                <div class="ind-v-card-val">Synced across all staff instantly</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-commerce Panel -->
+        <div class="ind-panel" id="panel-ecommerce">
+          <div class="ind-panel-glow ind-glow-pink"></div>
+          <div class="ind-panel-left">
+            <div class="ind-panel-badge" style="background:linear-gradient(135deg,#ec4899,#9333ea);">🛍️ E-commerce &amp; Retail</div>
+            <h3 class="ind-panel-title">Scale Sales with <span class="ind-highlight-pink">AI Power</span></h3>
+            <p class="ind-panel-desc">Provide instant 24/7 support and boost your conversions without hiring a massive support team.</p>
+            <div class="ind-metric-row">
+              <div class="ind-metric" style="--mc:#ec4899;">
+                <div class="ind-metric-num">60%</div>
+                <div class="ind-metric-lbl">Less Cart Abandonment</div>
+              </div>
+              <div class="ind-metric" style="--mc:#a855f7;">
+                <div class="ind-metric-num">24/7</div>
+                <div class="ind-metric-lbl">AI Shopping Assistant</div>
+              </div>
+              <div class="ind-metric" style="--mc:#38bdf8;">
+                <div class="ind-metric-num">3×</div>
+                <div class="ind-metric-lbl">ROI on Chatbot</div>
+              </div>
+            </div>
+            <ul class="ind-feat-list">
+              <li><span class="ind-check" style="color:#ec4899;">✦</span> Custom Scalable E-commerce Websites</li>
+              <li><span class="ind-check" style="color:#ec4899;">✦</span> AI Bot Trained on Your Product Catalog</li>
+              <li><span class="ind-check" style="color:#ec4899;">✦</span> Instant WhatsApp Order Tracking</li>
+              <li><span class="ind-check" style="color:#ec4899;">✦</span> Automated Abandoned Cart Recovery</li>
+            </ul>
+          </div>
+          <div class="ind-panel-right">
+            <div class="ind-visual" style="background:radial-gradient(circle at 60% 40%, rgba(236,72,153,0.25) 0%, transparent 70%);">
+              <div class="ind-v-card" style="--vc-top:0%;--vc-delay:0s;border-color:rgba(236,72,153,0.5);">
+                <div class="ind-v-card-label" style="color:#f472b6;">🛒 Abandoned Cart Alert</div>
+                <div class="ind-v-card-val">Nike Air Max — ₹8,999 left in cart</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:36%;--vc-delay:0.3s;border-color:rgba(168,85,247,0.5);">
+                <div class="ind-v-card-label" style="color:#c084fc;">🤖 AI Recovery Message</div>
+                <div class="ind-v-card-val">Hey! Get 10% off — use SAVE10 🎁</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:72%;--vc-delay:0.6s;border-color:rgba(37,211,102,0.5);">
+                <div class="ind-v-card-label" style="color:#25D366;">✅ Purchase Complete</div>
+                <div class="ind-v-card-val">Order #4821 — Revenue Recovered!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Manufacturing Panel -->
+        <div class="ind-panel" id="panel-manufacturing">
+          <div class="ind-panel-glow ind-glow-yellow"></div>
+          <div class="ind-panel-left">
+            <div class="ind-panel-badge" style="background:linear-gradient(135deg,#eab308,#d97706);">🏭 Manufacturing &amp; Logistics</div>
+            <h3 class="ind-panel-title">One Screen, <span class="ind-highlight-yellow">Full Control</span></h3>
+            <p class="ind-panel-desc">Replace scattered Excel sheets and chaotic WhatsApp groups with a single powerful source of truth.</p>
+            <div class="ind-metric-row">
+              <div class="ind-metric" style="--mc:#eab308;">
+                <div class="ind-metric-num">40h</div>
+                <div class="ind-metric-lbl">Saved Per Week</div>
+              </div>
+              <div class="ind-metric" style="--mc:#f97316;">
+                <div class="ind-metric-num">32%</div>
+                <div class="ind-metric-lbl">Fuel Cost Reduction</div>
+              </div>
+              <div class="ind-metric" style="--mc:#25D366;">
+                <div class="ind-metric-num">100%</div>
+                <div class="ind-metric-lbl">Stock Accuracy</div>
+              </div>
+            </div>
+            <ul class="ind-feat-list">
+              <li><span class="ind-check" style="color:#eab308;">✦</span> Custom Business ERP Dashboard</li>
+              <li><span class="ind-check" style="color:#eab308;">✦</span> Live Inventory &amp; Dispatch Tracking</li>
+              <li><span class="ind-check" style="color:#eab308;">✦</span> Automated HR &amp; Attendance Systems</li>
+              <li><span class="ind-check" style="color:#eab308;">✦</span> Vendor &amp; Supplier Portal</li>
+            </ul>
+          </div>
+          <div class="ind-panel-right">
+            <div class="ind-visual" style="background:radial-gradient(circle at 60% 40%, rgba(234,179,8,0.2) 0%, transparent 70%);">
+              <div class="ind-v-card" style="--vc-top:0%;--vc-delay:0s;border-color:rgba(234,179,8,0.5);">
+                <div class="ind-v-card-label" style="color:#fbbf24;">📦 Inventory Alert</div>
+                <div class="ind-v-card-val">Steel Rods — Reorder Now (42 left)</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:36%;--vc-delay:0.3s;border-color:rgba(249,115,22,0.5);">
+                <div class="ind-v-card-label" style="color:#fb923c;">🚛 Fleet Dispatch</div>
+                <div class="ind-v-card-val">MH-12-4521 — En Route to Pune</div>
+              </div>
+              <div class="ind-v-card" style="--vc-top:72%;--vc-delay:0.6s;border-color:rgba(37,211,102,0.5);">
+                <div class="ind-v-card-label" style="color:#25D366;">✅ Daily Report Ready</div>
+                <div class="ind-v-card-val">Production: 847 units ↑12% today</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -846,22 +974,15 @@
       <span class="o-eyebrow">OUR WORK</span>
       <h2 class="o-headline" style="margin-bottom: 60px;">Real Businesses. Real Results.</h2>
       
-      <div class="p-ind-wrap">
-        <!-- Left Menu -->
-        <div class="p-ind-menu p-port-menu">
-          <button class="p-ind-btn p-port-btn active" data-port="wa">
-            <span class="ind-icon">💬</span> WhatsApp AI
-          </button>
-          <button class="p-ind-btn p-port-btn" data-port="erp">
-            <span class="ind-icon">📊</span> Business ERP
-          </button>
-          <button class="p-ind-btn p-port-btn" data-port="web">
-            <span class="ind-icon">🌐</span> Web & Apps
-          </button>
-          <button class="p-ind-btn p-port-btn" data-port="bot">
-            <span class="ind-icon">🤖</span> AI Chatbots
-          </button>
-        </div>
+      <!-- Portfolio Tab Bar -->
+      <div class="port-tab-bar">
+        <button class="port-tab active" data-port="wa">💬 WhatsApp AI</button>
+        <button class="port-tab" data-port="erp">📊 Business ERP</button>
+        <button class="port-tab" data-port="web">🌐 Web &amp; Apps</button>
+        <button class="port-tab" data-port="bot">🤖 AI Chatbots</button>
+      </div>
+
+      <div class="p-ind-wrap" style="display:block;">
 
         <!-- Right Showcase -->
         <div class="p-ind-showcase p-port-showcase">
