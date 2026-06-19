@@ -981,4 +981,34 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Portfolio Arrows Logic
+  const portPanelsArrow = document.querySelectorAll('.p-port-panel');
+  portPanelsArrow.forEach(panel => {
+    const scrollBox = panel.querySelector('.p-port-scroll');
+    if(!scrollBox) return;
+
+    // Create Prev Button
+    const prevBtn = document.createElement('div');
+    prevBtn.className = 'p-port-arrow prev';
+    prevBtn.innerHTML = '&#10094;'; // Left chevron
+    
+    // Create Next Button
+    const nextBtn = document.createElement('div');
+    nextBtn.className = 'p-port-arrow next';
+    nextBtn.innerHTML = '&#10095;'; // Right chevron
+
+    panel.appendChild(prevBtn);
+    panel.appendChild(nextBtn);
+
+    // Scroll Logic
+    prevBtn.addEventListener('click', () => {
+      const cardWidth = scrollBox.querySelector('.o-cs-card').offsetWidth + 40;
+      scrollBox.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      const cardWidth = scrollBox.querySelector('.o-cs-card').offsetWidth + 40;
+      scrollBox.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    });
+  });
 });
