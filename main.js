@@ -563,28 +563,23 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 // ────────────────────────────────────────────────────
 
 
-// --- Particle Canvas (Interactive Holographic Neural Mesh) ---
-(function initHolographicMesh() {
+// --- Particle Canvas (3D Cyber Warp Particle Stream) ---
+(function initCyberWarp() {
   const canvas = document.getElementById('hero-particles');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   
   let width, height;
-  let nodes = [];
-  const mouse = { x: null, y: null, targetX: null, targetY: null, active: false, radius: 260 };
-  let frame = 0;
+  let particles = [];
+  const maxParticles = 600;
+  const mouse = { x: 0, y: 0, targetX: 0, targetY: 0, active: false };
   
-  // Track mouse coordinates
+  // Track mouse and touch coordinates
   window.addEventListener('mousemove', e => {
     mouse.targetX = e.clientX;
     mouse.targetY = e.clientY;
     mouse.active = true;
   });
-  
-  window.addEventListener('mouseout', () => {
-    mouse.active = false;
-  });
-  
   window.addEventListener('touchmove', e => {
     if (e.touches.length > 0) {
       mouse.targetX = e.touches[0].clientX;
@@ -592,213 +587,131 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
       mouse.active = true;
     }
   }, { passive: true });
-  
-  window.addEventListener('touchend', () => {
-    mouse.active = false;
-  });
+  window.addEventListener('mouseout', () => { mouse.active = false; });
+  window.addEventListener('touchend', () => { mouse.active = false; });
   
   function resize() {
     width = canvas.width = window.innerWidth;
     const hero = document.querySelector('.hero');
     height = canvas.height = hero ? hero.offsetHeight : window.innerHeight;
-    initGrid();
+    mouse.targetX = width / 2;
+    mouse.targetY = height / 2;
+    mouse.x = width / 2;
+    mouse.y = height / 2;
   }
   
   window.addEventListener('resize', resize);
   
-  class Node {
-    constructor(gx, gy, x, y) {
-      this.gx = gx; // grid coordinates
-      this.gy = gy;
-      this.ox = x;  // original coordinates
-      this.oy = y;
-      this.x = x;   // current coordinates
-      this.y = y;
-      this.vx = 0;
-      this.vy = 0;
-      this.driftAngle = Math.random() * Math.PI * 2;
-      this.driftSpeed = 0.008 + Math.random() * 0.008;
-      this.driftRadius = 12 + Math.random() * 12;
-      
-      this.brightness = 0.12;
-      this.color = '139, 92, 246'; // Purple base
+  class Particle {
+    constructor() {
+      this.reset(true);
     }
     
-    update() {
-      // 1. Natural slow organic drift
-      this.driftAngle += this.driftSpeed;
-      const targetDriftX = this.ox + Math.cos(this.driftAngle) * this.driftRadius;
-      const targetDriftY = this.oy + Math.sin(this.driftAngle) * this.driftRadius;
+    reset(init = false) {
+      // Space particles around in a cylinder projection
+      this.x = (Math.random() - 0.5) * 1600;
+      this.y = (Math.random() - 0.5) * 1600;
+      this.z = init ? Math.random() * 1000 : 1000;
       
-      let tx = targetDriftX;
-      let ty = targetDriftY;
+      // Speed towards screen
+      this.speed = 3.5 + Math.random() * 5.5;
       
-      // 2. Mouse magnetic attraction & neon activation
-      if (mouse.active && mouse.x !== null) {
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        
-        if (dist < mouse.radius) {
-          const force = (mouse.radius - dist) / mouse.radius;
-          const pull = force * 0.32;
-          tx = this.x + dx * pull;
-          ty = this.y + dy * pull;
-          
-          this.brightness = 0.12 + force * 0.68;
-          // Interpolate color from Purple (139, 92, 246) to Cyan (0, 212, 255)
-          const r = Math.round(139 * (1 - force));
-          const g = Math.round(92 * (1 - force) + 212 * force);
-          const b = Math.round(246 * (1 - force) + 255 * force);
-          this.color = `${r}, ${g}, ${b}`;
-        } else {
-          this.brightness += (0.12 - this.brightness) * 0.08;
-          this.color = '139, 92, 246';
-        }
+      // Color profile matching branding
+      const rand = Math.random();
+      if (rand < 0.45) {
+        this.color = '0, 212, 255'; // Neon Cyan
+      } else if (rand < 0.9) {
+        this.color = '139, 92, 246'; // Neon Purple
       } else {
-        this.brightness += (0.12 - this.brightness) * 0.08;
-        this.color = '139, 92, 246';
+        this.color = '255, 255, 255'; // Pure Data White
       }
       
-      // Smooth dampening
-      this.x += (tx - this.x) * 0.08;
-      this.y += (ty - this.y) * 0.08;
+      this.angle = Math.atan2(this.y, this.x);
+      this.radius = Math.sqrt(this.x * this.x + this.y * this.y);
+      this.orbitSpeed = (Math.random() - 0.5) * 0.006;
+    }
+    
+    update(originX, originY) {
+      this.z -= this.speed;
+      
+      if (this.z <= 0) {
+        this.reset(false);
+        return;
+      }
+      
+      // Slow orbital rotate for galaxy/vortex feel
+      this.angle += this.orbitSpeed;
+      this.x = Math.cos(this.angle) * this.radius;
+      this.y = Math.sin(this.angle) * this.radius;
+      
+      // Project 3D coordinate onto 2D viewport
+      const fov = 380;
+      this.projX = (this.x / this.z) * fov + originX;
+      this.projY = (this.y / this.z) * fov + originY;
+      
+      // Interactive magnetic warp around mouse
+      if (mouse.active) {
+        const dx = mouse.x - this.projX;
+        const dy = mouse.y - this.projY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < 180 && dist > 0) {
+          const force = (180 - dist) / 180;
+          this.x += (dx / dist) * force * 3.5;
+          this.y += (dy / dist) * force * 3.5;
+          this.radius = Math.sqrt(this.x * this.x + this.y * this.y);
+        }
+      }
     }
     
     draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${this.color}, ${this.brightness})`;
-      ctx.shadowBlur = this.brightness > 0.25 ? 10 : 0;
-      ctx.shadowColor = `rgb(${this.color})`;
-      ctx.fill();
-      ctx.shadowBlur = 0;
+      if (this.projX < 0 || this.projX > width || this.projY < 0 || this.projY > height) {
+        return;
+      }
+      
+      const size = Math.max(1, (1 - this.z / 1000) * 4.5);
+      const alpha = Math.max(0, Math.min(1, (1 - this.z / 1000) * 0.85));
+      
+      ctx.fillStyle = `rgba(${this.color}, ${alpha})`;
+      ctx.fillRect(this.projX, this.projY, size, size);
     }
   }
   
-  function initGrid() {
-    nodes = [];
-    // Spacing based on resolution (highly optimized count)
-    const cols = Math.max(8, Math.floor(width / 110));
-    const rows = Math.max(6, Math.floor(height / 100));
-    const cellW = width / (cols - 1);
-    const cellH = height / (rows - 1);
-    
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        // Subtle jitter to make it look organic rather than grid-locked
-        const jitterX = (Math.random() - 0.5) * (cellW * 0.25);
-        const jitterY = (Math.random() - 0.5) * (cellH * 0.25);
-        
-        const x = c * cellW + jitterX;
-        const y = r * cellH + jitterY;
-        
-        nodes.push(new Node(c, r, x, y));
-      }
-    }
+  // Fill particle array
+  for (let i = 0; i < maxParticles; i++) {
+    particles.push(new Particle());
   }
   
-  function drawConnections() {
-    ctx.lineWidth = 1;
-    
-    for (let i = 0; i < nodes.length; i++) {
-      const n1 = nodes[i];
-      
-      for (let j = i + 1; j < nodes.length; j++) {
-        const n2 = nodes[j];
-        
-        const colDiff = Math.abs(n1.gx - n2.gx);
-        const rowDiff = Math.abs(n1.gy - n2.gy);
-        
-        // Connect only directly adjacent neighbors in the grid index
-        if ((colDiff <= 1 && rowDiff <= 1) && (colDiff + rowDiff > 0)) {
-          const dx = n2.x - n1.x;
-          const dy = n2.y - n1.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          
-          if (dist < 180) {
-            const avgBrightness = (n1.brightness + n2.brightness) / 2;
-            
-            // Draw background structural grid line
-            ctx.beginPath();
-            ctx.moveTo(n1.x, n1.y);
-            ctx.lineTo(n2.x, n2.y);
-            ctx.strokeStyle = `rgba(139, 92, 246, ${avgBrightness * 0.12})`;
-            ctx.stroke();
-            
-            // If active (near cursor), draw animated data packet flows
-            if (avgBrightness > 0.22) {
-              const alpha = (avgBrightness - 0.22) / 0.78;
-              
-              ctx.beginPath();
-              ctx.moveTo(n1.x, n1.y);
-              ctx.lineTo(n2.x, n2.y);
-              ctx.strokeStyle = `rgba(0, 212, 255, ${alpha * 0.35})`;
-              ctx.setLineDash([4, 15]);
-              ctx.lineDashOffset = -frame * 0.45; // Animates moving packets
-              ctx.stroke();
-              ctx.setLineDash([]); // Reset dash pattern
-            }
-          }
-        }
-      }
-      
-      // Draw direct laser connections to mouse cursor
-      if (mouse.active && mouse.x !== null) {
-        const dx = mouse.x - n1.x;
-        const dy = mouse.y - n1.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        
-        if (dist < mouse.radius) {
-          const alpha = (1 - dist / mouse.radius) * 0.35;
-          ctx.beginPath();
-          ctx.moveTo(n1.x, n1.y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(0, 212, 255, ${alpha})`;
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
-          ctx.lineWidth = 1;
-        }
-      }
-    }
-  }
+  resize();
   
   function animate() {
-    ctx.clearRect(0, 0, width, height);
+    // Semi-transparent background overlay creates speed/motion trails
+    ctx.fillStyle = 'rgba(3, 7, 18, 0.2)';
+    ctx.fillRect(0, 0, width, height);
     
-    // Smooth cursor follow interpolation
-    if (mouse.active && mouse.targetX !== null) {
-      if (mouse.x === null) {
-        mouse.x = mouse.targetX;
-        mouse.y = mouse.targetY;
-      } else {
-        mouse.x += (mouse.targetX - mouse.x) * 0.15;
-        mouse.y += (mouse.targetY - mouse.y) * 0.15;
-      }
+    // Smooth camera target transition
+    if (mouse.active) {
+      mouse.x += (mouse.targetX - mouse.x) * 0.1;
+      mouse.y += (mouse.targetY - mouse.y) * 0.1;
     } else {
-      mouse.x = null;
-      mouse.y = null;
+      mouse.x += (width / 2 - mouse.x) * 0.05;
+      mouse.y += (height / 2 - mouse.y) * 0.05;
     }
     
-    frame++;
+    // Moving the perspective center bends the entire particle tunnel
+    const originX = width / 2 + (mouse.x - width / 2) * 0.35;
+    const originY = height / 2 + (mouse.y - height / 2) * 0.35;
     
-    for (let i = 0; i < nodes.length; i++) {
-      nodes[i].update();
-    }
-    
-    drawConnections();
-    
-    for (let i = 0; i < nodes.length; i++) {
-      nodes[i].draw();
+    for (let i = 0; i < maxParticles; i++) {
+      particles[i].update(originX, originY);
+      particles[i].draw();
     }
     
     requestAnimationFrame(animate);
   }
   
-  resize();
   requestAnimationFrame(animate);
 })();
-
 
 // --- Text Rotator ---
 (function initTextRotator() {
