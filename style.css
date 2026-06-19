@@ -423,26 +423,19 @@ body.subpage { padding-top: 8rem; }
 }
 .orb {
   position: absolute; border-radius: 50%;
-  filter: blur(150px);
-  animation: orbPulse 8s infinite alternate ease-in-out;
+  /* perf-opt: replaced blur(150px) filter with pre-blurred radial gradient — zero GPU cost */
 }
 .orb-1 {
   width: 600px; height: 600px;
-  background: var(--purple);
-  opacity: 0.15;
+  background: radial-gradient(circle, rgba(139,92,246,0.18) 0%, rgba(139,92,246,0.06) 40%, transparent 70%);
   top: -100px; left: -100px;
 }
 .orb-2 {
   width: 500px; height: 500px;
-  background: var(--purple);
-  opacity: 0.12;
+  background: radial-gradient(circle, rgba(139,92,246,0.14) 0%, rgba(139,92,246,0.04) 40%, transparent 70%);
   bottom: -100px; right: -50px;
 }
 
-@keyframes orbPulse {
-  from { transform: scale(1); }
-  to { transform: scale(1.2); }
-}
 
 .hero-grid-lines {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
@@ -9644,7 +9637,7 @@ spline-viewer {
   width: 100%;
   height: 100%;
   z-index: 1;
-  pointer-events: auto; /* Allow interactions */
+  pointer-events: none; /* perf-opt: was 'auto', caused unnecessary hit-testing */
 }
 
 

@@ -563,171 +563,131 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 // ────────────────────────────────────────────────────
 
 
-// --- Particle Canvas (3D Cyber Warp Particle Stream) ---
+// --- Particle Canvas (Optimised: 150 particles, pauses offscreen) ---
 (function initCyberWarp() {
   const canvas = document.getElementById('hero-particles');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  
+  const ctx = canvas.getContext('2d', { alpha: false });
+
   let width, height;
   let particles = [];
-  const maxParticles = 600;
-  const mouse = { x: 0, y: 0, targetX: 0, targetY: 0, active: false };
-  
-  let scrollSpeed = 0;
-  let lastScrollY = window.scrollY;
-  
-  // Track scroll speed for warp speed Z-acceleration
+  const MAX = 150; // ← was 600, massive perf gain
+  const mouse = { x: 0, y: 0, tX: 0, tY: 0, on: false };
+  let scrollSpeed = 0, lastSY = window.scrollY;
+  let heroVisible = true; // visibility gate
+  let animId = 0;
+
+  // Observe hero visibility — stop drawing when offscreen
+  const heroEl = document.querySelector('.hero');
+  if (heroEl && typeof IntersectionObserver !== 'undefined') {
+    new IntersectionObserver(([e]) => {
+      heroVisible = e.isIntersecting;
+      if (heroVisible && !animId) animId = requestAnimationFrame(animate);
+    }, { threshold: 0 }).observe(heroEl);
+  }
+
+  // Throttled scroll speed tracker
+  let scrollTick = false;
   window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    const diff = Math.abs(currentScrollY - lastScrollY);
-    scrollSpeed += diff * 0.16; // Add delta to speed
-    lastScrollY = currentScrollY;
-    if (scrollSpeed > 40) scrollSpeed = 40; // Clamp max speed boost
+    if (scrollTick) return;
+    scrollTick = true;
+    requestAnimationFrame(() => {
+      const sy = window.scrollY;
+      scrollSpeed = Math.min(40, scrollSpeed + Math.abs(sy - lastSY) * 0.16);
+      lastSY = sy;
+      scrollTick = false;
+    });
   }, { passive: true });
 
-  // Track mouse and touch coordinates
-  window.addEventListener('mousemove', e => {
-    mouse.targetX = e.clientX;
-    mouse.targetY = e.clientY;
-    mouse.active = true;
-  });
-  window.addEventListener('touchmove', e => {
-    if (e.touches.length > 0) {
-      mouse.targetX = e.touches[0].clientX;
-      mouse.targetY = e.touches[0].clientY;
-      mouse.active = true;
-    }
-  }, { passive: true });
-  window.addEventListener('mouseout', () => { mouse.active = false; });
-  window.addEventListener('touchend', () => { mouse.active = false; });
-  
+  // Mouse / touch
+  document.addEventListener('mousemove', e => { mouse.tX = e.clientX; mouse.tY = e.clientY; mouse.on = true; }, { passive: true });
+  document.addEventListener('touchmove', e => { if (e.touches[0]) { mouse.tX = e.touches[0].clientX; mouse.tY = e.touches[0].clientY; mouse.on = true; } }, { passive: true });
+  document.addEventListener('mouseout', () => { mouse.on = false; });
+  document.addEventListener('touchend', () => { mouse.on = false; });
+
   function resize() {
     width = canvas.width = window.innerWidth;
-    const hero = document.querySelector('.hero');
-    height = canvas.height = hero ? hero.offsetHeight : window.innerHeight;
-    mouse.targetX = width / 2;
-    mouse.targetY = height / 2;
-    mouse.x = width / 2;
-    mouse.y = height / 2;
+    height = canvas.height = heroEl ? heroEl.offsetHeight : window.innerHeight;
+    mouse.tX = mouse.x = width / 2;
+    mouse.tY = mouse.y = height / 2;
   }
-  
-  window.addEventListener('resize', resize);
-  
-  class Particle {
-    constructor() {
-      this.reset(true);
-    }
-    
-    reset(init = false) {
-      // Space particles around in a cylinder projection
-      this.x = (Math.random() - 0.5) * 1600;
-      this.y = (Math.random() - 0.5) * 1600;
-      this.z = init ? Math.random() * 1000 : 1000;
-      
-      // Speed towards screen
-      this.speed = 3.5 + Math.random() * 5.5;
-      
-      // Color profile matching branding
-      const rand = Math.random();
-      if (rand < 0.45) {
-        this.color = '0, 212, 255'; // Neon Cyan
-      } else if (rand < 0.9) {
-        this.color = '139, 92, 246'; // Neon Purple
-      } else {
-        this.color = '255, 255, 255'; // Pure Data White
-      }
-      
-      this.angle = Math.atan2(this.y, this.x);
-      this.radius = Math.sqrt(this.x * this.x + this.y * this.y);
-      this.orbitSpeed = (Math.random() - 0.5) * 0.006;
-    }
-    
-    update(originX, originY, speedBoost) {
-      // Z-depth decreases faster during scroll (warp speed!)
-      this.z -= (this.speed + speedBoost);
-      
-      if (this.z <= 0) {
-        this.reset(false);
-        return;
-      }
-      
-      // Slow orbital rotate for galaxy/vortex feel
-      this.angle += this.orbitSpeed;
-      this.x = Math.cos(this.angle) * this.radius;
-      this.y = Math.sin(this.angle) * this.radius;
-      
-      // Project 3D coordinate onto 2D viewport
+  let resizeTimer;
+  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(resize, 150); });
+
+  // Particle uses typed properties for JIT-friendliness
+  function createParticle(init) {
+    const r = Math.random;
+    const x0 = (r() - 0.5) * 1600, y0 = (r() - 0.5) * 1600;
+    const rn = r();
+    return {
+      x: x0, y: y0, z: init ? r() * 1000 : 1000,
+      spd: 3.5 + r() * 5.5,
+      col: rn < 0.45 ? '0,212,255' : rn < 0.9 ? '139,92,246' : '255,255,255',
+      ang: Math.atan2(y0, x0),
+      rad: Math.sqrt(x0 * x0 + y0 * y0),
+      orb: (r() - 0.5) * 0.006,
+      px: 0, py: 0
+    };
+  }
+
+  for (let i = 0; i < MAX; i++) particles.push(createParticle(true));
+  resize();
+
+  const MOUSE_R2 = 180 * 180; // squared threshold — avoids sqrt per particle
+
+  function animate() {
+    if (!heroVisible) { animId = 0; return; } // stop RAF chain when invisible
+
+    scrollSpeed *= 0.92;
+    const ta = Math.max(0.06, 0.2 - (scrollSpeed / 40) * 0.14);
+    ctx.fillStyle = 'rgba(3,7,18,' + ta + ')';
+    ctx.fillRect(0, 0, width, height);
+
+    // Smooth mouse lerp
+    if (mouse.on) { mouse.x += (mouse.tX - mouse.x) * 0.1; mouse.y += (mouse.tY - mouse.y) * 0.1; }
+    else { mouse.x += (width / 2 - mouse.x) * 0.05; mouse.y += (height / 2 - mouse.y) * 0.05; }
+
+    const oX = width / 2 + (mouse.x - width / 2) * 0.35;
+    const oY = height / 2 + (mouse.y - height / 2) * 0.35;
+
+    for (let i = 0; i < MAX; i++) {
+      const p = particles[i];
+      p.z -= p.spd + scrollSpeed;
+      if (p.z <= 0) { particles[i] = createParticle(false); continue; }
+
+      p.ang += p.orb;
+      p.x = Math.cos(p.ang) * p.rad;
+      p.y = Math.sin(p.ang) * p.rad;
+
       const fov = 380;
-      this.projX = (this.x / this.z) * fov + originX;
-      this.projY = (this.y / this.z) * fov + originY;
-      
-      // Interactive magnetic warp around mouse
-      if (mouse.active) {
-        const dx = mouse.x - this.projX;
-        const dy = mouse.y - this.projY;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        
-        if (dist < 180 && dist > 0) {
-          const force = (180 - dist) / 180;
-          this.x += (dx / dist) * force * 3.5;
-          this.y += (dy / dist) * force * 3.5;
-          this.radius = Math.sqrt(this.x * this.x + this.y * this.y);
+      p.px = (p.x / p.z) * fov + oX;
+      p.py = (p.y / p.z) * fov + oY;
+
+      // Mouse warp — uses squared distance (no sqrt)
+      if (mouse.on) {
+        const dx = mouse.x - p.px, dy = mouse.y - p.py;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < MOUSE_R2 && d2 > 1) {
+          const f = (1 - d2 / MOUSE_R2) * 3.5;
+          const inv = 1 / Math.sqrt(d2); // single sqrt only for close particles
+          p.x += dx * inv * f;
+          p.y += dy * inv * f;
+          p.rad = Math.sqrt(p.x * p.x + p.y * p.y);
         }
       }
+
+      if (p.px < 0 || p.px > width || p.py < 0 || p.py > height) continue;
+
+      const sz = Math.max(1.5, (1 - p.z / 1000) * 6.5);
+      const al = Math.max(0, Math.min(1, (1 - p.z / 1000) * 0.85));
+      ctx.fillStyle = 'rgba(' + p.col + ',' + al + ')';
+      ctx.fillRect(p.px, p.py, sz, sz);
     }
-    
-    draw() {
-      if (this.projX < 0 || this.projX > width || this.projY < 0 || this.projY > height) {
-        return;
-      }
-      
-      const size = Math.max(1.5, (1 - this.z / 1000) * 6.5);
-      const alpha = Math.max(0, Math.min(1, (1 - this.z / 1000) * 0.85));
-      
-      ctx.fillStyle = `rgba(${this.color}, ${alpha})`;
-      ctx.fillRect(this.projX, this.projY, size, size);
-    }
+
+    animId = requestAnimationFrame(animate);
   }
-  
-  // Fill particle array
-  for (let i = 0; i < maxParticles; i++) {
-    particles.push(new Particle());
-  }
-  
-  resize();
-  
-  function animate() {
-    // Gradually decay scroll speed back to cruising speed
-    scrollSpeed *= 0.92;
-    
-    // Stretch speed trails by reducing background overlay opacity during scrolling
-    const trailAlpha = Math.max(0.06, 0.2 - (scrollSpeed / 40) * 0.14);
-    ctx.fillStyle = 'rgba(3, 7, 18, ' + trailAlpha + ')';
-    ctx.fillRect(0, 0, width, height);
-    
-    // Smooth camera target transition
-    if (mouse.active) {
-      mouse.x += (mouse.targetX - mouse.x) * 0.1;
-      mouse.y += (mouse.targetY - mouse.y) * 0.1;
-    } else {
-      mouse.x += (width / 2 - mouse.x) * 0.05;
-      mouse.y += (height / 2 - mouse.y) * 0.05;
-    }
-    
-    // Moving the perspective center bends the entire particle tunnel
-    const originX = width / 2 + (mouse.x - width / 2) * 0.35;
-    const originY = height / 2 + (mouse.y - height / 2) * 0.35;
-    
-    for (let i = 0; i < maxParticles; i++) {
-      particles[i].update(originX, originY, scrollSpeed);
-      particles[i].draw();
-    }
-    
-    requestAnimationFrame(animate);
-  }
-  
-  requestAnimationFrame(animate);
+
+  animId = requestAnimationFrame(animate);
 })();
 
 // --- Scroll-Linked 3D Section Reveals ---
