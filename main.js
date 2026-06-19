@@ -786,27 +786,35 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 (function loadSpline() {
   const robotWrap = document.getElementById('global-robot');
   if (robotWrap) {
-    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="eager" events-target="global"></spline-viewer>';
-    
-    // Attempt to completely remove the logo from the shadow DOM
-    const checkInterval = setInterval(() => {
-      const viewer = document.querySelector('spline-viewer');
-      if (viewer && viewer.shadowRoot) {
-        // Inject custom CSS directly into Spline's Shadow DOM
-        const style = document.createElement('style');
-        style.textContent = '#logo, a[href*="spline.design"], .spline-watermark { display: none !important; opacity: 0 !important; pointer-events: none !important; }';
-        viewer.shadowRoot.appendChild(style);
+    if (window.innerWidth > 900) {
+      // On desktop, load the Spline viewer after a short idle timeout to avoid blocking main thread
+      setTimeout(() => {
+        robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer>';
         
-        // Also try to physically remove the node
-        const logo = viewer.shadowRoot.querySelector('#logo');
-        if (logo) logo.remove();
-        
-        clearInterval(checkInterval);
-      }
-    }, 500);
+        // Attempt to completely remove the logo from the shadow DOM
+        const checkInterval = setInterval(() => {
+          const viewer = document.querySelector('spline-viewer');
+          if (viewer && viewer.shadowRoot) {
+            // Inject custom CSS directly into Spline's Shadow DOM
+            const style = document.createElement('style');
+            style.textContent = '#logo, a[href*="spline.design"], .spline-watermark { display: none !important; opacity: 0 !important; pointer-events: none !important; }';
+            viewer.shadowRoot.appendChild(style);
+            
+            // Also try to physically remove the node
+            const logo = viewer.shadowRoot.querySelector('#logo');
+            if (logo) logo.remove();
+            
+            clearInterval(checkInterval);
+          }
+        }, 500);
 
-    // Stop checking after 15 seconds
-    setTimeout(() => clearInterval(checkInterval), 15000);
+        // Stop checking after 15 seconds
+        setTimeout(() => clearInterval(checkInterval), 15000);
+      }, 100);
+    } else {
+      // On mobile devices, load the lightweight fallback image
+      robotWrap.innerHTML = '<img src="robot_hero_poster.png" alt="Joint AI Labs Robot" class="robot-fallback-img" />';
+    }
   }
 })();
 

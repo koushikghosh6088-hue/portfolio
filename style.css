@@ -9750,3 +9750,24 @@ spline-viewer {
     transition: none !important;
   }
 }
+
+/* --- Mobile Fallback Robot Image --- */
+.robot-fallback-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block;
+  margin: 0 auto;
+  pointer-events: none; /* Let events fall through so they don't block bubble interactions */
+  filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.25)) drop-shadow(0 0 10px rgba(6, 182, 212, 0.15)) !important;
+  animation: floatRobotFallback 6s ease-in-out infinite;
+}
+
+@keyframes floatRobotFallback {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0) scale(1.02);
+  }
+}
