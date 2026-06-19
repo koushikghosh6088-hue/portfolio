@@ -9169,3 +9169,37 @@ html, body {
     display: none !important;
   }
 }
+
+/* =========================================================
+   ROBOT ANIMATION: DRIFTING TOWARDS LOGO & INSTANT LOAD
+   ========================================================= */
+
+@keyframes reachForLogo {
+  0%, 100% { 
+    transform: translateY(-20px) translateX(0px); 
+  }
+  50% { 
+    transform: translateY(-32px) translateX(-8px) rotate(-1deg); /* Subtle drift up and left towards logo */
+  }
+}
+
+@media (max-width: 900px) {
+  .global-robot-wrap {
+    /* Use pure GPU-accelerated transform animation to ensure 0 lag */
+    animation: reachForLogo 6s ease-in-out infinite !important;
+    will-change: transform;
+  }
+}
+
+/* Also ensure desktop robot subtly floats if it wasn't already */
+@keyframes reachForLogoDesktop {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-15px) translateX(-5px); }
+}
+
+@media (min-width: 901px) {
+  .global-robot-wrap {
+    animation: reachForLogoDesktop 7s ease-in-out infinite;
+    will-change: transform;
+  }
+}

@@ -699,7 +699,7 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 (function loadSpline() {
   const robotWrap = document.getElementById('global-robot');
   if (robotWrap) {
-    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer>';
+    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="eager" events-target="global"></spline-viewer>';
     
     // Attempt to completely remove the logo from the shadow DOM
     const checkInterval = setInterval(() => {
