@@ -8054,3 +8054,28 @@ html, body {
 .s-visual .ind-glow-yellow {
   display: none !important;
 }
+
+/* =========================================================
+   NEW LOADING LOGO ANIMATION (ZERO-LAG GPU ACCELERATED)
+   ========================================================= */
+.loader-image-new {
+  width: 250px;
+  max-width: 80vw;
+  height: auto;
+  margin-bottom: 25px;
+  animation: pulseLogo 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 10000;
+}
+
+@keyframes pulseLogo {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.03); opacity: 0.85; }
+}
+
+/* Ensure the loader bar and text look good below it */
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
