@@ -8079,3 +8079,15 @@ html, body {
   align-items: center;
   justify-content: center;
 }
+
+/* =========================================================
+   LOADER FIXES (REMOVE BOXY BACKGROUND & ADD PCT)
+   ========================================================= */
+.loader-image-new {
+  /* mix-blend-mode: screen makes black pixels completely invisible! */
+  mix-blend-mode: screen;
+  /* removing the box-shadow since screen mode handles the glow beautifully */
+  box-shadow: none !important;
+  /* slight brightness bump to compensate for screen blend */
+  filter: brightness(1.2);
+}

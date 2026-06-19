@@ -12,16 +12,26 @@
 (function initLoader() {
   const loader = document.getElementById('loader');
   const progress = document.getElementById('loader-progress');
+  const pctText = document.getElementById('loader-pct');
   let pct = 0;
   const interval = setInterval(() => {
     pct += Math.random() * 22;
     if (pct >= 100) { pct = 100; clearInterval(interval); }
-    progress.style.width = pct + '%';
+    if (progress) progress.style.width = pct + '%';
+    if (pctText) pctText.innerText = Math.round(pct) + '%';
   }, 100);
+  
+  // Also ensure the counter hits 100% on load before hiding
   window.addEventListener('load', () => {
-    setTimeout(() => { loader.classList.add('hidden'); }, 500);
+    if (pctText) pctText.innerText = '100%';
+    if (progress) progress.style.width = '100%';
+    setTimeout(() => { loader.classList.add('hidden'); }, 600);
   });
-  setTimeout(() => loader.classList.add('hidden'), 2500);
+  setTimeout(() => {
+    if (pctText) pctText.innerText = '100%';
+    if (progress) progress.style.width = '100%';
+    loader.classList.add('hidden');
+  }, 3000);
 })();
 
 
