@@ -7516,6 +7516,42 @@ html, body {
 }
 
 /* =========================================================
+   CRITICAL MOBILE OVERRIDES FOR PORTFOLIO CARDS
+   ========================================================= */
+@media (max-width: 900px) {
+  /* Fix huge text from desktop gradients */
+  #portfolio .o-cs-res {
+    font-size: 20px !important;
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+  }
+  #portfolio .o-cs-res span {
+    font-size: 12px !important;
+  }
+  #portfolio .o-cs-left h3 {
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 10px !important;
+  }
+  #portfolio .o-cs-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+  }
+  /* Fix left side clipping */
+  #portfolio .o-cs-card {
+    overflow-x: visible !important;
+  }
+  #portfolio .o-cs-left {
+    margin-left: 0 !important;
+    transform: none !important;
+    left: 0 !important;
+    padding: 24px 20px 10px 20px !important;
+  }
+}
+
+
+/* =========================================================
    PORTFOLIO TAB BAR
    ========================================================= */
 .port-tab-bar {
