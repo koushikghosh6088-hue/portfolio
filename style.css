@@ -8408,3 +8408,85 @@ html, body {
 .h-btn-primary:hover {
   box-shadow: 0 0 35px rgba(168, 85, 247, 0.8) !important;
 }
+
+/* =========================================================
+   TOP RIGHT TECH VISUAL (3D GLOWING CUBE)
+   ========================================================= */
+.hero-tech-visual {
+  position: absolute;
+  top: 40px;
+  right: 5%;
+  z-index: 100;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube-wrapper {
+  width: 50px;
+  height: 50px;
+  perspective: 800px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 15s linear infinite;
+}
+
+.cube .face {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  background: rgba(139, 92, 246, 0.15);
+  box-shadow: 
+    inset 0 0 15px rgba(0, 212, 255, 0.2), 
+    0 0 20px rgba(139, 92, 246, 0.3);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.cube .front  { transform: rotateY(  0deg) translateZ(25px); }
+.cube .right  { transform: rotateY( 90deg) translateZ(25px); }
+.cube .back   { transform: rotateY(180deg) translateZ(25px); }
+.cube .left   { transform: rotateY(-90deg) translateZ(25px); }
+.cube .top    { transform: rotateX( 90deg) translateZ(25px); }
+.cube .bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+@keyframes rotateCube {
+  0%   { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+@media (max-width: 900px) {
+  .hero-tech-visual {
+    top: 25px;
+    right: 25px;
+  }
+  .cube-wrapper {
+    width: 34px;
+    height: 34px;
+  }
+  .cube .face {
+    width: 34px;
+    height: 34px;
+    border-width: 1px;
+    box-shadow: 
+      inset 0 0 8px rgba(0, 212, 255, 0.2), 
+      0 0 12px rgba(139, 92, 246, 0.3);
+  }
+  .cube .front  { transform: rotateY(  0deg) translateZ(17px); }
+  .cube .right  { transform: rotateY( 90deg) translateZ(17px); }
+  .cube .back   { transform: rotateY(180deg) translateZ(17px); }
+  .cube .left   { transform: rotateY(-90deg) translateZ(17px); }
+  .cube .top    { transform: rotateX( 90deg) translateZ(17px); }
+  .cube .bottom { transform: rotateX(-90deg) translateZ(17px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube { animation: none; transform: rotateX(30deg) rotateY(45deg); }
+}
