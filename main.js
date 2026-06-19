@@ -740,13 +740,15 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
       } else {
-        // Remove active class when leaving viewport to allow re-animation on scroll back
-        entry.target.classList.remove('active');
+        // Only remove active class if the element has gone back below the viewport
+        if (entry.boundingClientRect.top > window.innerHeight) {
+          entry.target.classList.remove('active');
+        }
       }
     });
   }, {
-    threshold: 0.08, // Trigger as soon as 8% of the section is visible
-    rootMargin: "0px 0px -100px 0px"
+    threshold: 0.01, // Trigger as soon as edge is crossed
+    rootMargin: "0px 0px 180px 0px" // Trigger 180px before entering viewport
   });
   
   sections.forEach(sec => observer.observe(sec));
