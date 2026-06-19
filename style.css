@@ -8490,3 +8490,57 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .cube { animation: none; transform: rotateX(30deg) rotateY(45deg); }
 }
+
+/* =========================================================
+   HERO TOP OFFERINGS BADGE
+   ========================================================= */
+.hero-top-offerings {
+  position: absolute;
+  top: 30px;
+  right: 5%;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(10, 10, 20, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 18px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.hto-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hto-dot {
+  color: #00d4ff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .hero-top-offerings {
+    top: 25px;
+    right: 15px;
+    padding: 6px 12px;
+    gap: 8px;
+  }
+  .hto-item {
+    font-size: 9px;
+  }
+  .hto-dot {
+    font-size: 12px;
+  }
+}
+
+.mobile-hud { display: none !important; opacity: 0 !important; }
+.hero-tech-visual { display: none !important; opacity: 0 !important; }
+.loader-text { display: none !important; opacity: 0 !important; }
