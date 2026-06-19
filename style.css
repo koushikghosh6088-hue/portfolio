@@ -9078,23 +9078,4 @@ html, body {
   }
 }
 
-/* =========================================================
-   NEW LOGO SIZING
-   ========================================================= */
 
-.hero-mobile-logo-img {
-  width: auto !important;
-  max-width: 200px !important; /* Large enough for desktop */
-  height: auto !important;
-  display: block !important;
-  /* Remove any old mask effects if they were applied globally */
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
-  filter: none !important;
-}
-
-@media (max-width: 900px) {
-  .hero-mobile-logo-img {
-    max-width: 150px !important; /* Smaller on mobile */
-  }
-}
