@@ -786,8 +786,8 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 (function loadSpline() {
   const robotWrap = document.getElementById('global-robot');
   if (robotWrap) {
-    if (window.innerWidth > 900) {
-      // On desktop, load the Spline viewer after a short idle timeout to avoid blocking main thread
+    const initRobot = () => {
+      // Defer Spline loading by 800ms after load completion to ensure smooth page entrance
       setTimeout(() => {
         robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer>';
         
@@ -810,10 +810,13 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 
         // Stop checking after 15 seconds
         setTimeout(() => clearInterval(checkInterval), 15000);
-      }, 100);
+      }, 800);
+    };
+
+    if (document.readyState === 'complete') {
+      initRobot();
     } else {
-      // On mobile devices, load the lightweight fallback image
-      robotWrap.innerHTML = '<img src="robot_hero_poster.png" alt="Joint AI Labs Robot" class="robot-fallback-img" />';
+      window.addEventListener('load', initRobot);
     }
   }
 })();

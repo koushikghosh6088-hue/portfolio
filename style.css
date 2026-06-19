@@ -9624,60 +9624,13 @@ html, body {
 }
 
 /* =========================================================
-   ROBOT ANIMATION: DRIFTING TOWARDS LOGO & INSTANT LOAD
+   ROBOT PERFORMANCE OPTIMIZATION
    ========================================================= */
-
-@keyframes reachForLogo {
-  0%, 100% { 
-    transform: translateY(-20px) translateX(0px); 
-  }
-  50% { 
-    transform: translateY(-32px) translateX(-8px) rotate(-1deg); /* Subtle drift up and left towards logo */
-  }
-}
-
-@media (max-width: 900px) {
-  .global-robot-wrap {
-    /* Use pure GPU-accelerated transform animation to ensure 0 lag */
-    animation: reachForLogo 6s ease-in-out infinite !important;
-    will-change: transform;
-  }
-}
-
-/* Also ensure desktop robot subtly floats if it wasn't already */
-@keyframes reachForLogoDesktop {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(-15px) translateX(-5px); }
-}
-
-@media (min-width: 901px) {
-  .global-robot-wrap {
-    animation: reachForLogoDesktop 7s ease-in-out infinite;
-    will-change: transform;
-  }
-}
-
-/* =========================================================
-   FIX FOR ROBOT ANIMATION (AVOIDING !IMPORTANT TRANSFORM CONFLICTS)
-   ========================================================= */
-
-/* The previous animation was blocked by the !important transforms used for layout sizing. 
-   By applying the animation directly to the spline-viewer canvas, it bypasses the conflict! */
-
-@keyframes reachForLogoSpline {
-  0%, 100% { 
-    transform: translateY(0px) translateX(0px) rotate(0deg); 
-  }
-  50% { 
-    /* Float up and heavily towards the left logo, rotating slightly to look like it's reaching */
-    transform: translateY(-25px) translateX(-15px) rotate(-1.5deg); 
-  }
-}
-
+/* Disabled CSS keyframe animations on WebGL layers (spline-viewer and global-robot-wrap)
+   to completely eliminate WebGL compositing repaints and scrolling lag.
+   The robot's internal 3D scene handles its own premium float/idle motion natively. */
 spline-viewer {
-  animation: reachForLogoSpline 5s ease-in-out infinite !important;
-  will-change: transform;
-  display: block; /* Ensure transform applies cleanly */
+  display: block;
 }
 
 
@@ -9751,23 +9704,4 @@ spline-viewer {
   }
 }
 
-/* --- Mobile Fallback Robot Image --- */
-.robot-fallback-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  display: block;
-  margin: 0 auto;
-  pointer-events: none; /* Let events fall through so they don't block bubble interactions */
-  filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.25)) drop-shadow(0 0 10px rgba(6, 182, 212, 0.15)) !important;
-  animation: floatRobotFallback 6s ease-in-out infinite;
-}
 
-@keyframes floatRobotFallback {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(0, -12px, 0) scale(1.02);
-  }
-}
