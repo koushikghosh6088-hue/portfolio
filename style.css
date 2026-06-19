@@ -9227,56 +9227,16 @@ spline-viewer {
   display: block; /* Ensure transform applies cleanly */
 }
 
-/* =========================================================
-   LAG-FREE GPU CYBER GRID BACKGROUND (AI / MATRIX THEME)
-   ========================================================= */
 
-/* The wrapper creates a mask so the grid fades out smoothly at the top */
-.cyber-grid-wrap {
+/* =========================================================
+   PREMIUM NEURAL CORE CANVAS
+   ========================================================= */
+.global-hero-bg #hero-particles {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 65%; /* Only takes up the bottom section under the robot */
-  overflow: hidden;
+  height: 100%;
   z-index: 1;
-  mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-  pointer-events: none;
-}
-
-/* The actual 3D perspective grid */
-.cyber-grid {
-  position: absolute;
-  bottom: -20%;
-  left: -50%;
-  width: 200%;
-  height: 150%;
-  /* Cyan and Purple brand colors */
-  background-image: 
-    linear-gradient(rgba(0, 212, 255, 0.25) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 85, 247, 0.25) 1px, transparent 1px);
-  background-size: 50px 50px;
-  /* Tilt the floor backward to create 3D depth */
-  transform-origin: center center;
-  transform: perspective(500px) rotateX(75deg) translateY(0);
-  /* GPU-accelerated infinite scrolling animation */
-  animation: cyberGridMove 8s linear infinite !important;
-  will-change: transform;
-}
-
-@keyframes cyberGridMove {
-  0% { transform: perspective(500px) rotateX(75deg) translateY(0); }
-  100% { transform: perspective(500px) rotateX(75deg) translateY(50px); } /* Translate exact amount of background-size to loop seamlessly */
-}
-
-/* Make it tighter on mobile for better perspective */
-@media (max-width: 900px) {
-  .cyber-grid {
-    background-size: 35px 35px;
-  }
-  @keyframes cyberGridMove {
-    0% { transform: perspective(400px) rotateX(75deg) translateY(0); }
-    100% { transform: perspective(400px) rotateX(75deg) translateY(35px); }
-  }
+  pointer-events: auto; /* Allow interactions */
 }

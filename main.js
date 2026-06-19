@@ -562,6 +562,126 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 // 12. HERO JS (Particles & Text Rotator)
 // ────────────────────────────────────────────────────
 
+
+// --- Particle Canvas (Premium Interactive Neural Core) ---
+(function initPremiumParticles() {
+  const canvas = document.getElementById('hero-particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  
+  let width, height;
+  let particles = [];
+  
+  // The interactive energy source (mouse/touch)
+  const mouse = { x: null, y: null, radius: 250 };
+  
+  // Support both mouse and touch for mobile interactability
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+  window.addEventListener('touchmove', (e) => {
+    if(e.touches.length > 0) {
+      mouse.x = e.touches[0].clientX;
+      mouse.y = e.touches[0].clientY;
+    }
+  }, { passive: true });
+  
+  window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+  window.addEventListener('touchend', () => { mouse.x = null; mouse.y = null; });
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = document.querySelector('.hero').offsetHeight || window.innerHeight;
+  }
+  
+  window.addEventListener('resize', resize);
+  resize();
+
+  class QuantumParticle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.baseSize = Math.random() * 2 + 0.5;
+      this.size = this.baseSize;
+      this.speedX = (Math.random() - 0.5) * 0.8;
+      this.speedY = (Math.random() - 0.5) * 0.8;
+      // Assign either Cyan or Purple color randomly
+      this.color = Math.random() > 0.5 ? 'rgba(0, 212, 255,' : 'rgba(168, 85, 247,';
+    }
+    
+    update() {
+      // Bounce off walls
+      if (this.x > width || this.x < 0) this.speedX = -this.speedX;
+      if (this.y > height || this.y < 0) this.speedY = -this.speedY;
+      
+      this.x += this.speedX;
+      this.y += this.speedY;
+      
+      // O(n) Interaction: ONLY check distance to the mouse, not other particles! Extremely fast!
+      if (mouse.x != null) {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < mouse.radius) {
+          // Particles gently gravitate towards the user's touch
+          const force = (mouse.radius - distance) / mouse.radius;
+          this.x += (dx / distance) * force * 1.5;
+          this.y += (dy / distance) * force * 1.5;
+          
+          // Draw a stunning energy link connecting the user's touch to the particle
+          ctx.beginPath();
+          ctx.strokeStyle = this.color + (force * 0.4) + ')'; // Glow fades out smoothly
+          ctx.lineWidth = force * 2;
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+          
+          // Make particle glow bigger when near touch
+          this.size = this.baseSize + (force * 3);
+        } else {
+          this.size = this.baseSize;
+        }
+      } else {
+        this.size = this.baseSize;
+      }
+    }
+    
+    draw() {
+      ctx.fillStyle = this.color + '0.6)';
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function init() {
+    particles = [];
+    // Adjust amount based on screen size to guarantee 0 lag
+    const amount = width < 768 ? 60 : 120;
+    for (let i = 0; i < amount; i++) {
+      particles.push(new QuantumParticle());
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    
+    // Add premium blending mode for glowing overlaps
+    ctx.globalCompositeOperation = 'lighter';
+    
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+    }
+    
+    requestAnimationFrame(animate);
+  }
+
+  init();
+  animate();
+})();
 // --- Text Rotator ---
 (function initTextRotator() {
   const rotatorText = document.getElementById('h-rotator');
