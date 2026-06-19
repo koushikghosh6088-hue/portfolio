@@ -674,24 +674,15 @@ console.log('%c⚡ JOINT AI LABS %c\nAI-Powered Business Solutions', 'color:#00d
 (function loadSpline() {
   const robotWrap = document.getElementById('global-robot');
   if (robotWrap) {
-    // Inject with opacity 0 and a smooth transition
-    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global" style="opacity: 0; transition: opacity 1.5s ease-in-out;"></spline-viewer>';
+    robotWrap.innerHTML = '<spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading="lazy" events-target="global"></spline-viewer>';
     
-    const viewer = document.querySelector('spline-viewer');
-    
-    // Fade in gracefully once the 3D scene fully loads
-    if (viewer) {
-      viewer.addEventListener('load', () => {
-        viewer.style.opacity = '1';
-      });
-    }
-
     // Attempt to completely remove the logo from the shadow DOM
     const checkInterval = setInterval(() => {
+      const viewer = document.querySelector('spline-viewer');
       if (viewer && viewer.shadowRoot) {
         // Inject custom CSS directly into Spline's Shadow DOM
         const style = document.createElement('style');
-        style.textContent = '#logo, a[href*="spline.design"], .spline-watermark, canvas { outline: none !important; } #logo, a[href*="spline.design"], .spline-watermark { display: none !important; opacity: 0 !important; pointer-events: none !important; }';
+        style.textContent = '#logo, a[href*="spline.design"], .spline-watermark { display: none !important; opacity: 0 !important; pointer-events: none !important; }';
         viewer.shadowRoot.appendChild(style);
         
         // Also try to physically remove the node
