@@ -7021,10 +7021,10 @@ html, body {
     box-sizing: border-box !important;
   }
 
-  /* Make sure each card fits perfectly inside the screen */
+  /* Make sure each card fits perfectly inside the screen without clipping */
   #portfolio .o-cs-card {
-    flex: 0 0 calc(100vw - 40px) !important; /* Slightly wider */
-    max-width: calc(100vw - 40px) !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
     margin: 0 !important;
     scroll-snap-align: center !important;
     border-radius: 16px !important;
