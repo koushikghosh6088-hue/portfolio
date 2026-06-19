@@ -7019,74 +7019,88 @@ html, body {
 
   /* Make sure each card fits perfectly inside the screen */
   #portfolio .o-cs-card {
-    flex: 0 0 calc(100vw - 70px) !important; /* Exactly 1 card width minus padding/margins */
-    max-width: calc(100vw - 70px) !important;
+    flex: 0 0 calc(100vw - 40px) !important; /* Slightly wider */
+    max-width: calc(100vw - 40px) !important;
     margin: 0 !important;
     scroll-snap-align: center !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important;
     display: flex !important;
     flex-direction: column !important; /* Mockup on top, text below */
+    max-height: 75vh !important;
+    overflow: hidden !important;
   }
 
   /* Top half (Mockup) */
   #portfolio .o-cs-right {
-    padding: 20px 10px 0 10px !important;
+    padding: 15px 10px 0 10px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    min-height: 250px !important;
+    min-height: 160px !important;
+    flex: 1;
+    overflow: hidden;
   }
 
   /* Scale down the mockups to fit the container */
   #portfolio .p-mock-wa, 
   #portfolio .p-mock-browser, 
   #portfolio .o-mock-dash, 
-  #portfolio .o-mock-chat {
-    transform: scale(0.7) !important; /* Scale down so it doesn't overflow */
-    transform-origin: center center !important;
+  #portfolio .o-mock-chat,
+  #portfolio .p-mock-mobile {
+    transform: scale(0.55) !important; /* Scale down more to fit */
+    transform-origin: center top !important;
     margin: 0 auto !important;
     max-width: 100% !important;
   }
 
   /* Bottom half (Text Box) */
   #portfolio .o-cs-left {
-    padding: 25px 20px !important;
+    padding: 15px !important;
     background: rgba(10, 14, 25, 0.95) !important;
     backdrop-filter: blur(20px) !important;
     border-top: 1px solid rgba(255,255,255,0.1) !important;
-    border-radius: 0 0 16px 16px !important;
+    border-radius: 0 0 12px 12px !important;
     margin-top: 0 !important; /* Remove overlap to prevent text cutoff */
     width: 100% !important;
     box-sizing: border-box !important;
     z-index: 2 !important;
+    overflow-y: auto;
   }
   
   /* Make text smaller to prevent vertical overflow */
-  #portfolio .o-cs-left h3 {
-    font-size: 20px !important;
-    line-height: 1.2 !important;
+  #portfolio .o-ind-badge {
     margin-bottom: 8px !important;
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+  }
+  #portfolio .o-cs-left h3 {
+    font-size: 18px !important;
+    line-height: 1.1 !important;
+    margin-bottom: 6px !important;
   }
   #portfolio .o-cs-desc {
-    font-size: 13px !important;
-    line-height: 1.4 !important;
-    margin-bottom: 15px !important;
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
   }
   #portfolio .o-cs-res {
-    font-size: 18px !important;
+    font-size: 16px !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
   }
   #portfolio .o-cs-res span {
-    font-size: 11px !important;
+    font-size: 10px !important;
   }
   #portfolio .o-cs-pills {
+    margin-top: 8px !important;
     flex-wrap: wrap !important;
-    gap: 6px !important;
+    gap: 4px !important;
   }
   #portfolio .o-cs-pill {
-    font-size: 10px !important;
-    padding: 4px 8px !important;
+    font-size: 9px !important;
+    padding: 3px 6px !important;
   }
 }
 
@@ -7474,14 +7488,24 @@ html, body {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .ind-panel { flex-direction: column; }
-  .ind-panel-left { padding: 28px 24px; }
+  .ind-panel { flex-direction: column; max-height: 75vh; overflow-y: auto; overflow-x: hidden; border-radius: 16px; }
+  .ind-panel-left { padding: 16px; }
+  .ind-panel-badge { font-size: 11px; padding: 6px 12px; margin-bottom: 12px; }
+  .ind-panel-title { font-size: 20px !important; margin-bottom: 8px; line-height: 1.1; }
+  .ind-panel-desc { font-size: 13px; margin-bottom: 16px; line-height: 1.3; }
+  
   .ind-panel-right { flex: none; width: 100%; border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
-  .ind-visual { border-radius: 0 0 28px 28px; min-height: 260px; padding: 24px 16px; }
+  .ind-visual { border-radius: 0 0 16px 16px; min-height: 180px; padding: 12px; transform: scale(0.85); transform-origin: top center; }
+  .ind-v-card { padding: 8px 12px; margin-bottom: -15px; }
+  .ind-v-card-label { font-size: 9px; }
+  .ind-v-card-val { font-size: 12px; }
+  
   .ind-panels-wrap { min-height: auto; }
-  .ind-metric-row { gap: 10px; }
-  .ind-metric { min-width: 70px; padding: 12px 10px; }
-  .ind-metric-num { font-size: 20px; }
+  .ind-metric-row { gap: 6px; margin-bottom: 16px; }
+  .ind-metric { min-width: 0; padding: 8px 6px; }
+  .ind-metric-num { font-size: 16px; margin-bottom: 2px; }
+  .ind-metric-lbl { font-size: 9px; letter-spacing: 0; }
+  .ind-feat-list li { font-size: 12px; gap: 8px; margin-bottom: -4px; }
 }
 
 /* =========================================================
